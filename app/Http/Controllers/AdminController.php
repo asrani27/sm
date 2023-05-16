@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\RT;
+use App\Models\SM;
 use Carbon\Carbon;
 use App\Models\Kasi;
 use App\Models\Role;
@@ -12,6 +14,8 @@ use App\Models\Kepala;
 use App\Models\Petugas;
 use App\Models\Kategori;
 use App\Models\Penyedia;
+use App\Models\Kecamatan;
+use App\Models\Kelurahan;
 use App\Models\Registrasi;
 use App\Models\Pemeriksaan;
 use Illuminate\Http\Request;
@@ -32,6 +36,7 @@ class AdminController extends Controller
     public function user_edit($id)
     {
         $data = User::find($id);
+
         return view('admin.user.edit', compact('data'));
     }
     public function user_delete($id)
@@ -48,7 +53,7 @@ class AdminController extends Controller
     public function user_store(Request $req)
     {
         $checkUser = User::where('username', $req->username)->first();
-        $role = Role::where('name', 'superadmin')->first();
+        $role = Role::where('name', $req->role)->first();
         if ($checkUser == null) {
             if ($req->password1 != $req->password2) {
                 Session::flash('error', 'Password Tidak Sama');
@@ -72,11 +77,14 @@ class AdminController extends Controller
     }
     public function user_update(Request $req, $id)
     {
+        $role = Role::where('name', $req->role)->first();
         $data = User::find($id);
         if ($req->password1 == null) {
             //update tanpa password
+
             $data->name = $req->name;
             $data->save();
+            $data->roles()->sync($role);
             Session::flash('success', 'Berhasil Diupdate');
             return redirect('/superadmin/user');
         } else {
@@ -85,59 +93,228 @@ class AdminController extends Controller
                 Session::flash('error', 'Password Tidak Sama');
                 return back();
             } else {
+
                 $data->password = bcrypt($req->password1);
                 $data->name = $req->name;
                 $data->save();
+                $data->roles()->sync($role);
                 Session::flash('success', 'Berhasil Diupdate, password : ' . $req->password1);
                 return redirect('/superadmin/user');
             }
         }
     }
 
-    public function kategori()
+    public function kecamatan()
     {
-        $data = Kategori::orderBy('id', 'DESC')->paginate(15);
-        return view('admin.kategori.index', compact('data'));
+        $data = Kecamatan::orderBy('id', 'DESC')->paginate(15);
+        return view('admin.kecamatan.index', compact('data'));
     }
-    public function kategori_create()
+    public function kecamatan_create()
     {
-        return view('admin.kategori.create');
+        return view('admin.kecamatan.create');
     }
-    public function kategori_edit($id)
+    public function kecamatan_edit($id)
     {
-        $data = Kategori::find($id);
-        return view('admin.kategori.edit', compact('data'));
+        $data = Kecamatan::find($id);
+        if ($data->lat == null) {
+            $latlong = [
+                'lat' => -3.327460,
+                'lng' => 114.588515
+            ];
+        } else {
+            $latlong = [
+                'lat' => $data->lat,
+                'lng' => $data->long
+            ];
+        }
+        return view('admin.kecamatan.edit', compact('data', 'latlong'));
     }
-    public function kategori_delete($id)
+    public function kecamatan_delete($id)
     {
-        $data = Kategori::find($id)->delete();
+        $data = Kecamatan::find($id)->delete();
         Session::flash('success', 'Berhasil Dihapus');
         return back();
     }
-    public function kategori_store(Request $req)
+    public function kecamatan_store(Request $req)
     {
-        $check = Kategori::where('nama', $req->nama)->first();
+        $check = Kecamatan::where('nama', $req->nama)->first();
         if ($check == null) {
-            $n = new Kategori();
+            $n = new Kecamatan();
             $n->nama = $req->nama;
             $n->save();
 
             Session::flash('success', 'Berhasil Disimpan');
-            return redirect('/superadmin/kategori');
+            return redirect('/superadmin/kecamatan');
         } else {
-            Session::flash('error', 'Kategori ini sudah pernah di input');
+            Session::flash('error', 'kecamatan ini sudah pernah di input');
             return back();
         }
     }
-    public function kategori_update(Request $req, $id)
+    public function kecamatan_update(Request $req, $id)
     {
-        $data = Kategori::find($id);
+        $data = Kecamatan::find($id);
+        $data->nama = $req->nama;
+        $data->lat = $req->lat;
+        $data->long = $req->long;
+        $data->save();
+        Session::flash('success', 'Berhasil Diupdate');
+        return redirect('/superadmin/kecamatan');
+    }
+
+    public function kelurahan()
+    {
+        $data = Kelurahan::orderBy('id', 'DESC')->paginate(15);
+        return view('admin.kelurahan.index', compact('data'));
+    }
+    public function kelurahan_create()
+    {
+        $kec = Kecamatan::get();
+        return view('admin.kelurahan.create', compact('kec'));
+    }
+    public function kelurahan_edit($id)
+    {
+        $data = Kelurahan::find($id);
+        $kec = Kecamatan::get();
+        return view('admin.kelurahan.edit', compact('data', 'kec'));
+    }
+    public function kelurahan_delete($id)
+    {
+        $data = Kelurahan::find($id)->delete();
+        Session::flash('success', 'Berhasil Dihapus');
+        return back();
+    }
+    public function kelurahan_store(Request $req)
+    {
+        $check = Kelurahan::where('nama', $req->nama)->first();
+        if ($check == null) {
+            $n = new Kelurahan();
+            $n->kecamatan_id = $req->kecamatan_id;
+            $n->nama = $req->nama;
+            $n->save();
+
+            Session::flash('success', 'Berhasil Disimpan');
+            return redirect('/superadmin/kelurahan');
+        } else {
+            Session::flash('error', 'kelurahan ini sudah pernah di input');
+            return back();
+        }
+    }
+    public function kelurahan_update(Request $req, $id)
+    {
+        $data = Kelurahan::find($id);
+        $data->kecamatan_id = $req->kecamatan_id;
         $data->nama = $req->nama;
         $data->save();
         Session::flash('success', 'Berhasil Diupdate');
-        return redirect('/superadmin/kategori');
+        return redirect('/superadmin/kelurahan');
     }
 
+    public function rt()
+    {
+        $data = RT::orderBy('id', 'DESC')->paginate(15);
+        return view('admin.rt.index', compact('data'));
+    }
+    public function rt_create()
+    {
+        $kel = Kelurahan::get();
+        return view('admin.rt.create', compact('kel'));
+    }
+    public function rt_edit($id)
+    {
+        $data = RT::find($id);
+        $kel = Kelurahan::get();
+        return view('admin.rt.edit', compact('data', 'kel'));
+    }
+    public function rt_delete($id)
+    {
+        $data = RT::find($id)->delete();
+        Session::flash('success', 'Berhasil Dihapus');
+        return back();
+    }
+    public function rt_store(Request $req)
+    {
+        $check = RT::where('nama', $req->nama)->where('kelurahan_id', $req->kelurahan_id)->first();
+        if ($check == null) {
+            $n = new RT();
+            $n->kelurahan_id = $req->kelurahan_id;
+            $n->nama = $req->nama;
+            $n->save();
+
+            Session::flash('success', 'Berhasil Disimpan');
+            return redirect('/superadmin/rt');
+        } else {
+            Session::flash('error', 'rt ini sudah pernah di input');
+            return back();
+        }
+    }
+    public function rt_update(Request $req, $id)
+    {
+        $data = RT::find($id);
+        $data->kelurahan_id = $req->kelurahan_id;
+
+        $data->nama = $req->nama;
+        $data->save();
+        Session::flash('success', 'Berhasil Diupdate');
+        return redirect('/superadmin/rt');
+    }
+
+    public function sm()
+    {
+        $data = SM::orderBy('id', 'DESC')->paginate(15);
+        return view('admin.sm.index', compact('data'));
+    }
+    public function sm_create()
+    {
+        $rt = RT::get();
+        return view('admin.sm.create', compact('rt'));
+    }
+    public function sm_edit($id)
+    {
+        $data = SM::find($id);
+        $rt = RT::get();
+        return view('admin.sm.edit', compact('data', 'rt'));
+    }
+    public function sm_delete($id)
+    {
+        $data = SM::find($id)->delete();
+        Session::flash('success', 'Berhasil Dihapus');
+        return back();
+    }
+    public function sm_store(Request $req)
+    {
+        $check = SM::where('telp', $req->telp)->first();
+        if ($check == null) {
+            $n = new SM();
+            $n->kecamatan_id = RT::find($req->rt_id)->kelurahan->kecamatan->id;
+            $n->kelurahan_id = RT::find($req->rt_id)->kelurahan->id;
+            $n->rt_id = $req->rt_id;
+            $n->nik = $req->nik;
+            $n->nama = $req->nama;
+            $n->telp = $req->telp;
+            $n->user_id = Auth::user()->id;
+            $n->save();
+
+            Session::flash('success', 'Berhasil Disimpan');
+            return redirect('/superadmin/sm');
+        } else {
+            Session::flash('error', 'Telp ini sudah pernah di input');
+            return back();
+        }
+    }
+    public function sm_update(Request $req, $id)
+    {
+        $data = SM::find($id);
+        $data->kecamatan_id = RT::find($req->rt_id)->kelurahan->kecamatan->id;
+        $data->kelurahan_id = RT::find($req->rt_id)->kelurahan->id;
+        $data->rt_id = $req->rt_id;
+        $data->nik = $req->nik;
+        $data->nama = $req->nama;
+        $data->telp = $req->telp;
+        $data->user_id = Auth::user()->id;
+        $data->save();
+        Session::flash('success', 'Berhasil Diupdate');
+        return redirect('/superadmin/sm');
+    }
 
     public function petugas()
     {

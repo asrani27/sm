@@ -46,6 +46,16 @@
                         </div>
                     </div>
                     
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Role/Hak Akses</label>
+                        <div class="col-sm-10">
+                            <select name="role" class="form-control" required>
+                                <option value="">-pilih-</option>
+                                <option value="superadmin">Superadmin</option>
+                                <option value="user">user</option>
+                            </select>
+                        </div>
+                    </div>
                     
                 </div>
                 <!-- /.box-body -->

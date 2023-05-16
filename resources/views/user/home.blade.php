@@ -4,23 +4,12 @@
 integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
 crossorigin=""/>
 <style>
-  #map { height: 700px; }
+  #map { height: 800px; }
 </style>
 @endpush
 @section('content')
 <div class="row text-center">
-  <div class="col-lg-4">
-    <a href="" class="btn btn-primary btn-block">KECAMATAN</a>
-  </div>
-  <div class="col-lg-4">
-    <a href="" class="btn btn-primary btn-block">KELURAHAN</a>
-  </div>
-  <div class="col-lg-4">
-    <a href="" class="btn btn-primary btn-block">RT</a>
-  </div>
-</div>
-<br/>
-<div class="row">
+  
 <div id="map"></div>
 </div>
 
@@ -36,17 +25,5 @@ crossorigin=""></script>
     maxZoom: 24,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
-
-var kec = {!!json_encode($kec)!!}
-
-kec.forEach(element => {
-  if(element.lat == null){
-
-  }else{
-    var marker = L.marker([element.lat, element.long]).addTo(map);
-    marker.bindPopup(element.nama).openPopup();
-  }
-});
-
 </script>
 @endpush

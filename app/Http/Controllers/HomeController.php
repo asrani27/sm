@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kecamatan;
 use App\Models\Lurah;
 use App\Models\Tpermohonan;
 use Illuminate\Http\Request;
@@ -11,7 +12,13 @@ class HomeController extends Controller
 {
     public function superadmin()
     {
-        return view('admin.home');
+        $kec = Kecamatan::get();
+        return view('admin.home', compact('kec'));
+    }
+
+    public function user()
+    {
+        return view('user.home');
     }
 
     public function pemohon()

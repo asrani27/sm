@@ -7,12 +7,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SENO</title>
+  <title>SM</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/assets/bower_components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="/assets/bower_components/Ionicons/css/ionicons.min.css">
+  @stack('css')
   <link rel="stylesheet" href="/assets/dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="/assets/dist/css/skins/_all-skins.min.css">
 
@@ -23,7 +24,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- IziToast -->
 <link rel="stylesheet" href="/notif/dist/css/iziToast.min.css">
 <script src="/notif/dist/js/iziToast.min.js" type="text/javascript"></script>
-@stack('css')
 </head>
 
 <body class="hold-transition skin-blue-light sidebar-mini">

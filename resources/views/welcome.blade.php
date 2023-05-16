@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SENO</title>
+  <title>SM</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -69,7 +69,7 @@
     </nav>
   </header> --}}
   <!-- Full Width Column -->
-  <div class="content-wrapper"  style="background-image: url('/logo/bg2.jpg'); background-size:cover">
+  <div class="content-wrapper"  style="background-image: url('/logo/bg.jpg'); background-size:cover">
     <div class="container">
       <!-- Content Header (Page header) -->
       <section class="content-header">
@@ -91,12 +91,12 @@
           </div>
           <div class="col-md-6">
             <div class="text-center">
-            <img src="/logo/tl.png" width="40%" ><br/><br/>
+            <img src="/logo/logo2.png" width="40%" ><br/><br/>
             </div>
           <br/><br/>
             <div class="box box-success" style="box-shadow: 0 8px 8px 0 rgba(0,0,0,.2);border-top-color:#00acd6">
               <div class="box-header with-border text-center">
-                <h3 class="box-title">PENILAIAN KELAYAKAN KENDARAAN BERMOTOR </h3>
+                <h3 class="box-title">WA BLAST</h3>
       
               </div>
               <form class="form-horizontal" method="post" action="/login">

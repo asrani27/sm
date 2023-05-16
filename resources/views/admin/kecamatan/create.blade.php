@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <a href="/superadmin/kategori" class="btn btn-flat btn-primary"><i class="fa fa-backward"></i> Kembali</a> <br /> <br />
+        <a href="/superadmin/kecamatan" class="btn btn-flat btn-primary"><i class="fa fa-backward"></i> Kembali</a> <br /> <br />
     </div>
 </div>
 
@@ -18,11 +18,11 @@
                 <h3 class="box-title">Tambah Data</h3>
             </div>
             <!-- /.box-header -->
-            <form class="form-horizontal" method="post" action="/superadmin/kategori/create">
+            <form class="form-horizontal" method="post" action="/superadmin/kecamatan/create">
                 @csrf
                 <div class="box-body">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Nama Jenis Kendaraan</label>
+                        <label class="col-sm-2 control-label">Nama Kecamatan</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="nama" required>
                         </div>

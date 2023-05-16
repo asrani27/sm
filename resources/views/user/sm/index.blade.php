@@ -8,10 +8,10 @@
     <div class="col-md-12">
         <div class="box box-primary">
           <div class="box-header">
-            <i class="ion ion-clipboard"></i><h3 class="box-title">Data User</h3>
+            <i class="ion ion-clipboard"></i><h3 class="box-title">Data Person</h3>
 
             <div class="box-tools">
-              <a href="/superadmin/user/create" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
+              <a href="/user/sm/create" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
             </div>
           </div>
           <!-- /.box-header -->
@@ -19,20 +19,23 @@
             <table class="table table-hover">
               <tbody><tr>
                 <th>No</th>
+                <th>NIK</th>
                 <th>Nama</th>
-                <th>Username</th>
-                <th>Hak Akses</th>
+                <th>Telp</th>
+                <th>RT - Kel - Kec</th>
                 <th>Aksi</th>
               </tr>
               @foreach ($data as $key => $item)
               <tr>
                 <td>{{$data->firstItem() + $key}}</td>
-                <td>{{$item->name}}</td>
-                <td>{{$item->username}}</td>
-                <td>{{$item->roles->first()->name}}</td>
+                <td>{{$item->nik}}</td>
+                <td>{{$item->nama}}</td>
+                <td>{{$item->telp}}</td>
+                <td>{{$item->rt->nama}} - {{$item->rt->kelurahan->nama}} - {{$item->rt->kelurahan->kecamatan->nama}}</td>
+                
                 <td>
-                  <a href="/superadmin/user/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                  <a href="/superadmin/user/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a>
+                  <a href="/user/sm/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
+                  <a href="/user/sm/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a>
                 </td>
               </tr>
               @endforeach

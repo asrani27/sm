@@ -9,18 +9,16 @@
     <li class="{{ (request()->is('superadmin')) ? 'active' : '' }}"><a href="/superadmin"><i class="fa fa-home"></i> <span>Beranda</span></a></li>
     
     <li class="{{ (request()->is('superadmin/user*')) ? 'active' : '' }}"><a href="/superadmin/user"><i class="fa fa-list"></i> <span>Data User</span></a></li>
-    <li class="{{ (request()->is('superadmin/petugas*')) ? 'active' : '' }}"><a href="/superadmin/petugas"><i class="fa fa-list"></i> <span>Data Petugas</span></a></li>
-    <li class="{{ (request()->is('superadmin/kategori*')) ? 'active' : '' }}"><a href="/superadmin/kategori"><i class="fa fa-list"></i> <span>Data Jenis Kendaraan</span></a></li>
-    <li class="{{ (request()->is('superadmin/registrasi*')) ? 'active' : '' }}"><a href="/superadmin/registrasi"><i class="fa fa-list"></i> <span>Data Registrasi</span></a></li>
-    <li class="{{ (request()->is('superadmin/pemeriksaan*')) ? 'active' : '' }}"><a href="/superadmin/pemeriksaan"><i class="fa fa-list"></i> <span>Data Pemeriksaan</span></a></li>
-    <li class="{{ (request()->is('superadmin/surat*')) ? 'active' : '' }}"><a href="/superadmin/surat"><i class="fa fa-list"></i> <span>Data Surat</span></a></li>
-
-    <li class="{{ (request()->is('superadmin/laporan*')) ? 'active' : '' }}"><a href="/superadmin/laporan"><i class="fa fa-file"></i> <span>Laporan</span></a></li>
-
+    <li class="{{ (request()->is('superadmin/kecamatan*')) ? 'active' : '' }}"><a href="/superadmin/kecamatan"><i class="fa fa-list"></i> <span>Data Kecamatan</span></a></li>
+    <li class="{{ (request()->is('superadmin/kelurahan*')) ? 'active' : '' }}"><a href="/superadmin/kelurahan"><i class="fa fa-list"></i> <span>Data Kelurahan</span></a></li>
+    <li class="{{ (request()->is('superadmin/rt*')) ? 'active' : '' }}"><a href="/superadmin/rt"><i class="fa fa-list"></i> <span>Data RT</span></a></li>
+    <li class="{{ (request()->is('superadmin/sm*')) ? 'active' : '' }}"><a href="/superadmin/sm"><i class="fa fa-users"></i> <span>Data SM</span></a></li>
     <li><a href="/logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
     @else
         
-    
+    <li class="{{ (request()->is('user')) ? 'active' : '' }}"><a href="/user"><i class="fa fa-home"></i> <span>Beranda</span></a></li>
+    <li class="{{ (request()->is('user/sm*')) ? 'active' : '' }}"><a href="/user/sm"><i class="fa fa-users"></i> <span>Data SM</span></a></li>
+    <li><a href="/logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
     @endif
     </ul>
     

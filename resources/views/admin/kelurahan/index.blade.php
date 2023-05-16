@@ -8,10 +8,10 @@
     <div class="col-md-12">
         <div class="box box-primary">
           <div class="box-header">
-            <i class="ion ion-clipboard"></i><h3 class="box-title">Data Kategori</h3>
+            <i class="ion ion-clipboard"></i><h3 class="box-title">Data kelurahan</h3>
 
             <div class="box-tools">
-              <a href="/superadmin/kategori/create" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
+              <a href="/superadmin/kelurahan/create" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
             </div>
           </div>
           <!-- /.box-header -->
@@ -19,7 +19,8 @@
             <table class="table table-hover">
               <tbody><tr>
                 <th>No</th>
-                <th>Nama Jenis Kendaraan</th>
+                <th>Nama kelurahan</th>
+                <th>Kecamatan</th>
                 
                 <th>Aksi</th>
               </tr>
@@ -27,9 +28,10 @@
               <tr>
                 <td>{{$data->firstItem() + $key}}</td>
                 <td>{{$item->nama}}</td>
+                <td>{{$item->kecamatan->nama}}</td>
                 <td>
-                  <a href="/superadmin/kategori/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                  <a href="/superadmin/kategori/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a>
+                  <a href="/superadmin/kelurahan/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
+                  <a href="/superadmin/kelurahan/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a>
                 </td>
               </tr>
               @endforeach
