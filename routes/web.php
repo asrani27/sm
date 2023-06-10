@@ -28,14 +28,7 @@ use App\Http\Controllers\GantiPasswordController;
 use App\Http\Controllers\AdminPermohonanController;
 
 Route::get('/', function () {
-    if (Auth::check()) {
-        if (Auth::user()->hasRole('superadmin')) {
-            return redirect('superadmin');
-        } elseif (Auth::user()->hasRole('pemohon')) {
-            return redirect('pemohon');
-        }
-    }
-    return redirect('/login');
+    return view('profil');
 });
 
 Route::get('login', [LoginController::class, 'index'])->name('login');

@@ -11,11 +11,6 @@ class LoginController extends Controller
 {
     public function index()
     {
-        // Session::flash('success', 'Ini notifikasi success');
-        // Session::flash('warning', 'Ini notifikasi warning');
-        // Session::flash('info', 'Ini notifikasi info');
-        // Session::flash('error', 'Ini notifikasi error');
-
         if (Auth::check()) {
             if (Auth::user()->hasRole('superadmin')) {
                 return redirect('superadmin');
