@@ -32,7 +32,11 @@
                 <td>{{$item->nik}}</td>
                 <td>{{$item->nama}}</td>
                 <td>{{$item->telp}}</td>
+                @if ($item->rt == null)
+                <td>-</td>
+                @else
                 <td>{{$item->rt->nama}} - {{$item->rt->kelurahan->nama}} - {{$item->rt->kelurahan->kecamatan->nama}}</td>
+                @endif
                 <td>{{$item->user == null ? '': $item->user->name}}</td>
                 
                 <td>
