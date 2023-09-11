@@ -31,7 +31,11 @@
                 <td>{{$item->nik}}</td>
                 <td>{{$item->nama}}</td>
                 <td>{{$item->telp}}</td>
+                @if ($item->rt == null)
+                <td>-</td>
+                @else
                 <td>{{$item->rt->nama}} - {{$item->rt->kelurahan->nama}} - {{$item->rt->kelurahan->kecamatan->nama}}</td>
+                @endif
                 
                 <td>
                   <a href="/user/sm/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
