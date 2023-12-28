@@ -2,30 +2,16 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DesaController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\TkrkController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AgamaController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\NikahController;
-use App\Http\Controllers\UsahaController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\ProfilController;
-use App\Http\Controllers\AdminSKController;
-use App\Http\Controllers\AdminKrkController;
-use App\Http\Controllers\KematianController;
-use App\Http\Controllers\PendudukController;
-use App\Http\Controllers\KelahiranController;
-use App\Http\Controllers\PengajuanController;
-use App\Http\Controllers\PendidikanController;
-use App\Http\Controllers\TpermohonanController;
 use App\Http\Controllers\LupaPasswordController;
-use App\Http\Controllers\DaftarLayananController;
 use App\Http\Controllers\GantiPasswordController;
-use App\Http\Controllers\AdminPermohonanController;
+use App\Http\Controllers\NomorController;
+use App\Http\Controllers\WAController;
 
 Route::get('/', function () {
     return view('profil');
@@ -45,6 +31,11 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::get('superadmin/gp', [GantiPasswordController::class, 'index']);
     Route::post('superadmin/gp', [GantiPasswordController::class, 'update']);
     Route::post('superadmin/sk/updatelurah', [HomeController::class, 'updatelurah']);
+    Route::get('superadmin/nomor', [NomorController::class, 'index']);
+    Route::get('superadmin/nomor/delete/{id}', [NomorController::class, 'delete']);
+    Route::get('superadmin/nomor/delete', [NomorController::class, 'deleteAll']);
+    Route::post('superadmin/nomor/upload', [NomorController::class, 'upload']);
+    Route::get('superadmin/wa', [WAController::class, 'index']);
 
     Route::get('superadmin/user', [AdminController::class, 'user']);
     Route::get('superadmin/user/create', [AdminController::class, 'user_create']);
