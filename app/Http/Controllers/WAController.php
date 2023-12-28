@@ -7,6 +7,7 @@ use GuzzleHttp\Client;
 use App\Models\Whatsapp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class WAController extends Controller
 {
@@ -27,7 +28,7 @@ class WAController extends Controller
                 $response = $client->request("POST", $api_url, [
                     'multipart' => [
                         [
-                            'name' => 'message',
+                            'name' => 'text',
                             'contents' => $req->message
                         ],
                         [
@@ -41,31 +42,28 @@ class WAController extends Controller
             }
             return back();
         } else {
+            //dd($file);
             $file_path = $file->getPathname();
-            $file_mime = $file->getMimeType('image');
+            $file_mime = $file->getMimeType('video');
             $file_name = $file->getClientOriginalName();
+            $file->storeAs('public/video', $file_name);
+            $path = Storage::path('video/' . $file_name);
+
+            $client = new Client();
 
             foreach ($nomor as $n) {
-                $client = new Client();
                 $response = $client->request("POST", $api_url, [
-                    'multipart' => [
-                        [
-                            'name' => 'message',
-                            'contents' => $req->message
+                    'form_params' => [
+                        'number' => $n->nomor,
+                        'video' => [
+                            "url" => $path,
                         ],
-                        [
-                            'name' => 'number',
-                            'contents' => $n->nomor,
-                        ],
-                        [
-                            'name' => 'file_dikirim',
-                            'filename' => $file_name,
-                            'Mime-Type' => $file_mime,
-                            'contents' => fopen($file_path, 'r')
-                        ],
+                        "caption" => $req->message,
                     ]
                 ]);
+
                 $code = $response->getStatusCode();
+
                 sleep(5);
             }
             return back();
