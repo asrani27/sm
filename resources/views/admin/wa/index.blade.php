@@ -11,7 +11,7 @@
             <i class="ion ion-clipboard"></i><h3 class="box-title">Data Nomor ({{$data->total()}})</h3>
 
             <div class="box-tools">
-              <a href="/superadmin/wa/create" class="btn btn-flat btn-sm btn-primary"  data-toggle="modal" data-target="#modal-default"><i class="fa fa-plus"></i>Upload</a>
+              <a href="/superadmin/wa/create" class="btn btn-flat btn-sm btn-primary"  data-toggle="modal" data-target="#modal-default"><i class="fa fa-whatsapp"></i> Send Message</a>
             </div>
           </div>
           <!-- /.box-header -->
@@ -50,12 +50,13 @@
       <div class="modal-header bg-primary">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Upload Nomor</h4>
+        <h4 class="modal-title">Send Message</h4>
       </div>
-      <form action="/superadmin/nomor/upload" method="post" enctype="multipart/form-data">
+      <form action="/superadmin/wa/send-message" method="post" enctype="multipart/form-data">
         @csrf
       <div class="modal-body">
-        <input type="file" class="form-control" name="file" required>
+        <input type="text" class="form-control" placeholder="isi" name="message" required><br/>
+        <input type="file" class="form-control" name="file">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Keluar</button>

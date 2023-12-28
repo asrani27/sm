@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::get('superadmin/nomor/delete', [NomorController::class, 'deleteAll']);
     Route::post('superadmin/nomor/upload', [NomorController::class, 'upload']);
     Route::get('superadmin/wa', [WAController::class, 'index']);
+    Route::post('superadmin/wa/send-message', [WAController::class, 'sendMessage']);
 
     Route::get('superadmin/user', [AdminController::class, 'user']);
     Route::get('superadmin/user/create', [AdminController::class, 'user_create']);
