@@ -47,7 +47,7 @@ class WAController extends Controller
             $file_mime = $file->getMimeType('video');
             $file_name = $file->getClientOriginalName();
             $file->storeAs('public/video', $file_name);
-            $path = Storage::path('video/' . $file_name);
+            $path = 'https://sahabatmukhyar.com/storage/video/'. $file_name;
 
             $client = new Client();
 
