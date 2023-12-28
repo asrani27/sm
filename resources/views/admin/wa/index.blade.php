@@ -8,7 +8,7 @@
     <div class="col-md-12">
         <div class="box box-primary">
           <div class="box-header">
-            <i class="ion ion-clipboard"></i><h3 class="box-title">Data Nomor ({{$data->total()}})</h3>
+            <i class="ion ion-clipboard"></i><h3 class="box-title">Send Message</h3>
 
             <div class="box-tools">
               <a href="/superadmin/wa/create" class="btn btn-flat btn-sm btn-primary"  data-toggle="modal" data-target="#modal-default"><i class="fa fa-whatsapp"></i> Send Message</a>
@@ -60,7 +60,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Keluar</button>
-        <button type="submit" class="btn btn-primary">Upload</button>
+        <button type="submit" class="btn btn-primary">Send Message</button>
       </div>
       </form>
     </div>
