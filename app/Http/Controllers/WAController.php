@@ -39,7 +39,6 @@ class WAController extends Controller
                     ]
                 ]);
                 $code = $response->getStatusCode();
-                dd($code);
                 sleep(5);
             }
             return back();
