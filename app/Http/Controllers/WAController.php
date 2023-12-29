@@ -14,7 +14,8 @@ class WAController extends Controller
     public function index()
     {
         $data = Whatsapp::paginate(10);
-        return view('admin.wa.index', compact('data'));
+        $kontak = Nomor::count();
+        return view('admin.wa.index', compact('data', 'kontak'));
     }
 
     public function sendMessage(Request $req)
@@ -38,6 +39,7 @@ class WAController extends Controller
                     ]
                 ]);
                 $code = $response->getStatusCode();
+                dd($code);
                 sleep(5);
             }
             return back();
@@ -47,7 +49,7 @@ class WAController extends Controller
             $file_mime = $file->getMimeType('video');
             $file_name = $file->getClientOriginalName();
             $file->storeAs('public/video', $file_name);
-            $path = 'https://sahabatmukhyar.com/storage/video/'. $file_name;
+            $path = 'https://sahabatmukhyar.com/storage/video/' . $file_name;
 
             $client = new Client();
 

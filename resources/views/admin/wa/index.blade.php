@@ -3,7 +3,69 @@
     
 @endpush
 @section('content')
+<div class="row">
+  <div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-aqua">
+      <div class="inner">
+        <h3>Trial/Limited</h3>
 
+        <p>STATUS</p>
+      </div>
+      <div class="icon">
+        <i class="fa fa-gear"></i>
+      </div>
+      <br/>
+      {{-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> --}}
+    </div>
+  </div>
+  <!-- ./col -->
+  <div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-green">
+      <div class="inner">
+        <h3>10/Day</h3>
+
+        <p>MAX SEND MESSAGES</p>
+      </div>
+      <div class="icon">
+        <i class="fa fa-comments"></i>
+      </div>
+      <br/>
+    </div>
+  </div>
+  <!-- ./col -->
+  <div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-yellow">
+      <div class="inner">
+        <h3>{{$kontak}}</h3>
+
+        <p>JUMLAH KONTAK</p>
+      </div>
+      <div class="icon">
+        <i class="fa fa-phone"></i>
+      </div>
+      <br/>
+    </div>
+  </div>
+  <!-- ./col -->
+  <div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-red">
+      <div class="inner">
+        <h3>2 MB</h3>
+
+        <p>MAX FILE</p>
+      </div>
+      <div class="icon">
+        <i class="fa fa-file"></i>
+      </div>
+      <br/>
+    </div>
+  </div>
+  <!-- ./col -->
+</div>
 <div class="row">
     <div class="col-md-12">
         <div class="box box-primary">
@@ -12,6 +74,7 @@
 
             <div class="box-tools">
               <a href="/superadmin/wa/create" class="btn btn-flat btn-sm btn-primary"  data-toggle="modal" data-target="#modal-default"><i class="fa fa-whatsapp"></i> Send Message</a>
+              <a href="http://103.178.83.200:8000/scan" target="_blank" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-qrcode"></i> SCAN DEVICE</a>
             </div>
           </div>
           <!-- /.box-header -->

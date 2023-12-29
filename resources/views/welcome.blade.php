@@ -69,7 +69,7 @@
     </nav>
   </header> --}}
   <!-- Full Width Column -->
-  <div class="content-wrapper"  style="background-image: url('/logo/bg.jpg'); background-size:cover">
+  <div class="content-wrapper"  style="background-image: url('https://png.pngtree.com/background/20210716/original/pngtree-orange-white-minimalist-background-picture-image_1335898.jpg'); background-size:cover">
     <div class="container">
       <!-- Content Header (Page header) -->
       <section class="content-header">
@@ -91,10 +91,13 @@
           </div>
           <div class="col-md-6">
             <div class="text-center">
-            <img src="/logo/logo2.png" width="40%" ><br/><br/>
+              <br/><br/>
+              <br/><br/>
+              <br/><br/>
+              <br/><br/>
             </div>
           <br/><br/>
-            <div class="box box-success" style="box-shadow: 0 8px 8px 0 rgba(0,0,0,.2);border-top-color:#00acd6">
+            <div class="box box-success" style="box-shadow: 0 8px 8px 0 rgba(0,0,0,.2);border-top-color:#fe5000">
               <div class="box-header with-border text-center">
                 <h3 class="box-title">WA BLAST</h3>
       
@@ -118,7 +121,7 @@
                 </div>
               </div>
               <div class="box-footer social-auth-links">
-                <button type="submit" class="btn btn-info btn-flat btn-block"><i class="fa fa-sign-in"></i> Masuk</button>
+                <button type="submit" class="btn btn-flat btn-block" style="background-color: #fe5000; color:white;"><i class="fa fa-sign-in"></i> Masuk</button>
               </div>
               </form>
             </div>

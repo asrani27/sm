@@ -32,6 +32,10 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::post('superadmin/gp', [GantiPasswordController::class, 'update']);
     Route::post('superadmin/sk/updatelurah', [HomeController::class, 'updatelurah']);
     Route::get('superadmin/nomor', [NomorController::class, 'index']);
+    Route::get('superadmin/nomor/add', [NomorController::class, 'add']);
+    Route::post('superadmin/nomor/add', [NomorController::class, 'store']);
+    Route::get('superadmin/nomor/edit/{id}', [NomorController::class, 'edit']);
+    Route::post('superadmin/nomor/edit/{id}', [NomorController::class, 'update']);
     Route::get('superadmin/nomor/delete/{id}', [NomorController::class, 'delete']);
     Route::get('superadmin/nomor/delete', [NomorController::class, 'deleteAll']);
     Route::post('superadmin/nomor/upload', [NomorController::class, 'upload']);

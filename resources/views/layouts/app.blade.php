@@ -30,10 +30,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="wrapper">
 
   <!-- Main Header -->
-  <header class="main-header">
+  <header class="main-header" style="background-color: #fe5000">
 
     <!-- Logo -->
-    <a href="#" class="logo">
+    <a href="#" class="logo" style="background-color: #fe5000">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">Admin</span>
       <!-- logo for regular state and mobile devices -->
@@ -41,7 +41,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </a>
 
     <!-- Header Navbar -->
-    <nav class="navbar navbar-static-top" role="navigation" >
+    <nav class="navbar navbar-static-top" role="navigation"  style="background-color: #fe5000">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>

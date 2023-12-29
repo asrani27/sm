@@ -12,7 +12,8 @@
 
             <div class="box-tools">
               <a href="/superadmin/nomor/delete" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-trash"></i> Delete All</a>
-              <a href="/superadmin/nomor/create" class="btn btn-flat btn-sm btn-primary"  data-toggle="modal" data-target="#modal-default"><i class="fa fa-plus"></i>Upload</a>
+              <a href="/superadmin/nomor/create" class="btn btn-flat btn-sm btn-primary"  data-toggle="modal" data-target="#modal-default"><i class="fa fa-upload"></i> Upload</a>
+              <a href="/superadmin/nomor/add" class="btn btn-flat btn-sm btn-primary" ><i class="fa fa-plus"></i> Nomor</a>
             </div>
           </div>
           <!-- /.box-header -->
@@ -29,7 +30,7 @@
                 <td>{{$data->firstItem() + $key}}</td>
                 <td>{{$item->nomor}}</td>
                 <td>
-                  {{-- <a href="/superadmin/nomor/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a> --}}
+                  <a href="/superadmin/nomor/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
                   <a href="/superadmin/nomor/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a>
                 </td>
               </tr>
