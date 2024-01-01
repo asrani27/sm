@@ -66,4 +66,10 @@ class DPTController extends Controller
         Session::flash('success', 'berhasil di import');
         return back();
     }
+    public function deleteAll()
+    {
+        DPT::get()->map->delete();
+        Session::flash('success', 'Berhasil dihapus');
+        return back();
+    }
 }

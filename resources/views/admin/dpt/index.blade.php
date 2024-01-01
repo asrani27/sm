@@ -11,7 +11,7 @@
             <i class="ion ion-clipboard"></i><h3 class="box-title">Data DPT ({{$data->total()}})</h3>
 
             <div class="box-tools">
-              {{-- <a href="/superadmin/dpt/delete" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-trash"></i> Delete All</a> --}}
+              <a href="/superadmin/dpt/delete" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-trash"></i> Delete All</a>
               <a href="/superadmin/dpt/create" class="btn btn-flat btn-sm btn-primary"  data-toggle="modal" data-target="#modal-default"><i class="fa fa-upload"></i> Upload DPT</a>
               {{-- <a href="/superadmin/dpt/add" class="btn btn-flat btn-sm btn-primary" ><i class="fa fa-plus"></i> Nomor</a> --}}
             </div>
