@@ -32,7 +32,7 @@ class DPTController extends Controller
             $kelurahan = str_replace(': ', '', $data[4][7]);
             $tps = str_replace(': ', '', $data[5][7]);
             $data_dpt = array_slice($data, 8);
-
+            dd($data_dpt);
             //simpan DPT
             foreach ($data_dpt as $key => $item) {
 
@@ -45,16 +45,19 @@ class DPTController extends Controller
                     ->first();
 
                 if ($check == null) {
-                    $n = new DPT;
-                    $n->nama = $item[1];
-                    $n->jkel = $item[2];
-                    $n->usia = $item[3];
-                    $n->kelurahan = $item[4];
-                    $n->rt = $item[5];
-                    $n->rw = $item[6];
-                    $n->tps = $tps;
-                    $n->kecamatan = $kecamatan;
-                    $n->save();
+                    if ($item[1] == null) {
+                    } else {
+                        $n = new DPT;
+                        $n->nama = $item[1];
+                        $n->jkel = $item[2];
+                        $n->usia = $item[3];
+                        $n->kelurahan = $item[4];
+                        $n->rt = $item[5];
+                        $n->rw = $item[6];
+                        $n->tps = $tps;
+                        $n->kecamatan = $kecamatan;
+                        $n->save();
+                    }
                 } else {
                 }
             }
