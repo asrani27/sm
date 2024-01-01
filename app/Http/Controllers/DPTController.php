@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\DPT;
+use App\Models\FileDpt;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use Illuminate\Support\Facades\Validator;
 
 class DPTController extends Controller
 {
@@ -32,7 +34,7 @@ class DPTController extends Controller
             $kelurahan = str_replace(': ', '', $data[4][7]);
             $tps = str_replace(': ', '', $data[5][7]);
             $data_dpt = array_slice($data, 8);
-            dd($data_dpt);
+
             //simpan DPT
             foreach ($data_dpt as $key => $item) {
 
@@ -71,5 +73,35 @@ class DPTController extends Controller
         DPT::get()->map->delete();
         Session::flash('success', 'Berhasil dihapus');
         return back();
+    }
+
+    public function upload_file(Request $req)
+    {
+
+        foreach ($req->file as $key => $file) {
+            if ($file->getClientOriginalExtension() == 'xlsx') {
+                //di simpan
+                $file_name = $file->getClientOriginalName();
+                $check = FileDpt::where('file', $file_name)->first();
+                if ($check = null) {
+                    //upload dan simpan
+                    $file->storeAs('public/dpt', $file_name);
+                    $n = new FileDpt;
+                    $n->file = $file_name;
+                    $n->save();
+                } else {
+                }
+            } else {
+                //tidak di simpan
+
+            }
+        }
+        Session::flash('success', 'Berhasil diupload');
+        return back();
+    }
+    public function upload_dpt()
+    {
+        $data = FileDpt::paginate(20);
+        return view('admin.dpt.upload', compact('data'));
     }
 }
