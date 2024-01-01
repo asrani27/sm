@@ -10,4 +10,5 @@ class FileDpt extends Model
     use HasFactory;
     protected $table = 'file_dpt';
     protected $guarded = ['id'];
+    public $timestamps = false;
 }

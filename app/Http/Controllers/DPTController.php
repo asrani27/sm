@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\DptImport;
+use App\Jobs\DispatchDpt;
+use File;
 use App\Models\DPT;
+use App\Jobs\TarikDPT;
 use App\Models\FileDpt;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Illuminate\Support\Facades\Validator;
 
@@ -83,7 +89,7 @@ class DPTController extends Controller
                 //di simpan
                 $file_name = $file->getClientOriginalName();
                 $check = FileDpt::where('file', $file_name)->first();
-                if ($check = null) {
+                if ($check == null) {
                     //upload dan simpan
                     $file->storeAs('public/dpt', $file_name);
                     $n = new FileDpt;
@@ -103,5 +109,26 @@ class DPTController extends Controller
     {
         $data = FileDpt::paginate(20);
         return view('admin.dpt.upload', compact('data'));
+    }
+
+    public function delete_file($id)
+    {
+        $file = FileDpt::find($id);
+
+
+        Storage::disk('public')->delete('dpt/' . $file->file);
+        $file->delete();
+        Session::flash('success', 'Berhasil dihapus');
+        return back();
+    }
+
+    public function tarik_dpt()
+    {
+        $data = FileDPT::get()->take(3);
+        foreach ($data as $key => $d) {
+            DispatchDpt::dispatch($d);
+        }
+        Session::flash('success', 'Berhasil di syncron, bekerja di belakang layar');
+        return back();
     }
 }

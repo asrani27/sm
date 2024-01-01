@@ -54,6 +54,8 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::get('superadmin/dpt/upload', [DPTController::class, 'upload_dpt']);
     Route::post('superadmin/dpt/upload', [DPTController::class, 'upload']);
     Route::post('superadmin/dpt/uploadfile', [DPTController::class, 'upload_file']);
+    Route::get('superadmin/dpt/deletefile/{id}', [DPTController::class, 'delete_file']);
+    Route::get('superadmin/dpt/tarikdpt', [DPTController::class, 'tarik_dpt']);
 
     Route::get('superadmin/user', [AdminController::class, 'user']);
     Route::get('superadmin/user/create', [AdminController::class, 'user_create']);

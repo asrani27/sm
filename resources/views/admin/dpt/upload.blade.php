@@ -29,7 +29,7 @@
                 <td>{{$data->firstItem() + $key}}</td>
                 <td>{{$item->file}}</td>
                 <td>
-                  <a href="/superadmin/dpt/download/{{$item->id}}" class="btn btn-flat btn-xs btn-primary"><i class="fa fa-download"></i> Download</a>
+                  <a href="/storage/dpt/{{$item->file}}" target="_blank" class="btn btn-flat btn-xs btn-primary"><i class="fa fa-download"></i> Download</a>
                   <a href="/superadmin/dpt/deletefile/{{$item->id}}" class="btn btn-flat btn-xs btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a>
                 </td>
               </tr>

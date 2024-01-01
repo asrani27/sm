@@ -13,7 +13,7 @@
             <div class="box-tools">
               <a href="/superadmin/dpt/delete" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-trash"></i> Delete All</a>
               <a href="/superadmin/dpt/upload" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-upload"></i> Upload DPT</a>
-              {{-- <a href="/superadmin/dpt/add" class="btn btn-flat btn-sm btn-primary" ><i class="fa fa-plus"></i> Nomor</a> --}}
+              <a href="/superadmin/dpt/tarikdpt" class="btn btn-flat btn-sm btn-primary" ><i class="fa fa-refresh"></i> Sync DPT</a>
             </div>
           </div>
           <!-- /.box-header -->
