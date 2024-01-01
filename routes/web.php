@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DaftarController;
+use App\Http\Controllers\DPTController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\LupaPasswordController;
 use App\Http\Controllers\GantiPasswordController;
@@ -41,6 +42,16 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::post('superadmin/nomor/upload', [NomorController::class, 'upload']);
     Route::get('superadmin/wa', [WAController::class, 'index']);
     Route::post('superadmin/wa/send-message', [WAController::class, 'sendMessage']);
+
+
+    Route::get('superadmin/dpt', [DPTController::class, 'index']);
+    Route::get('superadmin/dpt/add', [DPTController::class, 'add']);
+    Route::post('superadmin/dpt/add', [DPTController::class, 'store']);
+    Route::get('superadmin/dpt/edit/{id}', [DPTController::class, 'edit']);
+    Route::post('superadmin/dpt/edit/{id}', [DPTController::class, 'update']);
+    Route::get('superadmin/dpt/delete/{id}', [DPTController::class, 'delete']);
+    Route::get('superadmin/dpt/delete', [DPTController::class, 'deleteAll']);
+    Route::post('superadmin/dpt/upload', [DPTController::class, 'upload']);
 
     Route::get('superadmin/user', [AdminController::class, 'user']);
     Route::get('superadmin/user/create', [AdminController::class, 'user_create']);
