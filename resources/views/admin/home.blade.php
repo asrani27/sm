@@ -1,44 +1,74 @@
 @extends('layouts.app')
 @push('css')
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-crossorigin=""/>
-<style>
-  #map { height: 700px; }
-</style>
+
 @endpush
 @section('content')
-<div class="row text-center">
-  
-</div>
-<br/>
 <div class="row">
-  
+  <div class="col-md-6">
+  <div class="box">
+    
+    <!-- /.box-header -->       
+      <div class="box-body no-padding ">  
+        <div class="col-md-12 bg-orange-gradient">
+          <H1 class="text-center ">SAHABAT MUKHYAR</H1>
+          <hr style="border: 1px solid black">
+           
+          <h3 class="text-center ">JUMLAH DPT</h3>
+          <H2 class="text-center ">{{number_format($dpt)}}</H2>
+
+          <table style="font-size: 14px; font-weight:bold;" border="1"  cellpadding="100" cellspacing="100" width="70%">
+            <tr>
+              <td style="padding: 10px 10px;">KECAMATAN</td>
+              <td style="padding: 10px 10px;">JUMLAH DPT</td>
+              <td style="padding: 10px 10px;">JUMLAH SM</td>
+              <td style="padding: 10px 10px;">PERSENTASE</td>
+            </tr>
+            @foreach ($kec as $item)
+            <tr >
+              <td style="padding: 10px 10px;">{{$item->nama}}</td>
+              <td class="text-center">{{number_format($item->dpt)}}</td>
+              <td class="text-center">0</td>
+              <td class="text-center">0 %</td>
+            </tr>
+            @endforeach
+          </table>
+          <br/><br/>
+          <table style="font-size: 14px; font-weight:bold;" border="1"  cellpadding="100" cellspacing="100" width="70%">
+            <tr>
+              <td style="padding: 10px 10px;">KELURAHAN</td>
+              <td style="padding: 10px 10px;">JUMLAH DPT</td>
+              <td style="padding: 10px 10px;">JUMLAH SM</td>
+              <td style="padding: 10px 10px;">PERSENTASE</td>
+            </tr>
+            @foreach ($kel as $item)
+            <tr >
+              <td style="padding: 5px 5px;">{{$item->nama}}</td>
+              <td class="text-center">{{number_format($item->dpt)}}</td>
+              <td class="text-center">0</td>
+              <td class="text-center">0 %</td>
+            </tr>
+            @endforeach
+          </table>
+          <br/>
+        </div>
+      </div>
+      
+  </div>
+  </div>
+  <div class="col-md-6">
+    <div class="box">
+      <div class="box-body no-padding ">  
+          <div class="col-md-12 text-center">
+            <H1>GRAFIK PERSENTASE</H1>
+            <hr style="border: 1px solid black">
+          </div>
+      </div>
+    </div>
+    </div>
 </div>
 
 
 @endsection
 @push('js')
-<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-crossorigin=""></script>
-<script>
-  var map = L.map('map').setView([-3.327460, 114.588515], 14);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 24,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
 
-var kec = {!!json_encode($kec)!!}
-
-kec.forEach(element => {
-  if(element.lat == null){
-
-  }else{
-    var marker = L.marker([element.lat, element.long]).addTo(map);
-    marker.bindPopup(element.nama).openPopup();
-  }
-});
-
-</script>
 @endpush
