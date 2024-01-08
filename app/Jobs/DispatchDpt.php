@@ -11,6 +11,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 
+
 class DispatchDpt implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -33,12 +34,11 @@ class DispatchDpt implements ShouldQueue
      */
     public function handle()
     {
-        $path = 'storage/dpt/' . $this->dpt->file;
-
+        $path = base_path('storage/app/public/dpt/' . $this->dpt->file);
         $spreadsheet = IOFactory::load($path);
         $worksheet = $spreadsheet->getActiveSheet();
         $data = $worksheet->toArray();
-        dd($data);
+
         $kecamatan = str_replace(': ', '', $data[3][7]);
         $kelurahan = str_replace(': ', '', $data[4][7]);
         $tps = str_replace(': ', '', $data[5][7]);

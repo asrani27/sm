@@ -2,18 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\DptImport;
 use App\Jobs\DispatchDpt;
-use File;
 use App\Models\DPT;
-use App\Jobs\TarikDPT;
 use App\Models\FileDpt;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use PhpOffice\PhpSpreadsheet\IOFactory;
-use Illuminate\Support\Facades\Validator;
 
 class DPTController extends Controller
 {
@@ -124,7 +119,7 @@ class DPTController extends Controller
 
     public function tarik_dpt()
     {
-        $data = FileDPT::get()->take(3);
+        $data = FileDPT::get();
         foreach ($data as $key => $d) {
             DispatchDpt::dispatch($d);
         }
