@@ -62,6 +62,11 @@
           <div class="col-md-12 text-center">
             <H1>GRAFIK PERSENTASE</H1>
             <hr style="border: 1px solid black">
+
+            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+            <h2>SM : {{number_format($sm)}}</h2>
+            <h2>NON SM : {{number_format($dpt - $sm)}}</h2>
+          
           </div>
       </div>
     </div>
@@ -72,4 +77,35 @@
 @endsection
 @push('js')
 
+<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+
+<script>
+
+  var c_sm = {!!json_encode($sm)!!}
+  var dpt = {!!json_encode($dpt)!!}
+  var p_sm = c_sm/dpt * 100;
+  var pn_sm = 100 - p_sm;
+  console.log(c_sm);
+  window.onload = function() {
+  
+  var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    title: {
+      text: "Persentase SM"
+    },
+    data: [{
+      type: "pie",
+      startAngle: 240,
+      yValueFormatString: "##0.00\"%\"",
+      indexLabel: "{label} {y}",
+      dataPoints: [
+        {y: p_sm, label: "SM"},
+        {y: pn_sm, label: "NON SM"},
+      ]
+    }]
+  });
+  chart.render();
+  
+  }
+  </script>
 @endpush
