@@ -27,9 +27,15 @@ crossorigin=""/>
                 @csrf
                 <div class="box-body">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Nama</label>
+                        <label class="col-sm-2 control-label">Kecamatan</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="nama" value="{{$data->nama}}"  required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Nama Koordinator</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="koor" value="{{$data->koor}}"  required>
                         </div>
                     </div>
                     

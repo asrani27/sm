@@ -20,7 +20,7 @@
               <tbody><tr>
                 <th>No</th>
                 <th>Nama kelurahan</th>
-                <th>Kecamatan</th>
+                <th>Nama Koordinator</th>
                 
                 <th>Aksi</th>
               </tr>
@@ -28,7 +28,7 @@
               <tr>
                 <td>{{$data->firstItem() + $key}}</td>
                 <td>{{$item->nama}}</td>
-                <td>{{$item->kecamatan->nama}}</td>
+                <td>{{$item->koor}}</td>
                 <td>
                   <a href="/superadmin/kelurahan/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
                   <a href="/superadmin/kelurahan/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a>

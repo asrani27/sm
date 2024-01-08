@@ -154,6 +154,7 @@ class AdminController extends Controller
     {
         $data = Kecamatan::find($id);
         $data->nama = $req->nama;
+        $data->koor = $req->koor;
         $data->lat = $req->lat;
         $data->long = $req->long;
         $data->save();
@@ -204,6 +205,7 @@ class AdminController extends Controller
         $data = Kelurahan::find($id);
         $data->kecamatan_id = $req->kecamatan_id;
         $data->nama = $req->nama;
+        $data->koor = $req->koor;
         $data->save();
         Session::flash('success', 'Berhasil Diupdate');
         return redirect('/superadmin/kelurahan');
