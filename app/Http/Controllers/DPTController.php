@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\DispatchDpt;
 use App\Models\DPT;
 use App\Models\FileDpt;
+use App\Jobs\DispatchDpt;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use PhpOffice\PhpSpreadsheet\IOFactory;
@@ -15,7 +16,9 @@ class DPTController extends Controller
     public function index()
     {
         $data = DPT::orderBy('id', 'DESC')->paginate(10);
-        return view('admin.dpt.index', compact('data'));
+        $file = DB::table('jobs')->count();
+
+        return view('admin.dpt.index', compact('data', 'file'));
     }
     public function upload(Request $req)
     {

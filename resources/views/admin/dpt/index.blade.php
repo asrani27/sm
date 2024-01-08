@@ -8,7 +8,7 @@
     <div class="col-md-12">
         <div class="box box-primary">
           <div class="box-header">
-            <i class="ion ion-clipboard"></i><h3 class="box-title">Data DPT ({{$data->total()}})</h3>
+            <i class="ion ion-clipboard"></i><h3 class="box-title">Data DPT ({{$data->total()}}), (Sisa File Digenerate : {{$file}})</h3>
 
             <div class="box-tools">
               <a href="/superadmin/dpt/delete" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-trash"></i> Delete All</a>

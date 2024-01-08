@@ -9,19 +9,11 @@ crossorigin=""/>
 @endpush
 @section('content')
 <div class="row text-center">
-  <div class="col-lg-4">
-    <a href="" class="btn btn-primary btn-block">KECAMATAN</a>
-  </div>
-  <div class="col-lg-4">
-    <a href="" class="btn btn-primary btn-block">KELURAHAN</a>
-  </div>
-  <div class="col-lg-4">
-    <a href="" class="btn btn-primary btn-block">RT</a>
-  </div>
+  
 </div>
 <br/>
 <div class="row">
-<div id="map"></div>
+  
 </div>
 
 
