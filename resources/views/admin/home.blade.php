@@ -13,8 +13,9 @@
           <H1 class="text-center ">SAHABAT MUKHYAR</H1>
           <hr style="border: 1px solid black">
            
-          <h3 class="text-center ">JUMLAH DPT</h3>
-          <H2 class="text-center ">{{number_format($dpt)}}</H2>
+          <h3 class="text-center ">JUMLAH DPT : {{number_format($dpt)}}</h3>
+          <h3 class="text-center ">JUMLAH SM : {{number_format($sm)}}</h3>
+          <H2 class="text-center "></H2>
 
           <table style="font-size: 14px; font-weight:bold;" border="1"  cellpadding="100" cellspacing="100" width="70%">
             <tr>

@@ -6,6 +6,7 @@ use App\Models\DPT;
 use App\Models\Kecamatan;
 use App\Models\Kelurahan;
 use App\Models\Lurah;
+use App\Models\SM;
 use App\Models\Tpermohonan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -25,8 +26,9 @@ class HomeController extends Controller
         });
 
         $dpt = DPT::count();
+        $sm = SM::count();
 
-        return view('admin.home', compact('kec', 'dpt', 'kel'));
+        return view('admin.home', compact('kec', 'dpt', 'kel', 'sm'));
     }
 
     public function user()
