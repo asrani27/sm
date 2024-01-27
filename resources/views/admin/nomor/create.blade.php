@@ -27,6 +27,17 @@
                             <input type="text" class="form-control" name="nomor" required>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Jenis</label>
+                        <div class="col-sm-10">
+                            <select name="jenis" class="form-control" required>
+                                <option value="">-pilih-</option>
+                                <option value="MASYARAKAT">MASYARAKAT</option>
+                                <option value="ASN">ASN</option>
+                                <option value="NON ASN">NON ASN</option>
+                            </select>
+                        </div>
+                    </div>
                     
                 </div>
                 <!-- /.box-body -->
