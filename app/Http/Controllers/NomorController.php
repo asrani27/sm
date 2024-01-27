@@ -42,11 +42,11 @@ class NomorController extends Controller
     }
     public function update(Request $req, $id)
     {
-            $n = Nomor::find($id);
-            $n->nomor = $req->nomor;
-            $n->save();
-            Session::flash('success', 'Berhasil diupdate');
-            return redirect('/superadmin/nomor');
+        $n = Nomor::find($id);
+        $n->nomor = $req->nomor;
+        $n->save();
+        Session::flash('success', 'Berhasil diupdate');
+        return redirect('/superadmin/nomor');
     }
     public function delete($id)
     {
@@ -73,21 +73,28 @@ class NomorController extends Controller
         $worksheet = $spreadsheet->getActiveSheet();
         $data = $worksheet->toArray();
         $nomor = [];
+        $jenis = [];
+
         foreach ($data as $i) {
-            array_push($nomor, $i[0]);
+            array_push($nomor, $i[1]);
+            array_push($jenis, $i[2]);
         }
 
         //simpan
+        //dd($nomor, $jenis);
+        foreach ($nomor as $key => $s) {
 
-        foreach ($nomor as $s) {
-
-            $check = Nomor::where('nomor', $s)->first();
-            if ($check == null) {
-                //save
-                $n = new Nomor;
-                $n->nomor = $s;
-                $n->save();
+            if ($key == 0) {
             } else {
+                $check = Nomor::where('nomor', $s)->where('jenis', $jenis[$key])->first();
+                if ($check == null) {
+                    //save
+                    $n = new Nomor;
+                    $n->nomor = $s;
+                    $n->jenis = $jenis[$key];
+                    $n->save();
+                } else {
+                }
             }
         }
 

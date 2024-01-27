@@ -22,6 +22,7 @@
               <tbody><tr>
                 <th>No</th>
                 <th>Nomor</th>
+                <th>Jenis</th>
                 
                 <th>Aksi</th>
               </tr>
@@ -29,6 +30,7 @@
               <tr>
                 <td>{{$data->firstItem() + $key}}</td>
                 <td>{{$item->nomor}}</td>
+                <td>{{$item->jenis}}</td>
                 <td>
                   <a href="/superadmin/nomor/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
                   <a href="/superadmin/nomor/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a>
