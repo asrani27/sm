@@ -8,7 +8,7 @@
     <!-- small box -->
     <div class="small-box bg-aqua">
       <div class="inner">
-        <h3>Trial/Limited</h3>
+        <h3>Unlimited</h3>
 
         <p>STATUS</p>
       </div>
@@ -24,7 +24,7 @@
     <!-- small box -->
     <div class="small-box bg-green">
       <div class="inner">
-        <h3>10/Day</h3>
+        <h3>Unlimited/Day</h3>
 
         <p>MAX SEND MESSAGES</p>
       </div>
@@ -54,7 +54,7 @@
     <!-- small box -->
     <div class="small-box bg-red">
       <div class="inner">
-        <h3>2 MB</h3>
+        <h3>Unlimited MB</h3>
 
         <p>MAX FILE</p>
       </div>

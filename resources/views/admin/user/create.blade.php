@@ -53,6 +53,7 @@
                                 <option value="">-pilih-</option>
                                 <option value="superadmin">Superadmin</option>
                                 <option value="user">user</option>
+                                <option value="admin_wa">admin_wa</option>
                             </select>
                         </div>
                     </div>
