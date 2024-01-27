@@ -54,9 +54,9 @@
     <!-- small box -->
     <div class="small-box bg-red">
       <div class="inner">
-        <h3>Unlimited MB</h3>
+        <h3>Expired Date</h3>
 
-        <p>MAX FILE</p>
+        <p>25 Februari 2024</p>
       </div>
       <div class="icon">
         <i class="fa fa-file"></i>
