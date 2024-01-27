@@ -19,7 +19,7 @@ class LoginController extends Controller
             }
         }
 
-        return view('welcome');
+        return view('login');
     }
 
     public function reloadCaptcha()

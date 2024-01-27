@@ -15,7 +15,7 @@ use App\Http\Controllers\NomorController;
 use App\Http\Controllers\WAController;
 
 Route::get('/', function () {
-    return view('profil');
+    return view('welcome');
 });
 
 Route::get('login', [LoginController::class, 'index'])->name('login');

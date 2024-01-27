@@ -1,168 +1,225 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SM</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="/assets/bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="/assets/bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="/assets/dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="/assets/dist/css/skins/_all-skins.min.css">
+  <!--====== Required meta tags ======-->
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-  <!-- IziToast -->
-  <link rel="stylesheet" href="/notif/dist/css/iziToast.min.css">
-  <script src="/notif/dist/js/iziToast.min.js" type="text/javascript"></script>
+  <!--====== Title ======-->
+  <title>SAHABAT MUKHYAR</title>
 
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <!--====== Favicon Icon ======-->
+  <link rel="shortcut icon" href="/logo/pks.png" type="image/svg" />
+
+  <!--====== Bootstrap css ======-->
+  <link rel="stylesheet" href="/pks/assets/css/bootstrap.min.css" />
+
+  <!--====== Line Icons css ======-->
+  <link rel="stylesheet" href="/pks/assets/css/lineicons.css" />
+
+  <!--====== Tiny Slider css ======-->
+  <link rel="stylesheet" href="/pks/assets/css/tiny-slider.css" />
+
+  <!--====== gLightBox css ======-->
+  <link rel="stylesheet" href="/pks/assets/css/glightbox.min.css" />
+
+  <link rel="stylesheet" href="/pks/style.css" />
 </head>
-<!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
-<body class="hold-transition skin-info layout-top-nav">
-<div class="wrapper">
 
-  {{-- <header class="main-header">
-    <nav class="navbar navbar-static-top"  style="box-shadow: 0 8px 8px 0 rgba(0,0,0,.2);">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="#" class="navbar-brand"><b>PEMERINTAH DESA NARAHAN</b></a>
-          
-        </div>
+<body>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
-          <ul class="nav navbar-nav">
-            
-          </ul>
-          
-        </div>
-        <!-- /.navbar-collapse -->
-        <!-- Navbar Right Menu -->
-        <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav">
-            <!-- Notifications Menu -->
-            <li class="dropdown notifications-menu">
-              <!-- Menu toggle button -->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <b>PEMERINTAH DESA NARAHAN</b>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!-- /.navbar-custom-menu -->
-      </div>
-      <!-- /.container-fluid -->
-    </nav>
-  </header> --}}
-  <!-- Full Width Column -->
-  <div class="content-wrapper"  style="background-image: url('https://png.pngtree.com/background/20210716/original/pngtree-orange-white-minimalist-background-picture-image_1335898.jpg'); background-size:cover">
+  <!--====== NAVBAR NINE PART START ======-->
+
+  <section class="navbar-area navbar-nine">
     <div class="container">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        {{-- <h1>
-          Top Navigation
-          <small>Example 2.0</small>
-        </h1>
-        <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li><a href="#">Layout</a></li>
-          <li class="active">Top Navigation</li>
-        </ol> --}}
-      </section>
+      <div class="row">
+        <div class="col-lg-12">
+          <nav class="navbar navbar-expand-lg" style="border-bottom: 2px solid white">
+            <a class="navbar-brand" href="#" style="color:white; font-size:26px">
+              <img src="/logo/pks.png" width="60px" alt="Logo" />
+              SAHABAT MUKHYAR
+            </a>
+            {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNine"
+              aria-controls="navbarNine" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="toggler-icon"></span>
+              <span class="toggler-icon"></span>
+              <span class="toggler-icon"></span>
+            </button> --}}
 
-      <!-- Main content -->
-      <section class="content">
+            <div class="collapse navbar-collapse sub-menu-bar" id="navbarNine">
+              <ul class="navbar-nav me-auto">
+                
+              </ul>
+            </div>
+
+            {{-- <div class="navbar-btn d-none d-lg-inline-block">
+              <a class="menu-bar" href="#side-menu-left"><i class="lni lni-menu"></i></a>
+            </div> --}}
+          </nav>
+          <!-- navbar -->
+        </div>
+      </div>
+      <!-- row -->
+    </div>
+    <!-- container -->
+  </section>
+
+  <!--====== NAVBAR NINE PART ENDS ======-->
+
+  <!-- Start header Area -->
+  <section id="hero-area" class="header-area header-eight">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-12 col-12">
+          <div class="header-content">
+            <h1>THE NEXT 2024</h1>
+            <p>
+              Mari Kita Bersama Membangun Kota Banjarmasin
+            </p>
+            <div class="button">
+              <a href="https://youtu.be/7arATGJa7ZY" class="glightbox video-button" target="_blank">
+                <span class="btn icon-btn rounded-full">
+                  <i class="lni lni-play"></i>
+                </span>
+                <span class="text">PROFIL H. MUKHYAR</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+          <div class="header-image">
+            <img src="/pks/profil.jpg" alt="#" height="430px"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End header Area -->
+
+
+  {{-- <!-- Start Cta Area -->
+  <section id="call-action" class="call-action">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-9">
+          <div class="inner-content">
+            <h2>We love to make perfect <br />solutions for your business</h2>
+            <p>
+              Why I say old chap that is, spiffing off his nut cor blimey
+              guvnords geeza<br />
+              bloke knees up bobby, sloshed arse William cack Richard. Bloke
+              fanny around chesed of bum bag old lost the pilot say there
+              spiffing off his nut.
+            </p>
+            <div class="light-rounded-buttons">
+              <a href="javascript:void(0)" class="btn primary-btn-outline">Get Started</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Cta Area --> --}}
+
+
+
+  <!-- Start Latest News Area -->
+  <div id="blog" class="latest-news-area section" style="padding-bottom: 10px;">
+    <!--======  Start Section Title Five ======-->
+    <div class="section-title-five">
+      <div class="container">
         <div class="row">
-          <div class="col-md-3">
-          </div>
-          <div class="col-md-6">
-            <div class="text-center">
-              <br/><br/>
-              <br/><br/>
-              <br/><br/>
-              <br/><br/>
-            </div>
-          <br/><br/>
-            <div class="box box-success" style="box-shadow: 0 8px 8px 0 rgba(0,0,0,.2);border-top-color:#fe5000">
-              <div class="box-header with-border text-center">
-                <h3 class="box-title">WA BLAST</h3>
-      
-              </div>
-              <form class="form-horizontal" method="post" action="/login">
-                @csrf
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-3 control-label">Username</label>
-
-                  <div class="col-sm-9">
-                    <input type="username" class="form-control" placeholder="username" name="username" value="{{old('username')}}" autocomplete="new-password" />
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
-
-                  <div class="col-sm-9">
-                    <input type="password" class="form-control" placeholder="Password" name="password" value="{{old('password')}}" autocomplete="new-password" />
-                  </div>
-                </div>
-              </div>
-              <div class="box-footer social-auth-links">
-                <button type="submit" class="btn btn-flat btn-block" style="background-color: #fe5000; color:white;"><i class="fa fa-sign-in"></i> Masuk</button>
-              </div>
-              </form>
+          <div class="col-12">
+            <div class="content">
+              <h2 class="fw-bold">Youtube Sahabat Mukhyar</h2>
             </div>
           </div>
-          <div class="col-md-3">
-          </div>
+        </div>
+        <!-- row -->
+      </div>
+      <!-- container -->
+    </div>
+    <!--======  End Section Title Five ======-->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-12">
+          <iframe width="100%" height="350px" src="https://www.youtube.com/embed/7arATGJa7ZY" allow="fullscreen">
+          </iframe>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12">
+          <iframe width="100%" height="350px" src="https://www.youtube.com/embed/7arATGJa7ZY" allow="fullscreen">
+          </iframe>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12">
+          <iframe width="100%" height="350px" src="https://www.youtube.com/embed/7arATGJa7ZY" allow="fullscreen">
+          </iframe>
         </div>
         
-      </section>
-      <!-- /.content -->
     </div>
-    <!-- /.container -->
   </div>
-  <!-- /.content-wrapper -->
-  {{-- <footer class="main-footer">
-    <div class="container">
-      <div class="pull-right hidden-xs">
-        <b>Version</b> 1.0.0
-      </div>
-      <strong>Copyright &copy; 2023 PEMERINTAH DESA NARAHAN</strong>
-    </div>
-    <!-- /.container -->
-  </footer> --}}
-</div>
-<!-- ./wrapper -->
+  <!-- End Latest News Area -->
+  
+	{{-- <div class="made-in-ayroui mt-4">
+		<a href="https://ayroui.com" target="_blank" rel="nofollow">
+		  <img style="width:220px" src="/pks/assets/images/ayroui.svg">
+		</a>
+	</div> --}}
 
-<!-- jQuery 3 -->
-<script src="/assets/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="/assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="/assets/bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="/assets/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/assets/dist/js/demo.js"></script>
-<script type="text/javascript">
-@include('layouts.notif')
-</script>
+  {{-- <a href="#" class="scroll-top btn-hover">
+    <i class="lni lni-chevron-up"></i>
+  </a> --}}
 
+  <!--====== js ======-->
+  <script src="/pks/assets/js/bootstrap.bundle.min.js"></script>
+  <script src="/pks/assets/js/glightbox.min.js"></script>
+  <script src="/pks/assets/js/main.js"></script>
+  <script src="/pks/assets/js/tiny-slider.js"></script>
+
+  <script>
+
+    //===== close navbar-collapse when a  clicked
+    let navbarTogglerNine = document.querySelector(
+      ".navbar-nine .navbar-toggler"
+    );
+    navbarTogglerNine.addEventListener("click", function () {
+      navbarTogglerNine.classList.toggle("active");
+    });
+
+    // ==== left sidebar toggle
+    let sidebarLeft = document.querySelector(".sidebar-left");
+    let overlayLeft = document.querySelector(".overlay-left");
+    let sidebarClose = document.querySelector(".sidebar-close .close");
+
+    overlayLeft.addEventListener("click", function () {
+      sidebarLeft.classList.toggle("open");
+      overlayLeft.classList.toggle("open");
+    });
+    sidebarClose.addEventListener("click", function () {
+      sidebarLeft.classList.remove("open");
+      overlayLeft.classList.remove("open");
+    });
+
+    // ===== navbar nine sideMenu
+    let sideMenuLeftNine = document.querySelector(".navbar-nine .menu-bar");
+
+    sideMenuLeftNine.addEventListener("click", function () {
+      sidebarLeft.classList.add("open");
+      overlayLeft.classList.add("open");
+    });
+
+    //========= glightbox
+    GLightbox({
+      'href': 'https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM',
+      'type': 'video',
+      'source': 'youtube', //vimeo, youtube or local
+      'width': 900,
+      'autoplayVideos': true,
+    });
+
+  </script>
 </body>
+
 </html>
