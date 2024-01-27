@@ -80,7 +80,7 @@
               Mari Kita Bersama Membangun Kota Banjarmasin
             </p>
             <div class="button">
-              <a href="https://youtu.be/7arATGJa7ZY" class="glightbox video-button" target="_blank">
+              <a href="https://youtu.be/IpoiaMwnwKM" class="glightbox video-button" target="_blank">
                 <span class="btn icon-btn rounded-full">
                   <i class="lni lni-play"></i>
                 </span>
