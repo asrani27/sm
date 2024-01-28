@@ -10,5 +10,4 @@ class Riwayat extends Model
     use HasFactory;
     protected $table = 'riwayat';
     protected $guarded = ['id'];
-    public $timestamps = false;
 }
