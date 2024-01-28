@@ -112,6 +112,7 @@
                   @else
                     <a href="/superadmin/wa/kirim/{{$item->id}}" class="btn btn-flat btn-sm btn-success" onclick="return confirm('Apkah ingin di kirim ulang?');"><i class="fa fa-whatsapp"></i> Kirim Ulang</a>
                   @endif
+                  <a href="/superadmin/wa/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
                   <a href="/superadmin/wa/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a>
                 </td>
               </tr>

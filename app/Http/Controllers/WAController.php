@@ -54,6 +54,15 @@ class WAController extends Controller
         $data = Whatsapp::find($id);
         return view('admin.wa.edit', compact('data'));
     }
+    public function update(Request $req, $id)
+    {
+        $data = Whatsapp::find($id);
+        $data->isi = $req->isi;
+        $data->kirim_ke = $req->kirim_ke;
+        $data->save();
+        Session::flash('success', 'Berhasil diupdate');
+        return redirect('/superadmin/wa');
+    }
     public function kirim($id)
     {
         $data       = Whatsapp::find($id);

@@ -70,38 +70,5 @@ crossorigin=""/>
 </div>
 @endsection
 @push('js')
-<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-crossorigin=""></script>
-<script>
-//   var map = L.map('map').setView([-3.327460, 114.588515], 14);
-//   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//     maxZoom: 24,
-//     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-// }).addTo(map);
 
-var latlng = {!!json_encode($latlong)!!}
-    
-    var map = L.map('map').setView(latlng, 14);
-    googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
-        maxZoom: 20,
-        subdomains:['mt0','mt1','mt2','mt3']
-    }).addTo(map);
-  
-    L.marker([latlng.lat,latlng.lng]).addTo(map);  
-
-    var theMarker = {};
-    
-    map.on('click', function(e) {
-        
-        document.getElementById("lat").value = e.latlng.lat;
-        document.getElementById("long").value = e.latlng.lng;
-        
-        if (theMarker != undefined) {
-            map.removeLayer(theMarker);
-        };
-        
-        theMarker = L.marker([e.latlng.lat,e.latlng.lng]).addTo(map);  
-    });
-</script>
 @endpush
