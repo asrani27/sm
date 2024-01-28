@@ -107,7 +107,11 @@
                   {{$item->kirim_ke}}
                 </td>
                 <td>
-                  <a href="/superadmin/wa/kirim/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Apkah ingin di kirim sekarang?');"><i class="fa fa-whatsapp"></i> Kirim Sekarang</a>
+                  @if($item->status == 0)
+                    <a href="/superadmin/wa/kirim/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Apkah ingin di kirim sekarang?');"><i class="fa fa-whatsapp"></i> Kirim Sekarang</a>
+                  @else
+                    <a href="/superadmin/wa/kirim/{{$item->id}}" class="btn btn-flat btn-sm btn-success" onclick="return confirm('Apkah ingin di kirim ulang?');"><i class="fa fa-whatsapp"></i> Kirim Ulang</a>
+                  @endif
                   <a href="/superadmin/wa/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a>
                 </td>
               </tr>
