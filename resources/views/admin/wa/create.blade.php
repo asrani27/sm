@@ -31,6 +31,7 @@
                         <label class="col-sm-2 control-label"></label>
                         <div class="col-sm-10">
                             Format Whatsapp :<br/>
+                            :th = emoji
                             \n = spasi<br/>
                             ~teks~ = coret<br/>
                             *teks* = tebal<br/>
