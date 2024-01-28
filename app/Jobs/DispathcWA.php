@@ -46,7 +46,7 @@ class DispathcWA implements ShouldQueue
                 'form_params' => [
                     'number' => $this->wa->nomor,
                     'video' => [
-                        "url" => 'https://sahabatmukhyar.com/storage/video/IJgxyQFfUJWhatsAppVideo2024-01-27at15.00.49.mp4',
+                        "url" => $path,
                     ],
                     "caption" => $message,
                 ]
