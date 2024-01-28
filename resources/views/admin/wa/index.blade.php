@@ -73,7 +73,8 @@
             <i class="ion ion-clipboard"></i><h3 class="box-title">Send Message</h3>
 
             <div class="box-tools">
-              <a href="/superadmin/wa/create" class="btn btn-flat btn-sm btn-primary"  data-toggle="modal" data-target="#modal-default"><i class="fa fa-whatsapp"></i> Send Message</a>
+              <a href="/superadmin/wa/add" class="btn btn-flat btn-sm btn-primary" ><i class="fa fa-plus"></i> Tambah </a>
+              <a href="/superadmin/wa/create" class="btn btn-flat btn-sm btn-primary"  data-toggle="modal" data-target="#modal-default"><i class="fa fa-`"></i> Send Message</a>
               <a href="http://103.178.83.200:8000/scan" target="_blank" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-qrcode"></i> SCAN DEVICE</a>
             </div>
           </div>
@@ -82,22 +83,35 @@
             <table class="table table-hover">
               <tbody><tr>
                 <th>No</th>
-                <th>Tanggal</th>
-                <th>Text</th>
+                <th>File</th>
                 <th>Message</th>
-                <th>Nomor Tujuan</th>
+                <th>Status</th>
+                <th>Kirim Ke</th>
                 
                 <th>Aksi</th>
               </tr>
-              {{-- @foreach ($data as $key => $item)
+              @foreach ($data as $key => $item)
               <tr>
                 <td>{{$data->firstItem() + $key}}</td>
-                <td>{{$item->nomor}}</td>
+                <td><a href="/storage/video/{{$item->file}}" target="_blank">{{$item->file}}</a></td>
+                <td>{!!$item->isi!!}</td>
+
                 <td>
-                  <a href="/superadmin/nomor/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a>
+                  @if($item->status == 0)
+                      <span class="badge btn-secondary"> Siap Di Kirim</span>
+                  @else
+                      Telah Dikirim
+                  @endif
+                </td>
+                <td>
+                  {{$item->kirim_ke}}
+                </td>
+                <td>
+                  <a href="/superadmin/wa/kirim/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Apkah ingin di kirim sekarang?');"><i class="fa fa-whatsapp"></i> Kirim Sekarang</a>
+                  <a href="/superadmin/wa/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a>
                 </td>
               </tr>
-              @endforeach --}}
+              @endforeach
             </tbody></table>
           </div>
           <!-- /.box-body -->

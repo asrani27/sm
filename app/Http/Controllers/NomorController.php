@@ -27,6 +27,7 @@ class NomorController extends Controller
         if ($check == null) {
             $n = new Nomor;
             $n->nomor = $req->nomor;
+            $n->jenis = $req->jenis;
             $n->save();
             Session::flash('success', 'Berhasil disimpan');
             return redirect('/superadmin/nomor');
@@ -44,6 +45,7 @@ class NomorController extends Controller
     {
         $n = Nomor::find($id);
         $n->nomor = $req->nomor;
+        $n->jenis = $req->jenis;
         $n->save();
         Session::flash('success', 'Berhasil diupdate');
         return redirect('/superadmin/nomor');

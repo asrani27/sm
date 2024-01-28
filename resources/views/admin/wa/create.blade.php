@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <a href="/superadmin/kecamatan" class="btn btn-flat btn-primary"><i class="fa fa-backward"></i> Kembali</a> <br /> <br />
+        <a href="/superadmin/wa" class="btn btn-flat btn-primary"><i class="fa fa-backward"></i> Kembali</a> <br /> <br />
     </div>
 </div>
 
@@ -15,16 +15,33 @@
         <div class="box box-primary">
             <div class="box-header">
                 <i class="ion ion-clipboard"></i>
-                <h3 class="box-title">Tambah Data</h3>
+                <h3 class="box-title">Tambah Data WA Blast</h3>
             </div>
             <!-- /.box-header -->
-            <form class="form-horizontal" method="post" action="/superadmin/kecamatan/create">
+            <form class="form-horizontal" method="post" action="/superadmin/wa/create" enctype="multipart/form-data">
                 @csrf
                 <div class="box-body">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Nama Kecamatan</label>
+                        <label class="col-sm-2 control-label">File</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="nama" required>
+                            <input type="file" class="form-control" name="file" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Caption</label>
+                        <div class="col-sm-10">
+                            <textarea name="isi" id="editor1" rows="4" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Kirim Ke</label>
+                        <div class="col-sm-10">
+                            <select name="kirim_ke" class="form-control">
+                                <option value="">-pilih-</option>
+                                <option value="MASYARAKAT">MASYARAKAT</option>
+                                <option value="ASN">ASN</option>
+                                <option value="NON ASN">NON ASN</option>
+                            </select>
                         </div>
                     </div>
                     
@@ -43,4 +60,17 @@
 @endsection
 @push('js')
 
+<!-- CK Editor -->
+<script src="/assets/bower_components/ckeditor/ckeditor.js"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="/assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script>
+  $(function () {
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('editor1')
+    //bootstrap WYSIHTML5 - text editor
+    $('.textarea').wysihtml5()
+  })
+</script>
 @endpush
