@@ -52,7 +52,7 @@ class DispathcWA implements ShouldQueue
                 ]
             ]);
 
-            sleep(2);
+            sleep(5);
             $r = new Riwayat;
             $r->whatsapp_id = $this->data->id;
             $r->telp = $this->wa->nomor;
