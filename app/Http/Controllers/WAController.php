@@ -59,6 +59,9 @@ class WAController extends Controller
             DispathcWA::dispatch($n, $data);
         }
         Session::flash('success', 'Berhasil dikirim');
+        $data->update([
+            'status' => 1,
+        ]);
         return back();
     }
 

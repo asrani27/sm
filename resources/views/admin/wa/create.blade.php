@@ -28,9 +28,19 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-10">
+                            Format Whatsapp :<br/>
+                            \n = spasi<br/>
+                            ~teks~ = coret<br/>
+                            *teks* = tebal<br/>
+                            _teks_ = miring
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-2 control-label">Caption</label>
                         <div class="col-sm-10">
-                            <textarea name="isi" id="editor1" rows="4" class="form-control"></textarea>
+                            <textarea name="isi" rows="7" class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="form-group">

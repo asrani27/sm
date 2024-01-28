@@ -74,7 +74,7 @@
 
             <div class="box-tools">
               <a href="/superadmin/wa/add" class="btn btn-flat btn-sm btn-primary" ><i class="fa fa-plus"></i> Tambah </a>
-              <a href="/superadmin/wa/create" class="btn btn-flat btn-sm btn-primary"  data-toggle="modal" data-target="#modal-default"><i class="fa fa-`"></i> Send Message</a>
+              {{-- <a href="/superadmin/wa/create" class="btn btn-flat btn-sm btn-primary"  data-toggle="modal" data-target="#modal-default"><i class="fa fa-`"></i> Send Message</a> --}}
               <a href="http://103.178.83.200:8000/scan" target="_blank" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-qrcode"></i> SCAN DEVICE</a>
             </div>
           </div>
