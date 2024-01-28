@@ -42,6 +42,8 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::post('superadmin/nomor/upload', [NomorController::class, 'upload']);
     Route::get('superadmin/wa', [WAController::class, 'index']);
     Route::post('superadmin/wa/send-message', [WAController::class, 'sendMessage']);
+    Route::get('superadmin/wa/edit/{id}', [WAController::class, 'edit']);
+    Route::post('superadmin/wa/edit/{id}', [WAController::class, 'update']);
     Route::get('superadmin/wa/add', [WAController::class, 'create']);
     Route::get('superadmin/wa/kirim/{id}', [WAController::class, 'kirim']);
     Route::post('superadmin/wa/create', [WAController::class, 'store']);

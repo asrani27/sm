@@ -49,7 +49,11 @@ class WAController extends Controller
         Session::flash('success', 'Berhasil disimpan');
         return redirect('/superadmin/wa');
     }
-
+    public function edit($id)
+    {
+        $data = Whatsapp::find($id);
+        return view('admin.wa.edit', compact('data'));
+    }
     public function kirim($id)
     {
         $data       = Whatsapp::find($id);
