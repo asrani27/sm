@@ -40,21 +40,30 @@ class DispathcWA implements ShouldQueue
         $message    = $this->data->isi;
         $api_url    = 'http://103.178.83.200:8000/send-message';
         $client     = new Client();
-        //dd($this->wa->nomor, $path, $message);
-        $response = $client->request("POST", $api_url, [
-            'form_params' => [
-                'number' => $this->wa->nomor,
-                'video' => [
-                    "url" => $path,
-                ],
-                "caption" => $message,
-            ]
-        ]);
-        $code = $response->getStatusCode();
-        sleep(2);
-        $r = new Riwayat;
-        $r->whatsapp_id = $this->data->id;
-        $r->telp = $this->wa->nomor;
-        $r->save();
+
+        try {
+            $response = $client->request("POST", $api_url, [
+                'form_params' => [
+                    'number' => $this->wa->nomor,
+                    'video' => [
+                        "url" => 'https://sahabatmukhyar.com/storage/video/IJgxyQFfUJWhatsAppVideo2024-01-27at15.00.49.mp4',
+                    ],
+                    "caption" => $message,
+                ]
+            ]);
+
+            sleep(2);
+            $r = new Riwayat;
+            $r->whatsapp_id = $this->data->id;
+            $r->telp = $this->wa->nomor;
+            $r->status = 'success';
+            $r->save();
+        } catch (\Exception $e) {
+            $r = new Riwayat;
+            $r->whatsapp_id = $this->data->id;
+            $r->telp = $this->wa->nomor;
+            $r->status = 'failed';
+            $r->save();
+        }
     }
 }
