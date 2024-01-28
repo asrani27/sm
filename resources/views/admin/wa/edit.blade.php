@@ -11,7 +11,7 @@ crossorigin=""/>
 
 <div class="row">
     <div class="col-md-12">
-        <a href="/superadmin/kecamatan" class="btn btn-flat btn-primary"><i class="fa fa-backward"></i> Kembali</a> <br /><br />
+        <a href="/superadmin/wa" class="btn btn-flat btn-primary"><i class="fa fa-backward"></i> Kembali</a> <br /><br />
     </div>
 </div>
 
@@ -23,26 +23,38 @@ crossorigin=""/>
                 <h3 class="box-title">Edit Data</h3>
             </div>
             <!-- /.box-header -->
-            <form class="form-horizontal" method="post" action="/superadmin/kecamatan/edit/{{$data->id}}">
+            <form class="form-horizontal" method="post" action="/superadmin/wa/edit/{{$data->id}}">
                 @csrf
                 <div class="box-body">
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Nama</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="nama" value="{{$data->nama}}"  required>
-                        </div>
-                    </div>
                     
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Lokasi</label>
+                        <label class="col-sm-2 control-label"></label>
                         <div class="col-sm-10">
-
-                            <div id="map"></div>
-                            <input type="text" class="form-control" name="lat" value="{{$data->lat}}" id="lat" readonly>
-                            <input type="text" class="form-control" name="long" value="{{$data->long}}" id="long" readonly>
+                            Format Whatsapp :<br/>
+                            :th = emoji
+                            \n = spasi<br/>
+                            ~teks~ = coret<br/>
+                            *teks* = tebal<br/>
+                            _teks_ = miring
                         </div>
                     </div>
-                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Caption</label>
+                        <div class="col-sm-10">
+                            <textarea name="isi" rows="7" class="form-control">{{$data->isi}}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Kirim Ke</label>
+                        <div class="col-sm-10">
+                            <select name="kirim_ke" class="form-control">
+                                <option value="">-pilih-</option>
+                                <option value="MASYARAKAT" {{$data->kirim_ke == "MASYARAKAT" ? 'selected':''}}>MASYARAKAT</option>
+                                <option value="ASN" {{$data->kirim_ke == "ASN" ? 'selected':''}}>ASN</option>
+                                <option value="NON ASN" {{$data->kirim_ke == "NON ASN" ? 'selected':''}}>NON ASN</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
