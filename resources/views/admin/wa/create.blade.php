@@ -52,6 +52,7 @@
                                 <option value="MASYARAKAT">MASYARAKAT</option>
                                 <option value="ASN">ASN</option>
                                 <option value="NON ASN">NON ASN</option>
+                                <option value="BJM UTARA">BJM UTARA</option>
                             </select>
                         </div>
                     </div>
