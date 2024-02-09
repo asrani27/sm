@@ -97,7 +97,7 @@
                 <td>{!!$item->isi!!}</td>
 
                 <td>
-                  @if($item->status == true)
+                  @if($item->status == false)
                       sedang mengirim..
                       <a href="/superadmin/wa/stop/{{$item->id}}" class="btn btn-flat btn-sm btn-danger"> Stop</a>
                   @else
