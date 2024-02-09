@@ -74,7 +74,7 @@
 
             <div class="box-tools">
               <a href="/superadmin/wa/add" class="btn btn-flat btn-sm btn-primary" ><i class="fa fa-plus"></i> Tambah </a>
-              {{-- <a href="/superadmin/wa/create" class="btn btn-flat btn-sm btn-primary"  data-toggle="modal" data-target="#modal-default"><i class="fa fa-`"></i> Send Message</a> --}}
+              <a href="/superadmin/wa/create" class="btn btn-flat btn-sm btn-primary"  data-toggle="modal" data-target="#modal-default"><i class="fa fa-`"></i> Send Message</a>
               <a href="http://103.178.83.200:8000/scan" target="_blank" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-qrcode"></i> SCAN DEVICE</a>
             </div>
           </div>
@@ -107,11 +107,7 @@
                   {{$item->kirim_ke}}
                 </td>
                 <td>
-                  @if($item->status == 0)
-                    <a href="/superadmin/wa/kirim/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Apkah ingin di kirim sekarang?');"><i class="fa fa-whatsapp"></i> Kirim Sekarang</a>
-                  @else
-                    <a href="/superadmin/wa/kirim/{{$item->id}}" class="btn btn-flat btn-sm btn-success" onclick="return confirm('Apkah ingin di kirim ulang?');"><i class="fa fa-whatsapp"></i> Kirim Ulang</a>
-                  @endif
+                    <a href="/superadmin/wa/status/{{$item->id}}" class="btn btn-flat btn-sm btn-success"><i class="fa fa-whatsapp"></i> Detail Status</a>
                   <a href="/superadmin/wa/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
                   <a href="/superadmin/wa/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a>
                 </td>
