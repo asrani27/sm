@@ -81,12 +81,6 @@ class NomorController extends Controller
             array_push($nomor, '+62' . substr(str_replace('-', '', $i[1]), 1));
             array_push($jenis, $i[2]);
         }
-
-        $data->map(function ($item) {
-            $item->nomor = '+62' . substr($item->nomor, 1);
-            $item->save();
-            return $item;
-        });
         //simpan
         //dd($nomor, $jenis);
         foreach ($nomor as $key => $s) {
