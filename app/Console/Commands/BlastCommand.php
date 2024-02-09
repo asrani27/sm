@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use GuzzleHttp\Client;
 use App\Models\Riwayat;
 use Illuminate\Console\Command;
 
@@ -40,7 +41,20 @@ class BlastCommand extends Command
     {
         $riwayat = Riwayat::where('status', null)->first();
         $nomor = $riwayat->telp;
-        $file = $riwayat->whatsapp->file;
-        dd($nomor, $file);
+        $filename = $riwayat->whatsapp->file;
+        $isi = $riwayat->whatsapp->isi;
+        $path = 'https://sahabatmukhyar.com/storage/video/' . $filename;
+
+        $client = new Client();
+        dd($nomor, $file, $isi);
+        $response = $client->request("POST", $api_url, [
+            'form_params' => [
+                'number' => $nomor,
+                'video' => [
+                    "url" => $path,
+                ],
+                "caption" => $isi,
+            ]
+        ]);
     }
 }
