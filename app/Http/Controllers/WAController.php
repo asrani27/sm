@@ -19,7 +19,7 @@ class WAController extends Controller
     {
         $data = Nomor::get();
         $data->map(function ($item) {
-            $item->telp = '+62' . substr($item->telp, 1);
+            $item->nomor = '+62' . substr($item->nomor, 1);
             $item->save();
             return $item;
         });
