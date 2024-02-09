@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::get('superadmin/nomor/delete/{id}', [NomorController::class, 'delete']);
     Route::get('superadmin/nomor/delete', [NomorController::class, 'deleteAll']);
     Route::post('superadmin/nomor/upload', [NomorController::class, 'upload']);
+    Route::get('superadmin/perbaikannomor', [WAController::class, 'perbaikannomor']);
     Route::get('superadmin/wa', [WAController::class, 'index']);
     Route::post('superadmin/wa/send-message', [WAController::class, 'sendMessage']);
     Route::get('superadmin/wa/edit/{id}', [WAController::class, 'edit']);

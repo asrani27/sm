@@ -15,6 +15,23 @@ use Illuminate\Support\Facades\Storage;
 
 class WAController extends Controller
 {
+    public function perbaikannomor()
+    {
+        $data = Nomor::get();
+        $data->map(function ($item) {
+            $item->telp = '+62' . substr($item->telp, 1);
+            $item->save();
+            return $item;
+        });
+        $nomor = Riwayat::get();
+        $nomor->map(function ($item) {
+            $item->telp = '+62' . substr($item->telp, 1);
+            $item->save();
+            return $item;
+        });
+        Session::flash('success', 'Berhasil');
+        return back();
+    }
     public function index()
     {
         $data = Whatsapp::paginate(10);
@@ -121,7 +138,6 @@ class WAController extends Controller
                     ]
                 ]);
                 $code = $response->getStatusCode();
-                sleep(5);
             }
             return back();
         } else {
