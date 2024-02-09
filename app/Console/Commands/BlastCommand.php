@@ -70,6 +70,7 @@ class BlastCommand extends Command
             $riwayat->update([
                 'status' => 'failed',
                 'pengirim' => $ip,
+                'ket' => $e->getMessage(),
             ]);
         }
     }
