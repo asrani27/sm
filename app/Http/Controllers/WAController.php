@@ -54,6 +54,17 @@ class WAController extends Controller
         Session::flash('success', 'Berhasil dihapus');
         return back();
     }
+    public function stop($id)
+    {
+        $data = Riwayat::where('whatsapp_id', $id)->where('status', null)->get();
+        $data->map(function ($item) {
+            $item->status = 'stop';
+            $item->save();
+            return $item;
+        });
+        Session::flash('success', 'Berhasil distop');
+        return back();
+    }
     public function create()
     {
         return view('admin.wa.create');
