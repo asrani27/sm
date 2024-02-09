@@ -78,6 +78,13 @@ class WAController extends Controller
         return back();
     }
 
+    public function status($id)
+    {
+        $data       = Whatsapp::find($id)->riwayat;
+        dd($data);
+        return view('admin.wa.detail', compact('data'));
+    }
+
     public function sendMessage(Request $req)
     {
         $nomor = Nomor::get();
