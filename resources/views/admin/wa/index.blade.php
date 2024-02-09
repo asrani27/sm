@@ -92,7 +92,7 @@
               </tr>
               @foreach ($data as $key => $item)
               <tr>
-                <td>{{$data->firstItem() + $key}}</td>
+                <td>{{$key + 1}}</td>
                 <td><a href="/storage/video/{{$item->file}}" target="_blank">{{$item->file}}</a></td>
                 <td>{!!$item->isi!!}</td>
 
@@ -118,7 +118,7 @@
           </div>
           <!-- /.box-body -->
         </div>
-        {{$data->links()}}
+        {{-- {{$data->links()}} --}}
         <!-- /.box -->
       </div>
 </div>
