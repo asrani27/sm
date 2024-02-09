@@ -34,7 +34,16 @@ class WAController extends Controller
     }
     public function index()
     {
-        $data = Whatsapp::paginate(10);
+        $data = Whatsapp::get()->map(function ($item) {
+            $check = Riwayat::where('whatsapp_id', $item->id)->where('status', null)->first();
+            if ($check == null) {
+                $item->status = true;
+            } else {
+                $item->status = false;
+            }
+            return $item;
+        });
+
         $kontak = Nomor::count();
         return view('admin.wa.index', compact('data', 'kontak'));
     }

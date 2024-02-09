@@ -96,13 +96,14 @@
                 <td><a href="/storage/video/{{$item->file}}" target="_blank">{{$item->file}}</a></td>
                 <td>{!!$item->isi!!}</td>
 
-                {{-- <td>
-                  @if($item->status == 0)
-                      <span class="badge btn-secondary"> Siap Di Kirim</span>
+                <td>
+                  @if($item->status == true)
+                      sedang mengirim..
+                      <a href="/superadmin/wa/stop/{{$item->id}}" class="btn btn-flat btn-sm btn-danger"> Stop</a>
                   @else
-                      Telah Dikirim
+                      Selesai
                   @endif
-                </td> --}}
+                </td>
                 <td>
                   {{$item->kirim_ke}}
                 </td>
