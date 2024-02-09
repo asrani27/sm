@@ -6,6 +6,7 @@
 
 <div class="row">
     <div class="col-md-12">
+      <a href="/superadmin/wa" class="btn btn-flat btn-sm btn-primary" ><i class="fa fa-arrow-left"></i> Kembali </a><br/><br/>
         <div class="box box-primary">
           <div class="box-header">
             <i class="ion ion-clipboard"></i><h3 class="box-title">Detail Status Pengiriman WA</h3>
@@ -20,7 +21,7 @@
               </tr>
               @foreach ($data as $key => $item)
               <tr>
-                <td>{{$data->firstItem() + $key}}</td>
+                <td>{{$key + 1}}</td>
                 <td>{{$item->telp}}</td>
                 <td>{{$item->status == null ? 'progress' : $item->status}}</td>
               </tr>

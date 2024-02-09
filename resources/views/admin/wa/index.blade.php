@@ -85,7 +85,7 @@
                 <th>No</th>
                 <th>File</th>
                 <th>Message</th>
-                <th>Status</th>
+                {{-- <th>Status</th> --}}
                 <th>Kirim Ke</th>
                 
                 <th>Aksi</th>
@@ -96,13 +96,13 @@
                 <td><a href="/storage/video/{{$item->file}}" target="_blank">{{$item->file}}</a></td>
                 <td>{!!$item->isi!!}</td>
 
-                <td>
+                {{-- <td>
                   @if($item->status == 0)
                       <span class="badge btn-secondary"> Siap Di Kirim</span>
                   @else
                       Telah Dikirim
                   @endif
-                </td>
+                </td> --}}
                 <td>
                   {{$item->kirim_ke}}
                 </td>

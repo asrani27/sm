@@ -23,6 +23,7 @@ class WAController extends Controller
     }
     public function delete($id)
     {
+        Whatsapp::find($id)->riwayat->map->delete();
         Whatsapp::find($id)->delete();
         Session::flash('success', 'Berhasil dihapus');
         return back();
@@ -45,6 +46,20 @@ class WAController extends Controller
         $s->file = $file_name;
         $s->kirim_ke = $req->kirim_ke;
         $s->save();
+
+
+        $nomor      = Nomor::where('jenis', $req->kirim_ke)->get();
+        foreach ($nomor as $key => $item) {
+
+            $check = Riwayat::where('whatsapp_id', $s->id)->where('telp', $item->nomor)->first();
+            if ($check == null) {
+                $r = new Riwayat();
+                $r->telp = $item->nomor;
+                $r->whatsapp_id = $s->id;
+                $r->save();
+            } else {
+            }
+        }
 
         Session::flash('success', 'Berhasil disimpan');
         return redirect('/superadmin/wa');
@@ -81,7 +96,7 @@ class WAController extends Controller
     public function status($id)
     {
         $data       = Whatsapp::find($id)->riwayat;
-        dd($data);
+
         return view('admin.wa.detail', compact('data'));
     }
 
