@@ -40,6 +40,7 @@ crossorigin=""/>
                                 <option value="MASYARAKAT" {{$data->jenis == "MASYARAKAT" ? 'selected':''}}>MASYARAKAT</option>
                                 <option value="ASN" {{$data->jenis == "ASN" ? 'selected':''}}>ASN</option>
                                 <option value="NON ASN" {{$data->jenis == "NON ASN" ? 'selected':''}}>NON ASN</option>
+                                <option value="BJM UTARA" {{$data->jenis == "BJM UTARA" ? 'selected':''}}>BJM UTARA</option>
                             </select>
                         </div>
                     </div>
