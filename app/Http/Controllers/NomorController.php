@@ -78,9 +78,10 @@ class NomorController extends Controller
         $jenis = [];
 
         foreach ($data as $i) {
-            array_push($nomor, '+62' . substr(str_replace('-', '', $i[1]), 1));
+            array_push($nomor, str_replace('-', '', $i[1]));
             array_push($jenis, $i[2]);
         }
+
         //simpan
         //dd($nomor, $jenis);
         foreach ($nomor as $key => $s) {
