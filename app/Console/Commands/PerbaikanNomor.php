@@ -41,6 +41,7 @@ class PerbaikanNomor extends Command
     {
         $data = Nomor::get();
         $data->map(function ($item) {
+            dd($item->nomor);
             $item->nomor = '+62' . substr($item->nomor, 1);
             $item->save();
             return $item;
