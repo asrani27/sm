@@ -46,7 +46,7 @@ class BlastCommand extends Command
         $path = 'https://sahabatmukhyar.com/storage/video/' . $filename;
 
         $client = new Client();
-        dd($nomor, $file, $isi);
+        dd($nomor, $filename, $isi);
         $response = $client->request("POST", $api_url, [
             'form_params' => [
                 'number' => $nomor,
