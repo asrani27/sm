@@ -141,7 +141,7 @@ class WAController extends Controller
     {
         $nomor = Nomor::get();
         $file      = $req->file('file');
-        $api_url   = 'http://103.178.83.200:8000/send-message';
+        $api_url   = 'http://103.178.83.190:8000/send-message';
         if ($file == null) {
             foreach ($nomor as $n) {
                 $client = new Client();

@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('wablast')->cron('1,11,22,33,44,55 * * * *');
+        $schedule->command('sendhimbauan')->cron('0,10,20,30,40,50 * * * *');
     }
 
     /**
