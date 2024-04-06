@@ -236,11 +236,13 @@ class AdminController extends Controller
     }
     public function rt_store(Request $req)
     {
-        $check = RT::where('nama', $req->nama)->where('kelurahan_id', $req->kelurahan_id)->first();
+        $check = RT::where('kelurahan_id', $req->kelurahan_id)->where('nomor', (int)$req->nomor)->first();
         if ($check == null) {
             $n = new RT();
             $n->kelurahan_id = $req->kelurahan_id;
             $n->nama = $req->nama;
+            $n->nomor = $req->nomor;
+            $n->telp = $req->telp;
             $n->save();
 
             Session::flash('success', 'Berhasil Disimpan');
@@ -254,8 +256,9 @@ class AdminController extends Controller
     {
         $data = RT::find($id);
         $data->kelurahan_id = $req->kelurahan_id;
-
         $data->nama = $req->nama;
+        $data->nomor = $req->nomor;
+        $data->telp = $req->telp;
         $data->save();
         Session::flash('success', 'Berhasil Diupdate');
         return redirect('/superadmin/rt');
@@ -361,47 +364,6 @@ class AdminController extends Controller
         return redirect('/superadmin/koordinatortps');
     }
 
-    public function rt()
-    {
-        $data = RT::orderBy('id', 'DESC')->paginate(15);
-        return view('admin.rt.index', compact('data'));
-    }
-    public function rt_create()
-    {
-        $kel = Kelurahan::get();
-        return view('admin.rt.create', compact('kel'));
-    }
-    public function rt_edit($id)
-    {
-        $data = RT::find($id);
-        $kel = Kelurahan::get();
-        return view('admin.rt.edit', compact('data', 'kel'));
-    }
-    public function rt_delete($id)
-    {
-        $data = RT::find($id)->delete();
-        Session::flash('success', 'Berhasil Dihapus');
-        return back();
-    }
-    public function rt_store(Request $req)
-    {
-        $check = RT::where('kelurahan_id', $req->kelurahan_id)->where('tps', $req->tps)->first();
-        if ($check == null) {
-            RT::create($req->all());
-            Session::flash('success', 'Berhasil Disimpan');
-            return redirect('/superadmin/rt');
-        } else {
-            Session::flash('info', 'nomor tps di kelurahan ini sudah di input');
-            return back();
-        }
-    }
-
-    public function rt_update(Request $req, $id)
-    {
-        RT::find($id)->update($req->all());
-        Session::flash('success', 'Berhasil Diupdate');
-        return redirect('/superadmin/rt');
-    }
 
 
     public function laporan()

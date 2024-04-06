@@ -139,12 +139,12 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::get('superadmin/koordinatortps/delete/{id}', [AdminController::class, 'koordinatortps_delete']);
 
 
-    Route::get('superadmin/rt', [AdminController::class, 'rt']);
-    Route::get('superadmin/rt/create', [AdminController::class, 'rt_create']);
-    Route::post('superadmin/rt/create', [AdminController::class, 'rt_store']);
-    Route::get('superadmin/rt/edit/{id}', [AdminController::class, 'rt_edit']);
-    Route::post('superadmin/rt/edit/{id}', [AdminController::class, 'rt_update']);
-    Route::get('superadmin/rt/delete/{id}', [AdminController::class, 'rt_delete']);
+    Route::get('superadmin/ketuart', [AdminController::class, 'rt']);
+    Route::get('superadmin/ketuart/create', [AdminController::class, 'rt_create']);
+    Route::post('superadmin/ketuart/create', [AdminController::class, 'rt_store']);
+    Route::get('superadmin/ketuart/edit/{id}', [AdminController::class, 'rt_edit']);
+    Route::post('superadmin/ketuart/edit/{id}', [AdminController::class, 'rt_update']);
+    Route::get('superadmin/ketuart/delete/{id}', [AdminController::class, 'rt_delete']);
 
     Route::get('superadmin/laporan', [AdminController::class, 'laporan']);
     Route::get('laporan/petugas', [AdminController::class, 'lap_petugas']);

@@ -1,13 +1,12 @@
 @extends('layouts.app')
 @push('css')
 
-<link rel="stylesheet" href="/assets/bower_components/select2/dist/css/select2.min.css">
 @endpush
 @section('content')
 
 <div class="row">
     <div class="col-md-12">
-        <a href="/superadmin/rt" class="btn btn-flat btn-primary"><i class="fa fa-backward"></i> Kembali</a> <br /><br />
+        <a href="/superadmin/ketuart" class="btn btn-flat btn-primary"><i class="fa fa-backward"></i> Kembali</a> <br /><br />
     </div>
 </div>
 
@@ -19,7 +18,7 @@
                 <h3 class="box-title">Edit Data</h3>
             </div>
             <!-- /.box-header -->
-            <form class="form-horizontal" method="post" action="/superadmin/rt/edit/{{$data->id}}">
+            <form class="form-horizontal" method="post" action="/superadmin/ketuart/edit/{{$data->id}}">
                 @csrf
                 <div class="box-body">
                     <div class="form-group">
@@ -27,18 +26,32 @@
                         <div class="col-sm-10">
                             <select class="form-control select2" name="kelurahan_id" required>
                                 <option value="">-pilih-</option>
-                                @foreach ($kel as $item)
-                                    <option value="{{$item->id}}" {{$data->kelurahan_id == $item->id ? 'selected':''}}>{{$item->nama}} {{$item->kecamatan->nama}}</option>
+                                @foreach ($kec as $item)
+                                    <option value="{{$item->id}}" {{$data->kelurahan_id == $item->id ? 'selected':''}}>{{$item->nama}}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Nama</label>
+                        <label class="col-sm-2 control-label">Nomor RT</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="nama" value="{{$data->nama}}"  required>
+                            <input type="text" class="form-control" name="nomor" value="{{$data->nomor}}"  required>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Nama Ketua RT</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="nama" value="{{$data->nama}}" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Telp</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="telp" value="{{$data->telp}}">
+                        </div>
+                    </div>
+                    
                     
                     
                 </div>
@@ -56,11 +69,5 @@
 </div>
 @endsection
 @push('js')
-<script src="/assets/bower_components/select2/dist/js/select2.full.min.js"></script>
-<script>
-    $(function () {
-    //Initialize Select2 Elements
-    $('.select2').select2()
-    });
-</script>
+
 @endpush
