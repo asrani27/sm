@@ -16,6 +16,7 @@ use App\Models\Kategori;
 use App\Models\Penyedia;
 use App\Models\Kecamatan;
 use App\Models\Kelurahan;
+use App\Models\KoordinatorTPS;
 use App\Models\Registrasi;
 use App\Models\Pemeriksaan;
 use Illuminate\Http\Request;
@@ -318,283 +319,90 @@ class AdminController extends Controller
         return redirect('/superadmin/sm');
     }
 
-    public function petugas()
+    public function koordinatortps()
     {
-        $data = Petugas::orderBy('id', 'DESC')->paginate(15);
-        return view('admin.petugas.index', compact('data'));
+        $data = KoordinatorTPS::orderBy('id', 'DESC')->paginate(15);
+        return view('admin.koordinatortps.index', compact('data'));
     }
-    public function petugas_create()
+    public function koordinatortps_create()
     {
-        return view('admin.petugas.create');
+        $kel = Kelurahan::get();
+        return view('admin.koordinatortps.create', compact('kel'));
     }
-    public function petugas_edit($id)
+    public function koordinatortps_edit($id)
     {
-        $data = Petugas::find($id);
-        return view('admin.petugas.edit', compact('data'));
+        $data = KoordinatorTPS::find($id);
+        $kel = Kelurahan::get();
+        return view('admin.koordinatortps.edit', compact('data', 'kel'));
     }
-    public function petugas_delete($id)
+    public function koordinatortps_delete($id)
     {
-        $data = Petugas::find($id)->delete();
+        $data = KoordinatorTPS::find($id)->delete();
         Session::flash('success', 'Berhasil Dihapus');
         return back();
     }
-    public function petugas_store(Request $req)
+    public function koordinatortps_store(Request $req)
     {
-        Petugas::create($req->all());
-        Session::flash('success', 'Berhasil Disimpan');
-        return redirect('/superadmin/petugas');
-    }
-    public function petugas_update(Request $req, $id)
-    {
-        Petugas::find($id)->update($req->all());
-        Session::flash('success', 'Berhasil Diupdate');
-        return redirect('/superadmin/petugas');
+        $check = KoordinatorTPS::where('kelurahan_id', $req->kelurahan_id)->where('tps', $req->tps)->first();
+        if ($check == null) {
+            KoordinatorTPS::create($req->all());
+            Session::flash('success', 'Berhasil Disimpan');
+            return redirect('/superadmin/koordinatortps');
+        } else {
+            Session::flash('info', 'nomor tps di kelurahan ini sudah di input');
+            return back();
+        }
     }
 
-    public function surat()
+    public function koordinatortps_update(Request $req, $id)
     {
-        $data = Surat::orderBy('id', 'DESC')->paginate(15);
-        return view('admin.surat.index', compact('data'));
+        KoordinatorTPS::find($id)->update($req->all());
+        Session::flash('success', 'Berhasil Diupdate');
+        return redirect('/superadmin/koordinatortps');
     }
-    public function surat_create()
+
+    public function rt()
     {
-        $pemeriksaan = Pemeriksaan::get();
-        return view('admin.surat.create', compact('pemeriksaan'));
+        $data = RT::orderBy('id', 'DESC')->paginate(15);
+        return view('admin.rt.index', compact('data'));
     }
-    public function surat_edit($id)
+    public function rt_create()
     {
-        $data = Surat::find($id);
-        $pemeriksaan = Pemeriksaan::get();
-        return view('admin.surat.edit', compact('data', 'pemeriksaan'));
+        $kel = Kelurahan::get();
+        return view('admin.rt.create', compact('kel'));
     }
-    public function surat_delete($id)
+    public function rt_edit($id)
     {
-        $data = Surat::find($id)->delete();
+        $data = RT::find($id);
+        $kel = Kelurahan::get();
+        return view('admin.rt.edit', compact('data', 'kel'));
+    }
+    public function rt_delete($id)
+    {
+        $data = RT::find($id)->delete();
         Session::flash('success', 'Berhasil Dihapus');
         return back();
     }
-    public function surat_store(Request $req)
+    public function rt_store(Request $req)
     {
-        Surat::create($req->all());
-        Session::flash('success', 'Berhasil Disimpan');
-        return redirect('/superadmin/surat');
+        $check = RT::where('kelurahan_id', $req->kelurahan_id)->where('tps', $req->tps)->first();
+        if ($check == null) {
+            RT::create($req->all());
+            Session::flash('success', 'Berhasil Disimpan');
+            return redirect('/superadmin/rt');
+        } else {
+            Session::flash('info', 'nomor tps di kelurahan ini sudah di input');
+            return back();
+        }
     }
-    public function surat_update(Request $req, $id)
+
+    public function rt_update(Request $req, $id)
     {
-        Surat::find($id)->update($req->all());
+        RT::find($id)->update($req->all());
         Session::flash('success', 'Berhasil Diupdate');
-        return redirect('/superadmin/surat');
+        return redirect('/superadmin/rt');
     }
 
-
-    public function pemeriksaan()
-    {
-        $data = Pemeriksaan::orderBy('id', 'DESC')->paginate(15);
-        return view('admin.pemeriksaan.index', compact('data'));
-    }
-    public function pemeriksaan_create()
-    {
-        $data = Registrasi::paginate(15);
-        return view('admin.pemeriksaan.create', compact('data'));
-    }
-
-    public function pemeriksaan_create2($id)
-    {
-
-        if (Pemeriksaan::count() == 0) {
-            $no_pem = 1;
-        } else {
-            $no_pem = Pemeriksaan::latest()->first()->id + 1;
-        }
-
-        $petugas = Petugas::get();
-        $registrasi = Registrasi::find($id);
-        return view('admin.pemeriksaan.create2', compact('registrasi', 'no_pem', 'petugas'));
-    }
-    public function pemeriksaan_edit($id)
-    {
-        $data = Pemeriksaan::find($id);
-        $petugas = Petugas::get();
-        return view('admin.pemeriksaan.edit', compact('data', 'petugas'));
-    }
-    public function pemeriksaan_delete($id)
-    {
-        $data = Pemeriksaan::find($id)->delete();
-        Session::flash('success', 'Berhasil Dihapus');
-        return back();
-    }
-    public function pemeriksaan_store(Request $req)
-    {
-        //dd($req->all());
-        if ($req->uji_peralatan == 'LULUS') {
-            $uji1 = 1;
-        } else {
-            $uji1 = 0;
-        }
-
-        if ($req->uji_penerangan == 'LULUS') {
-            $uji2 = 1;
-        } else {
-            $uji2 = 0;
-        }
-
-        if ($req->uji_kemudi == 'LULUS') {
-            $uji3 = 1;
-        } else {
-            $uji3 = 0;
-        }
-
-        if ($req->uji_chasis == 'LULUS') {
-            $uji4 = 1;
-        } else {
-            $uji4 = 0;
-        }
-
-        if ($req->uji_rangka == 'LULUS') {
-            $uji5 = 1;
-        } else {
-            $uji5 = 0;
-        }
-
-        if ($req->uji_rem == 'LULUS') {
-            $uji6 = 1;
-        } else {
-            $uji6 = 0;
-        }
-
-        if ($req->uji_mesin == 'LULUS') {
-            $uji7 = 1;
-        } else {
-            $uji7 = 0;
-        }
-
-        $hasiluji = $uji1 + $uji2 + $uji3 + $uji4 + $uji5 + $uji6 + $uji7;
-        if ($hasiluji > 3) {
-            $hasil = 'LULUS';
-        } else {
-            $hasil = "TIDAK LULUS";
-        }
-        $param = $req->all();
-        $param['hasil'] = $hasil;
-        $param['registrasi_id'] = Registrasi::where('nomor_reg', $req->registrasi_id)->first()->id;
-        //dd($req->all(), $param);
-
-        Pemeriksaan::create($param);
-        Session::flash('success', 'Berhasil Disimpan');
-        return redirect('/superadmin/pemeriksaan');
-    }
-    public function pemeriksaan_update(Request $req, $id)
-    {
-        if ($req->uji_peralatan == 'LULUS') {
-            $uji1 = 1;
-        } else {
-            $uji1 = 0;
-        }
-
-        if ($req->uji_penerangan == 'LULUS') {
-            $uji2 = 1;
-        } else {
-            $uji2 = 0;
-        }
-
-        if ($req->uji_kemudi == 'LULUS') {
-            $uji3 = 1;
-        } else {
-            $uji3 = 0;
-        }
-
-        if ($req->uji_chasis == 'LULUS') {
-            $uji4 = 1;
-        } else {
-            $uji4 = 0;
-        }
-
-        if ($req->uji_rangka == 'LULUS') {
-            $uji5 = 1;
-        } else {
-            $uji5 = 0;
-        }
-
-        if ($req->uji_rem == 'LULUS') {
-            $uji6 = 1;
-        } else {
-            $uji6 = 0;
-        }
-
-        if ($req->uji_mesin == 'LULUS') {
-            $uji7 = 1;
-        } else {
-            $uji7 = 0;
-        }
-
-        $hasiluji = $uji1 + $uji2 + $uji3 + $uji4 + $uji5 + $uji6 + $uji7;
-        if ($hasiluji > 3) {
-            $hasil = 'LULUS';
-        } else {
-            $hasil = "TIDAK LULUS";
-        }
-
-        $u = Pemeriksaan::find($id);
-        $u->uji_peralatan = $req->uji_peralatan;
-        $u->uji_penerangan = $req->uji_penerangan;
-        $u->uji_kemudi = $req->uji_kemudi;
-        $u->uji_chasis = $req->uji_chasis;
-        $u->uji_rangka = $req->uji_rangka;
-        $u->uji_rem = $req->uji_rem;
-        $u->uji_mesin = $req->uji_mesin;
-        $u->hasil = $hasil;
-        $u->save();
-        Session::flash('success', 'Berhasil Diupdate');
-        return redirect('/superadmin/pemeriksaan');
-    }
-
-    public function registrasi()
-    {
-        $data = Registrasi::orderBy('id', 'DESC')->paginate(15);
-        return view('admin.registrasi.index', compact('data'));
-    }
-    public function registrasi_create()
-    {
-        $jenis = Kategori::get();
-
-        if (Registrasi::count() == 0) {
-            $no_reg = 1;
-        } else {
-            $no_reg = Registrasi::latest()->first()->id + 1;
-        }
-
-        return view('admin.registrasi.create', compact('jenis', 'no_reg'));
-    }
-    public function registrasi_edit($id)
-    {
-        $jenis = Kategori::get();
-
-        $data = Registrasi::find($id);
-        return view('admin.registrasi.edit', compact('jenis', 'data'));
-    }
-    public function registrasi_delete($id)
-    {
-        $data = Registrasi::find($id)->delete();
-        Session::flash('success', 'Berhasil Dihapus');
-        return back();
-    }
-    public function registrasi_store(Request $req)
-    {
-        $param = $req->all();
-        Registrasi::create($param);
-        Session::flash('success', 'Berhasil Disimpan');
-        return redirect('/superadmin/registrasi');
-    }
-    public function registrasi_update(Request $req, $id)
-    {
-
-        $data = Registrasi::find($id);
-
-        $param = $req->all();
-        $data->update($param);
-        Session::flash('success', 'Berhasil Diupdate');
-        return redirect('/superadmin/registrasi');
-    }
 
     public function laporan()
     {

@@ -11,4 +11,8 @@ class KoordinatorTPS extends Model
     protected $table = 'koordinator_tps';
     protected $guarded = ['id'];
     public $timestamps = false;
+    public function kelurahan()
+    {
+        return $this->belongsTo(Kelurahan::class, 'kelurahan_id');
+    }
 }

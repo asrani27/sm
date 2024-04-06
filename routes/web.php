@@ -131,6 +131,21 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::post('superadmin/registrasi/edit/{id}', [AdminController::class, 'registrasi_update']);
     Route::get('superadmin/registrasi/delete/{id}', [AdminController::class, 'registrasi_delete']);
 
+    Route::get('superadmin/koordinatortps', [AdminController::class, 'koordinatortps']);
+    Route::get('superadmin/koordinatortps/create', [AdminController::class, 'koordinatortps_create']);
+    Route::post('superadmin/koordinatortps/create', [AdminController::class, 'koordinatortps_store']);
+    Route::get('superadmin/koordinatortps/edit/{id}', [AdminController::class, 'koordinatortps_edit']);
+    Route::post('superadmin/koordinatortps/edit/{id}', [AdminController::class, 'koordinatortps_update']);
+    Route::get('superadmin/koordinatortps/delete/{id}', [AdminController::class, 'koordinatortps_delete']);
+
+
+    Route::get('superadmin/rt', [AdminController::class, 'rt']);
+    Route::get('superadmin/rt/create', [AdminController::class, 'rt_create']);
+    Route::post('superadmin/rt/create', [AdminController::class, 'rt_store']);
+    Route::get('superadmin/rt/edit/{id}', [AdminController::class, 'rt_edit']);
+    Route::post('superadmin/rt/edit/{id}', [AdminController::class, 'rt_update']);
+    Route::get('superadmin/rt/delete/{id}', [AdminController::class, 'rt_delete']);
+
     Route::get('superadmin/laporan', [AdminController::class, 'laporan']);
     Route::get('laporan/petugas', [AdminController::class, 'lap_petugas']);
     Route::get('laporan/registrasi', [AdminController::class, 'lap_registrasi']);
