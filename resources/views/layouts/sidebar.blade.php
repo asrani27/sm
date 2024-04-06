@@ -25,7 +25,7 @@
     <li class="{{ (request()->is('superadmin/survey*')) ? 'active' : '' }}"><a href="/superadmin/survey"><i class="fa fa-comments"></i> <span>Hasil Survey</span></a></li>
     <li class="{{ (request()->is('superadmin/pileg*')) ? 'active' : '' }}"><a href="/superadmin/pileg"><i class="fa fa-th"></i> <span>Hasil Pileg</span></a></li>
     <li class="{{ (request()->is('superadmin/struktur*')) ? 'active' : '' }}"><a href="/superadmin/struktur"><i class="fa fa-th"></i> <span>Struktur Organisasi</span></a></li>
-    <li class="{{ (request()->is('superadmin/laporan*')) ? 'active' : '' }}"><a href="/superadmin/laporan"><i class="fa fa-file"></i> <span>Laporan</span></a></li>
+    {{-- <li class="{{ (request()->is('superadmin/laporan*')) ? 'active' : '' }}"><a href="/superadmin/laporan"><i class="fa fa-file"></i> <span>Laporan</span></a></li> --}}
     <li><a href="/logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
     @else
         

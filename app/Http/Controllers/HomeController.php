@@ -15,19 +15,23 @@ class HomeController extends Controller
 {
     public function superadmin()
     {
-        $kec = Kecamatan::get()->map(function ($item) {
-            $item->dpt = DPT::where('kecamatan', $item->nama)->count();
-            return $item;
-        });
+        // $kec = Kecamatan::get()->map(function ($item) {
+        //     $item->dpt = DPT::where('kecamatan', $item->nama)->count();
+        //     return $item;
+        // });
 
-        $kel = Kelurahan::get()->map(function ($item) {
-            $item->dpt = DPT::where('kelurahan', $item->nama)->count();
-            return $item;
-        });
+        // $kel = Kelurahan::get()->map(function ($item) {
+        //     $item->dpt = DPT::where('kelurahan', $item->nama)->count();
+        //     return $item;
+        // });
 
-        $dpt = DPT::count();
-        $sm = SM::count();
+        // $dpt = DPT::count();
+        // $sm = SM::count();
 
+        $kec = [];
+        $kel = [];
+        $dpt = 0;
+        $sm = 0;
         return view('admin.home', compact('kec', 'dpt', 'kel', 'sm'));
     }
 
