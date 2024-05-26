@@ -29,7 +29,17 @@
         <td style="padding: 5px 5px; text-align:center" >{{$key+1}}</td>
         <td style="text-align: center">{{$item->nama}}</td>
         <td style="text-align: center">{{$item->nik}}</td>
-        <td style="text-align: center">{{$item->dibawai == null ? '': $item->dibawai->nama}}</td>
+        <td style="text-align: center">
+            @if ($item->dibawai != null)
+            {{$item->dibawai->nama}}
+                @if ($item->dibawai->dibawai != null)
+                -> {{$item->dibawai->dibawai->nama}}
+                    @if ($item->dibawai->dibawai->dibawai != null)
+                    -> {{$item->dibawai->dibawai->dibawai->nama}}
+                    @endif
+                @endif
+            @endif
+        </td>
     </tr>
     @endforeach
 </table>
