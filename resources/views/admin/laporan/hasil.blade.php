@@ -10,7 +10,7 @@
 <center>
     <h3>
     LAPORAN DATA DPT<br/>
-    KELURAHAN : {{$nama_kelurahan}}<br/>
+    KELURAHAN : {{strtoupper($nama_kelurahan)}}<br/>
     RT : {{$rt}}
 </h3>
 </center>
