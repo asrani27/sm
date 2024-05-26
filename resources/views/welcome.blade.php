@@ -30,8 +30,9 @@
 </head>
 
 <body>
-  <audio controls autoplay loop id="music">
-    <source src="https://www.sahabatmukhyar.com/song.mp3" type="audio/mpeg">
+
+  <audio controls autoplay loop>
+    <source src="/song.mp3" type="audio/mpeg">
   </audio>
   <!--====== NAVBAR NINE PART START ======-->
   {{-- <iframe src="/song.mp3" allow="autoplay" id="audio" style="display: none"></iframe> --}}
@@ -173,25 +174,15 @@
     <i class="lni lni-chevron-up"></i>
   </a> --}}
 
+
+
   <!--====== js ======-->
   <script src="/pks/assets/js/bootstrap.bundle.min.js"></script>
   <script src="/pks/assets/js/glightbox.min.js"></script>
   <script src="/pks/assets/js/main.js"></script>
   <script src="/pks/assets/js/tiny-slider.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-  <script>
-  function PlayMusic() {
   
-    var play=document.getElementById("music");
-    play.play();
-  }
-  
-  $(document).ready(function(){
-    setTimeout(PlayMusic,3000);
-  })
-  
-  </script>
 
   <script>
 
