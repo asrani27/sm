@@ -23,7 +23,8 @@
                 @endforeach
               </select>
               <br/>
-              <input type="text" name="rt" class="form-control" required  onkeypress="return hanyaAngka(event)">
+              <br/>
+              <input type="text" name="rt" class="form-control" required  onkeypress="return hanyaAngka(event)" placeholder="no RT">
               <br/>
               <button type="submit" class='btn btn-primary btn-flat' target="_blank"><i class="fa fa-print"></i> Print</button>
             </form>
