@@ -76,10 +76,7 @@
         <div class="col-lg-6 col-md-12 col-12">
           <div class="header-content">
             <h1>Mari Kita Bersama Membangun Kota Banjarmasin <br/><br/> Siapa yang Pian tunggu di tahun 2024?</h1>
-            <p>
-              {{-- Mari Kita Bersama Membangun Kota Banjarmasin --}}
-            </p>
-            <div class="button">
+            <div class="button" style="margin-top: 0px;">
               <a href="/gabung" class="btn primary-btn">Gabung SM</a>
               <a href="https://youtu.be/IpoiaMwnwKM" class="glightbox video-button" target="_blank">
                 <span class="btn icon-btn rounded-full">
