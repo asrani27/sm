@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\RT;
-use App\Models\SM;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Kelurahan;
@@ -14,32 +12,15 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
-class UserController extends Controller
+class GabungController extends Controller
 {
-    public function sm()
-    {
-        $data = SM::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->paginate(15);
-        return view('user.sm.index', compact('data'));
-    }
-    public function sm_create()
+    public function index()
     {
         $kelurahan = Kelurahan::get();
-        return view('user.sm.create', compact('kelurahan'));
+        return view('gabung', compact('kelurahan'));
     }
-    public function sm_edit($id)
-    {
-        $data = SM::find($id);
-        $rt = RT::get();
-        return view('user.sm.edit', compact('data', 'rt'));
-    }
-    public function sm_delete($id)
-    {
-        Pendaftar::where('id', $id)->first()->user->delete();
-        Pendaftar::where('id', $id)->first()->delete();
-        Session::flash('success', 'Berhasil Dihapus');
-        return back();
-    }
-    public function sm_store(Request $req)
+
+    public function store(Request $req)
     {
         $check = Pendaftar::where('nik', $req->nik)->first();
         if ($check != null) {
@@ -56,7 +37,6 @@ class UserController extends Controller
                 $n->nama = $req->nama;
                 $n->kelurahan_id = $req->kelurahan_id;
                 $n->rt = $req->rt;
-                $n->pendaftar_id = Auth::user()->pendaftar->id;
                 $n->save();
 
                 $role = Role::where('name', 'user')->first();
@@ -72,7 +52,8 @@ class UserController extends Controller
 
                 DB::commit();
 
-                Session::flash('success', 'berhasil didaftarkan, password : sm2024');
+                Session::flash('success', 'berhasil gabung');
+                Auth::loginUsingId($u->id);
                 return redirect('/user');
                 // all good
             } catch (\Exception $e) {
@@ -83,19 +64,5 @@ class UserController extends Controller
                 // something went wrong
             }
         }
-    }
-    public function sm_update(Request $req, $id)
-    {
-        $data = SM::find($id);
-        $data->kecamatan_id = RT::find($req->rt_id)->kelurahan->kecamatan->id;
-        $data->kelurahan_id = RT::find($req->rt_id)->kelurahan->id;
-        $data->rt_id = $req->rt_id;
-        $data->nik = $req->nik;
-        $data->nama = $req->nama;
-        $data->telp = $req->telp;
-        $data->user_id = Auth::user()->id;
-        $data->save();
-        Session::flash('success', 'Berhasil Diupdate');
-        return redirect('/user/sm');
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\DPTController;
+use App\Http\Controllers\GabungController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\LupaPasswordController;
 use App\Http\Controllers\GantiPasswordController;
@@ -21,6 +22,10 @@ Route::get('/', function () {
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 Route::get('daftar', [DaftarController::class, 'index']);
+Route::get('gabung', [GabungController::class, 'index']);
+Route::post('gabung', [GabungController::class, 'store']);
+Route::get('masuk', [LoginController::class, 'masuk']);
+Route::post('masuk', [LoginController::class, 'masukUser']);
 Route::post('daftar', [DaftarController::class, 'daftar']);
 Route::get('lupa-password', [LupaPasswordController::class, 'index']);
 Route::get('/reload-captcha', [LoginController::class, 'reloadCaptcha']);

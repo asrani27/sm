@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 @push('css')
 <link rel="stylesheet" href="/assets/bower_components/select2/dist/css/select2.min.css">
 @endpush
@@ -6,13 +6,13 @@
 
 <div class="row">
     <div class="col-md-12">
-        <a href="/user/sm" class="btn btn-flat btn-primary"><i class="fa fa-backward"></i> Kembali</a> <br /> <br />
+        <a href="/user" class="btn btn-flat btn-danger"><i class="fa fa-backward"></i> Kembali</a> <br /> <br />
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-12">
-        <div class="box box-primary">
+        <div class="box box-danger">
             <div class="box-header">
                 <i class="ion ion-clipboard"></i>
                 <h3 class="box-title">Tambah Data</h3>
@@ -24,37 +24,37 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">NIK</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="nik">
+                            <input type="text" class="form-control" value="{{old('nik')}}"  name="nik" minlength="16" maxlength="16" required onkeypress="return hanyaAngka(event)" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Nama</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="nama" required>
+                            <input type="text" class="form-control" value="{{old('nama')}}"  name="nama" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Telp</label>
+                        <label class="col-sm-2 control-label">Kelurahan</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="telp" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">RT - Kel - Kec</label>
-                        <div class="col-sm-10">
-                            <select class="form-control select2" name="rt_id" required>
+                            <select class="form-control select2" name="kelurahan_id" required>
                                 <option value="">-pilih-</option>
-                                @foreach ($rt as $item)
-                                    <option value="{{$item->id}}">RT : {{$item->nama}}, Kel : {{$item->kelurahan->nama}}, Kec :{{$item->kelurahan->kecamatan->nama}} </option>
+                                @foreach ($kelurahan as $item)
+                                    <option value="{{$item->id}}"{{old('kelurahan_id') == $item->id ? 'selected':''}}>{{$item->nama}}</option>
                                 @endforeach
                             </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">RT</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="{{old('rt')}}"  name="rt" required onkeypress="return hanyaAngka(event)" >
                         </div>
                     </div>
                     
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary pull-right" ><i class="fa fa-save"></i> Simpan Data</button>
+                    <button type="submit" class="btn btn-primary btn-block pull-right" ><i class="fa fa-save"></i> Simpan Data</button>
                 </div>
                 <!-- /.box-footer -->
             </form>
@@ -71,5 +71,14 @@
     //Initialize Select2 Elements
     $('.select2').select2()
     });
+</script>
+<script>
+    function hanyaAngka(evt) {
+      var charCode = (evt.which) ? evt.which : event.keyCode
+       if (charCode > 31 && (charCode < 48 || charCode > 57))
+
+        return false;
+      return true;
+    }
 </script>
 @endpush

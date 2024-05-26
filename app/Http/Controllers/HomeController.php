@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SM;
 use App\Models\DPT;
+use App\Models\Lurah;
 use App\Models\Kecamatan;
 use App\Models\Kelurahan;
-use App\Models\Lurah;
-use App\Models\SM;
+use App\Models\Pendaftar;
 use App\Models\Tpermohonan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -32,12 +34,20 @@ class HomeController extends Controller
         $kel = [];
         $dpt = 0;
         $sm = 0;
-        return view('admin.home', compact('kec', 'dpt', 'kel', 'sm'));
+
+        $data = Pendaftar::get()->map(function ($item) {
+            $item->dibawai = Pendaftar::where('pendaftar_id', $item->id)->count();
+            return $item;
+        })->sortByDesc('dibawai');
+        return view('admin.home', compact('kec', 'dpt', 'kel', 'sm', 'data'));
     }
 
     public function user()
     {
-        return view('user.home');
+
+        $data = Pendaftar::where('pendaftar_id', Auth::user()->pendaftar->id)->get();
+
+        return view('user.home', compact('data'));
     }
 
     public function pemohon()

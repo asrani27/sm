@@ -75,16 +75,17 @@
       <div class="row align-items-center">
         <div class="col-lg-6 col-md-12 col-12">
           <div class="header-content">
-            <h1>THE NEXT 2024</h1>
+            <h1>Mari Kita Bersama Membangun Kota Banjarmasin</h1>
             <p>
-              Mari Kita Bersama Membangun Kota Banjarmasin
+              {{-- Mari Kita Bersama Membangun Kota Banjarmasin --}}
             </p>
             <div class="button">
+              <a href="/gabung" class="btn primary-btn">Gabung SM</a>
               <a href="https://youtu.be/IpoiaMwnwKM" class="glightbox video-button" target="_blank">
                 <span class="btn icon-btn rounded-full">
                   <i class="lni lni-play"></i>
                 </span>
-                <span class="text">PROFIL H. MUKHYAR</span>
+                <span class="text">PROFIL</span>
               </a>
             </div>
           </div>

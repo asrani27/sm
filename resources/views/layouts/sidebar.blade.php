@@ -30,7 +30,7 @@
     @else
         
     <li class="{{ (request()->is('user')) ? 'active' : '' }}"><a href="/user"><i class="fa fa-home"></i> <span>Beranda</span></a></li>
-    <li class="{{ (request()->is('user/sm*')) ? 'active' : '' }}"><a href="/user/sm"><i class="fa fa-users"></i> <span>Data SM</span></a></li>
+    {{-- <li class="{{ (request()->is('user/sm*')) ? 'active' : '' }}"><a href="/user/sm"><i class="fa fa-users"></i> <span>Data SM</span></a></li> --}}
     <li><a href="/logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
     @endif
     </ul>

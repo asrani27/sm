@@ -49,8 +49,8 @@ class User extends Authenticatable
         return $this->roles()->where('name', $role)->count() == 1;
     }
 
-    public function pemohon()
+    public function pendaftar()
     {
-        return $this->belongsTo(Pemohon::class, 'pemohon_id');
+        return $this->belongsTo(pendaftar::class, 'pendaftar_id');
     }
 }
