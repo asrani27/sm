@@ -153,6 +153,7 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
 
     Route::get('superadmin/laporan', [AdminController::class, 'laporan']);
     Route::get('laporan/print', [AdminController::class, 'print']);
+    Route::get('laporan/print2', [AdminController::class, 'print2']);
 });
 
 Route::group(['middleware' => ['auth', 'role:user']], function () {

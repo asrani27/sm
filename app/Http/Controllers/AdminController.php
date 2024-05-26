@@ -370,7 +370,8 @@ class AdminController extends Controller
     public function laporan()
     {
         $kelurahan = Kelurahan::get();
-        return view('admin.laporan.index', compact('kelurahan'));
+        $koordinator = Pendaftar::get();
+        return view('admin.laporan.index', compact('kelurahan', 'koordinator'));
     }
 
     public function print()
@@ -382,7 +383,20 @@ class AdminController extends Controller
         $nama_kelurahan = Kelurahan::find($kelurahan_id)->nama;
 
         $data = Pendaftar::where('kelurahan_id', $kelurahan_id)->where('rt', $rt)->get();
-        return view('admin.laporan.hasil', compact('kelurahan', 'data', 'nama_kelurahan', 'rt'));
+
+        return view('admin.laporan.hasil', compact('kelurahan', 'data', 'nama_kelurahan', 'rt', 'koordinator'));
+    }
+    public function print2()
+    {
+        $kelurahan = Kelurahan::get();
+        $pendaftar_id = request()->get('pendaftar_id');
+        $rt = request()->get('rt');
+
+        $koordinator = Pendaftar::find($pendaftar_id);
+
+        $data = Pendaftar::where('pendaftar_id', $pendaftar_id)->get();
+
+        return view('admin.laporan.hasil2', compact('kelurahan', 'data', 'rt', 'koordinator'));
     }
 
     public function lap_petugas()

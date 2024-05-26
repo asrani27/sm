@@ -36,6 +36,33 @@
       </div>
 </div>
 
+
+
+<div class="row">
+  <div class="col-md-12">
+      <div class="box box-primary">
+        <!-- /.box-header -->
+        <div class="box-body">
+          <h1>Laporan DPT Oleh Koordinator</h1>
+          <form method="get" action="/laporan/print2" target="_blank">
+            @csrf
+            <select name="pendaftar_id" class="form-control select2" required>
+              <option value="">-pilih-</option>
+              @foreach ($koordinator as $item)
+                  <option value="{{$item->id}}">{{$item->nik}} - {{$item->nama}}</option>
+              @endforeach
+            </select>
+            <br/>
+            <br/>
+            <button type="submit" class='btn btn-primary btn-flat' target="_blank"><i class="fa fa-print"></i> Print</button>
+          </form>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      
+      <!-- /.box -->
+    </div>
+</div>
 @endsection
 @push('js')
 
