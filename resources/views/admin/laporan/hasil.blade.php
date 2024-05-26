@@ -10,8 +10,8 @@
 <center>
     <h3>
     LAPORAN DATA DPT<br/>
-    KELURAHAN : <br/>
-    RT :
+    KELURAHAN : {{$nama_kelurahan}}<br/>
+    RT : {{$rt}}
 </h3>
 </center>
 
@@ -26,10 +26,10 @@
     @foreach ($data as $key=> $item)
         
     <tr>
-        <td>{{$key+1}}</td>
-        <td>{{$item->nama}}</td>
-        <td>{{$item->nik}}</td>
-        <td>{{$item->dibawai == null ? '': $item->dibawai->nama}}</td>
+        <td style="padding: 5px 5px; text-align:center" >{{$key+1}}</td>
+        <td style="text-align: center">{{$item->nama}}</td>
+        <td style="text-align: center">{{$item->nik}}</td>
+        <td style="text-align: center">{{$item->dibawai == null ? '': $item->dibawai->nama}}</td>
     </tr>
     @endforeach
 </table>

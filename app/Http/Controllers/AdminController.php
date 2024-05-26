@@ -379,8 +379,10 @@ class AdminController extends Controller
         $kelurahan_id = request()->get('kelurahan_id');
         $rt = request()->get('rt');
 
+        $nama_kelurahan = Kelurahan::find($kelurahan_id)->timezone_name_from_abbr;
+
         $data = Pendaftar::where('kelurahan_id', $kelurahan_id)->where('rt', $rt)->get();
-        return view('admin.laporan.hasil', compact('kelurahan', 'data'));
+        return view('admin.laporan.hasil', compact('kelurahan', 'data', 'nama_kelurahan', 'rt'));
     }
 
     public function lap_petugas()
