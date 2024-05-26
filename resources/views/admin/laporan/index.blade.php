@@ -12,36 +12,18 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-            <a href="/laporan/petugas" class='btn btn-primary btn-flat' target="_blank"><i class="fa fa-file-o"></i>  Laporan Petugas</a>
-            <a href="/laporan/registrasi" class='btn btn-primary btn-flat' target="_blank"><i class="fa fa-file-o"></i>  Laporan Registrasi</a>
-            <a href="/laporan/pemeriksaan" class='btn btn-primary btn-flat' target="_blank"><i class="fa fa-file-o"></i>  Laporan Pemeriksaan</a>
-
-            <br/>
-            <br/>
-            <br/>
-            <h1>Laporan Rekapitulasi</h1>
-            <form method="get" action="/laporan/rekapitulasi">
+            <h1>Laporan DPT</h1>
+            <form method="get" action="/laporan/print" target="_blank">
               @csrf
-              <select name="bulan" class="form-control">
-                <option value="01">Januari</option>
-                <option value="02">Februari</option>
-                <option value="03">Maret</option>
-                <option value="04">April</option>
-                <option value="05">Mei</option>
-                <option value="06">Juni</option>
-                <option value="07">Juli</option>
-                <option value="08">Agustus</option>
-                <option value="09">September</option>
-                <option value="10">oktober</option>
-                <option value="11">November</option>
-                <option value="12">Desember</option>
+              <select name="kelurahan_id" class="form-control">
+                @foreach ($kelurahan as $item)
+                    <option value="{{$item->id}}">{{$item->nama}}</option>
+                @endforeach
               </select>
-
-              <select name="tahun" class="form-control">
-                <option value="2023">2023</option>
-                <option value="2024">2024</option>
-              </select>
-              <button type="submit" class='btn btn-primary btn-flat' target="_blank">Cetak</button>
+              <br/>
+              <input type="text" name="rt" class="form-control" required  onkeypress="return hanyaAngka(event)">
+              <br/>
+              <button type="submit" class='btn btn-primary btn-flat' target="_blank"><i class="fa fa-print"></i> Print</button>
             </form>
           </div>
           <!-- /.box-body -->
@@ -54,4 +36,13 @@
 @endsection
 @push('js')
 
+<script>
+  function hanyaAngka(evt) {
+    var charCode = (evt.which) ? evt.which : event.keyCode
+     if (charCode > 31 && (charCode < 48 || charCode > 57))
+
+      return false;
+    return true;
+  }
+</script>
 @endpush

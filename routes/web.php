@@ -152,10 +152,7 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::get('superadmin/ketuart/delete/{id}', [AdminController::class, 'rt_delete']);
 
     Route::get('superadmin/laporan', [AdminController::class, 'laporan']);
-    Route::get('laporan/petugas', [AdminController::class, 'lap_petugas']);
-    Route::get('laporan/registrasi', [AdminController::class, 'lap_registrasi']);
-    Route::get('laporan/pemeriksaan', [AdminController::class, 'lap_pemeriksaan']);
-    Route::get('laporan/rekapitulasi', [AdminController::class, 'lap_rekapitulasi']);
+    Route::get('laporan/print', [AdminController::class, 'print']);
 });
 
 Route::group(['middleware' => ['auth', 'role:user']], function () {

@@ -19,6 +19,12 @@ class Pendaftar extends Model
         return $this->belongsTo(Kelurahan::class, 'kelurahan_id');
     }
 
+    public function dibawai()
+    {
+        return $this->belongsTo(Pendaftar::class, 'pendaftar_id');
+    }
+
+
     public function user()
     {
         return $this->hasOne(User::class, 'pendaftar_id');

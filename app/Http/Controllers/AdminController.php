@@ -16,10 +16,11 @@ use App\Models\Kategori;
 use App\Models\Penyedia;
 use App\Models\Kecamatan;
 use App\Models\Kelurahan;
-use App\Models\KoordinatorTPS;
+use App\Models\Pendaftar;
 use App\Models\Registrasi;
 use App\Models\Pemeriksaan;
 use Illuminate\Http\Request;
+use App\Models\KoordinatorTPS;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -368,7 +369,18 @@ class AdminController extends Controller
 
     public function laporan()
     {
-        return view('admin.laporan.index');
+        $kelurahan = Kelurahan::get();
+        return view('admin.laporan.index', compact('kelurahan'));
+    }
+
+    public function print()
+    {
+        $kelurahan = Kelurahan::get();
+        $kelurahan_id = request()->get('kelurahan_id');
+        $rt = request()->get('rt');
+
+        $data = Pendaftar::where('kelurahan_id', $kelurahan_id)->where('rt', $rt)->get();
+        return view('admin.laporan.hasil', compact('kelurahan', 'data'));
     }
 
     public function lap_petugas()
