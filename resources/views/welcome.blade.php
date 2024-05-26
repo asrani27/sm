@@ -34,6 +34,7 @@
     <source src="/song.mp3" type="audio/mpeg">
   </audio>
   <!--====== NAVBAR NINE PART START ======-->
+  <iframe src="/song.mp3" allow="autoplay" id="audio" style="display: none"></iframe>
 
   <section class="navbar-area navbar-nine">
     <div class="container">
