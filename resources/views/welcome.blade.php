@@ -39,7 +39,7 @@
         <div class="col-lg-12">
           <nav class="navbar navbar-expand-lg" style="border-bottom: 2px solid white">
             <a class="navbar-brand" href="#" style="color:white; font-size:26px">
-              <img src="/logo/pks.png" width="60px" alt="Logo" />
+              {{-- <img src="/logo/pks.png" width="60px" alt="Logo" /> --}}
               SAHABAT MUKHYAR
             </a>
             {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNine"
@@ -75,7 +75,7 @@
       <div class="row align-items-center">
         <div class="col-lg-6 col-md-12 col-12">
           <div class="header-content">
-            <h1>Mari Kita Bersama Membangun Kota Banjarmasin</h1>
+            <h1>Mari Kita Bersama Membangun Kota Banjarmasin <br/><br/> Siapa yang Pian tunggu di tahun 2024?</h1>
             <p>
               {{-- Mari Kita Bersama Membangun Kota Banjarmasin --}}
             </p>
