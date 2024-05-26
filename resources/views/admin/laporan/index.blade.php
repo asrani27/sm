@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @push('css')
     
+<link rel="stylesheet" href="/assets/bower_components/select2/dist/css/select2.min.css">
 @endpush
 @section('content')
 
@@ -15,7 +16,8 @@
             <h1>Laporan DPT</h1>
             <form method="get" action="/laporan/print" target="_blank">
               @csrf
-              <select name="kelurahan_id" class="form-control">
+              <select name="kelurahan_id" class="form-control select2" required>
+                <option value="">-pilih-</option>
                 @foreach ($kelurahan as $item)
                     <option value="{{$item->id}}">{{$item->nama}}</option>
                 @endforeach
@@ -36,6 +38,13 @@
 @endsection
 @push('js')
 
+<script src="/assets/bower_components/select2/dist/js/select2.full.min.js"></script>
+<script>
+    $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+    });
+</script>
 <script>
   function hanyaAngka(evt) {
     var charCode = (evt.which) ? evt.which : event.keyCode
