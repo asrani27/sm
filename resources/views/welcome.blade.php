@@ -30,7 +30,9 @@
 </head>
 
 <body>
-
+  <audio controls autoplay loop>
+    <source src="/song.mp3" type="audio/mpeg">
+  </audio>
   <!--====== NAVBAR NINE PART START ======-->
 
   <section class="navbar-area navbar-nine">
