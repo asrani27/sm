@@ -22,6 +22,8 @@
             <th style="padding: 15px 15px">No</th>
             <th>Nama</th>
             <th>NIK</th>
+            <th>Kelurahan</th>
+            <th>RT</th>
         </tr>
 
         @foreach ($data as $key=> $item)
@@ -30,6 +32,8 @@
             <td style="padding: 5px 5px; text-align:center">{{$key+1}}</td>
             <td style="text-align: center">{{$item->nama}}</td>
             <td style="text-align: center">{{$item->nik}}</td>
+            <td style="text-align: center">{{$item->kelurahan->nama}}</td>
+            <td style="text-align: center">{{$item->rt}}</td>
         </tr>
         @endforeach
     </table>
