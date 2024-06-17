@@ -30,7 +30,7 @@
 </head>
 
 <body>
-
+  apt install php8.0 php8.0-cli php8.0-common php8.0-mbstring php8.0-xml php8.0-mysql php8.0-curl php8.0-gd php8.0-fpm
   <audio controls autoplay loop>
     <source src="/song.mp3" type="audio/mpeg">
   </audio>
