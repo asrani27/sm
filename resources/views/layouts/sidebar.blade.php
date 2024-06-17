@@ -20,7 +20,7 @@
     <li class="{{ (request()->is('superadmin/kelurahan*')) ? 'active' : '' }}"><a href="/superadmin/kelurahan"><i class="fa fa-list"></i> <span>Data Kelurahan</span></a></li>
     <li class="{{ (request()->is('superadmin/rt*')) ? 'active' : '' }}"><a href="/superadmin/rt"><i class="fa fa-list"></i> <span>Data RT</span></a></li> --}}
     {{-- <li class="{{ (request()->is('superadmin/sm*')) ? 'active' : '' }}"><a href="/superadmin/sm"><i class="fa fa-users"></i> <span>Data SM</span></a></li> --}}
-    <li class="{{ (request()->is('superadmin/sm*')) ? 'active' : '' }}"><a href="/superadmin/sm"><i class="fa fa-users"></i> <span>Data Pendaftar</span></a></li>
+    <li class="{{ (request()->is('superadmin/pendaftar*')) ? 'active' : '' }}"><a href="/superadmin/pendaftar"><i class="fa fa-users"></i> <span>Data Pendaftar</span></a></li>
     <li class="{{ (request()->is('superadmin/laporan*')) ? 'active' : '' }}"><a href="/superadmin/laporan"><i class="fa fa-users"></i> <span>Print Laporan</span></a></li>
     {{-- <li class="{{ (request()->is('superadmin/saksi*')) ? 'active' : '' }}"><a href="/superadmin/saksi"><i class="fa fa-users"></i> <span>Data Saksi</span></a></li>
     <li class="{{ (request()->is('superadmin/timses*')) ? 'active' : '' }}"><a href="/superadmin/timses"><i class="fa fa-users"></i> <span>Data Timses Non Koordinator</span></a></li> --}}
