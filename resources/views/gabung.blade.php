@@ -79,6 +79,10 @@
                     <label>RT <span class="text-red">*</span></label>
                 <input type="text" class="form-control" name="rt" value="{{old('rt')}}" placeholder="RT Anda" onkeypress="return hanyaAngka(event)" required/>
                 </div>
+                <div class="form-group">
+                    <label>Telp/WA <span class="text-red"></span></label>
+                <input type="text" class="form-control" name="rt" value="{{old('telp')}}" placeholder="Telp/WA Anda" onkeypress="return hanyaAngka(event)" required/>
+                </div>
            </div>
         </div>
 
