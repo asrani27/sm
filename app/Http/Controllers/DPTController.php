@@ -28,7 +28,8 @@ class DPTController extends Controller
         $keyword = request()->get('cari');
         $data = DPT::where('nik', 'LIKE', '%' . $keyword . '%')->orWhere('nama', 'LIKE', '%' . $keyword . '%')->paginate(10);
         request()->flash();
-        return view('admin.dpt.index', compact('data'));
+        $kecamatan = Kecamatan::get();
+        return view('admin.dpt.index', compact('data', 'kecamatan'));
     }
     public function upload(Request $req)
     {
