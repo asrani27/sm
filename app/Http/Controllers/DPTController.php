@@ -6,6 +6,7 @@ use App\Models\DPT;
 use App\Models\FileDpt;
 use App\Jobs\DispatchDpt;
 use App\Models\Kecamatan;
+use App\Models\Kelurahan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -23,6 +24,26 @@ class DPTController extends Controller
         return view('admin.dpt.index', compact('data', 'file', 'kecamatan'));
     }
 
+    public function refresh()
+    {
+        $kecamatan = Kecamatan::get();
+        foreach ($kecamatan as $key => $kec) {
+            $kec->update([
+                'dpt' => DPT::where('kecamatan', strtoupper($kec->nama))->count(),
+                'sahabat' => DPT::where('kecamatan', strtoupper($kec->nama))->where('sahabat', 1)->count(),
+            ]);
+        }
+
+        $kelurahan = Kelurahan::get();
+        foreach ($kelurahan as $key => $kel) {
+            $kel->update([
+                'dpt' => DPT::where('kelurahan', strtoupper($kel->nama))->count(),
+                'sahabat' => DPT::where('kelurahan', strtoupper($kel->nama))->where('sahabat', 1)->count(),
+            ]);
+        }
+        Session::flash('success', 'refresh');
+        return back();
+    }
     public function cari()
     {
         $keyword = request()->get('cari');
