@@ -14,7 +14,7 @@ class DptCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'generatedpt';
+    protected $signature = 'dptbarat';
 
     /**
      * The console command description.
@@ -41,43 +41,26 @@ class DptCommand extends Command
     public function handle()
     {
 
-        $path = base_path('public/assets/barat2.xlsx');
+        $path = base_path('public/assets/barat.xlsx');
         $spreadsheet = IOFactory::load($path);
         $worksheet = $spreadsheet->getActiveSheet();
         $data = $worksheet->toArray();
 
-        dd($data);
-        $kecamatan = str_replace(': ', '', $data[3][7]);
-        $kelurahan = str_replace(': ', '', $data[4][7]);
-        $tps = str_replace(': ', '', $data[5][7]);
-        $data_dpt = array_slice($data, 8);
-
-        dd($data_dpt);
         //simpan DPT
-        foreach ($data_dpt as $key => $item) {
-            $check = DPT::where('nama', $item[1])
-                ->where('jkel', $item[2])
-                ->where('usia', $item[3])
-                ->where('kelurahan', $item[4])
-                ->where('rt', $item[5])
-                ->where('rw', $item[6])
-                ->first();
-
-            if ($check == null) {
-                if ($item[1] == null) {
-                } else {
-                    $n = new DPT;
-                    $n->nama = $item[1];
-                    $n->jkel = $item[2];
-                    $n->usia = $item[3];
-                    $n->kelurahan = $item[4];
-                    $n->rt = $item[5];
-                    $n->rw = $item[6];
-                    $n->tps = $tps;
-                    $n->kecamatan = $kecamatan;
-                    $n->save();
-                }
-            } else {
+        foreach ($data as $key => $item) {
+            if ($key != 0) {
+                $n = new DPT;
+                $n->kecamatan = $item[1];
+                $n->kelurahan = $item[2];
+                $n->nik = $item[4];
+                $n->nama = $item[5];
+                $n->tempat_lahir = $item[6];
+                $n->tanggal_lahir = $item[7];
+                $n->alamat = $item[10];
+                $n->rt = $item[11];
+                $n->rw = $item[12];
+                $n->tps = $item[13];
+                $n->save();
             }
         }
     }
