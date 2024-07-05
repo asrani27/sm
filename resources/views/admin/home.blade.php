@@ -20,21 +20,6 @@
   </div>
   </div>
 
-  {{-- <div class="col-md-6">
-    <div class="box">
-      <div class="box-body no-padding ">  
-          <div class="col-md-12 text-center">
-            <H1>GRAFIK PERSENTASE</H1>
-            <hr style="border: 1px solid black">
-
-            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-            <h2>SM : {{number_format($sm)}}</h2>
-            <h2>NON SM : {{number_format($dpt - $sm)}}</h2>
-          
-          </div>
-      </div>
-    </div>
-  </div> --}}
 </div>
 
 
@@ -45,11 +30,9 @@
 
 <script>
 
-  var c_sm = {!!json_encode($sm)!!}
+  var kecamatan = {!!json_encode($kecamatan)!!}
   var dpt = {!!json_encode($dpt)!!}
-  var p_sm = c_sm/dpt * 100;
-  var pn_sm = 100 - p_sm;
-  
+  var sahabat = {!!json_encode($sahabat)!!}
   
   </script>
 
@@ -97,11 +80,11 @@
       showInLegend: true,      
       yValueFormatString: "#,##0.# Org",
       dataPoints: [
-        { label: "BJM BARAT",  y: 19034.5 },
-        { label: "BJM TIMUR", y: 20015 },
-        { label: "BJM TENGAH", y: 25342 },
-        { label: "BJM UTARA",  y: 20088 },
-        { label: "BJM SELATAN",  y: 28234 }
+        { label: "BJM BARAT",  y: kecamatan[0].dpt },
+        { label: "BJM SELATAN", y: kecamatan[1].dpt },
+        { label: "BJM TIMUR", y: kecamatan[2].dpt },
+        { label: "BJM TENGAH",  y: kecamatan[3].dpt },
+        { label: "BJM UTARA",  y: kecamatan[4].dpt }
       ]
     },
     {
@@ -111,11 +94,11 @@
       showInLegend: true,
       yValueFormatString: "#,##0.# Org",
       dataPoints: [
-        { label: "BJM BARAT",  y: 2 },
-        { label: "BJM TIMUR", y: 4 },
-        { label: "BJM TENGAH", y:  3 },
-        { label: "BJM UTARA",  y: 2 },
-        { label: "BJM SELATAN",  y: 5 }
+        { label: "BJM BARAT",  y: kecamatan[0].sahabat },
+        { label: "BJM SELATAN", y: kecamatan[1].sahabat },
+        { label: "BJM TIMUR", y: kecamatan[2].sahabat },
+        { label: "BJM TENGAH",  y: kecamatan[3].sahabat },
+        { label: "BJM UTARA",  y: kecamatan[4].sahabat }
       ]
     }]
   });
@@ -144,11 +127,11 @@
 	data: [{
 		type: "pie",
 		showInLegend: true,
-		toolTipContent: "{name}: <strong>{y}%</strong>",
-		indexLabel: "{name} - {y}%",
+		toolTipContent: "{name}: <strong>{y}</strong>",
+		indexLabel: "{name} - {y}",
 		dataPoints: [
-			{ y: 1250, name: "DPT Terdaftar", exploded: true },
-			{ y: 50, name: "Sahabat" },
+			{ y: dpt, name: "DPT Terdaftar", exploded: true },
+			{ y: sahabat, name: "Sahabat" },
 		]
 	}]
 });

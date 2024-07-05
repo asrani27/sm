@@ -42,7 +42,7 @@ class DPTController extends Controller
             ]);
         }
         Session::flash('success', 'refresh');
-        return back();
+        return redirect('/superadmin');
     }
     public function cari()
     {
