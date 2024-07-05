@@ -41,7 +41,7 @@ class DptCommand extends Command
     public function handle()
     {
 
-        $path = base_path('storage/app/public/dpt/barat.xlsx');
+        $path = base_path('public/assets/barat.xlsx');
         $spreadsheet = IOFactory::load($path);
         $worksheet = $spreadsheet->getActiveSheet();
         $data = $worksheet->toArray();
