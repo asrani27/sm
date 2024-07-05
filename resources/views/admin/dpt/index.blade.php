@@ -11,8 +11,15 @@
             <i class="ion ion-clipboard"></i><h3 class="box-title">Data DPT </h3>
 
             <div class="box-tools">
-              {{-- <a href="/superadmin/dpt/delete" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-trash"></i> Delete All</a>
-              <a href="/superadmin/dpt/tarikdpt" class="btn btn-flat btn-sm btn-primary" ><i class="fa fa-refresh"></i> Sync DPT</a> --}}
+              <form class="form" method="get" action="/superadmin/dpt/cari">
+                  <div class="input-group input-group-sm hidden-xs" style="width: 350px;">
+                  <input type="text" name="cari" class="form-control pull-right" placeholder="Cari NIK/Nama" value="{{old('cari')}}">
+      
+                  <div class="input-group-btn">
+                      <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                  </div>
+                  </div>
+              </form>
             </div>
           </div>
           <!-- /.box-header -->
@@ -52,7 +59,7 @@
           </div>
           <!-- /.box-body -->
         </div>
-        {{$data->links()}}
+        {{$data->withQueryString()->links()}}
         <!-- /.box -->
       </div>
 </div>

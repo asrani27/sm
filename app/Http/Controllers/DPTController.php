@@ -20,6 +20,14 @@ class DPTController extends Controller
 
         return view('admin.dpt.index', compact('data', 'file'));
     }
+
+    public function cari()
+    {
+        $keyword = request()->get('cari');
+        $data = DPT::where('nik', 'LIKE', '%' . $keyword . '%')->orWhere('nama', 'LIKE', '%' . $keyword . '%')->paginate(10);
+        request()->flash();
+        return view('admin.dpt.index', compact('data'));
+    }
     public function upload(Request $req)
     {
         //dd($req->all());
