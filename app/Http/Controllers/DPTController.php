@@ -18,7 +18,8 @@ class DPTController extends Controller
         $data = DPT::orderBy('id', 'DESC')->paginate(10);
         $file = DB::table('jobs')->count();
 
-        return view('admin.dpt.index', compact('data', 'file'));
+        $kecamatan = Kecamatan::get();
+        return view('admin.dpt.index', compact('data', 'file', 'kecamatan'));
     }
 
     public function cari()
