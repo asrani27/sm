@@ -3,25 +3,24 @@
 namespace App\Console\Commands;
 
 use App\Models\DPT;
-use App\Models\FileDpt;
 use Illuminate\Console\Command;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
-class DptCommand extends Command
+class DPTtimur extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'dptbaratt';
+    protected $signature = 'dpttimur';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Syncron DPT';
+    protected $description = 'DPT Timur';
 
     /**
      * Create a new command instance.
@@ -40,8 +39,7 @@ class DptCommand extends Command
      */
     public function handle()
     {
-
-        $path = base_path('public/assets/barat.xlsx');
+        $path = base_path('public/assets/timur.xlsx');
         $spreadsheet = IOFactory::load($path);
         $worksheet = $spreadsheet->getActiveSheet();
         $data = $worksheet->toArray();
