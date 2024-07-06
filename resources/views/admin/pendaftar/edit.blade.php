@@ -53,7 +53,7 @@ crossorigin=""/>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Telp</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="telp" value="{{$data->telp}}"  required>
+                            <input type="text" class="form-control" name="telp" value="{{$data->telp}}" >
                         </div>
                     </div>
                     
