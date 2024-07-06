@@ -130,8 +130,8 @@
 		toolTipContent: "{name}: <strong>{y}</strong>",
 		indexLabel: "{name} - {y}",
 		dataPoints: [
-			{ y: dpt, name: "DPT Terdaftar", exploded: true },
-			{ y: sahabat, name: "Sahabat" },
+			{ y: dpt, name: "DPT Terdaftar ", exploded: true },
+			{ y: sahabat, name: "Sahabat " },
 		]
 	}]
 });

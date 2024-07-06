@@ -8,6 +8,7 @@
         
     <li class="{{ (request()->is('superadmin')) ? 'active' : '' }}"><a href="/superadmin"><i class="fa fa-home"></i> <span>Beranda</span></a></li>
     <li class="{{ (request()->is('superadmin/dpt*')) ? 'active' : '' }}"><a href="/superadmin/dpt"><i class="fa fa-users"></i> <span>Data DPT</span></a></li>
+    <li class="{{ (request()->is('superadmin/pendaftar*')) ? 'active' : '' }}"><a href="/superadmin/pendaftar"><i class="fa fa-users"></i> <span>Data Sahabat</span></a></li>
     <li class="treeview {{ (request()->is('superadmin/timses*')) ? 'active' : '' }}">
         <a href="#">
           <i class="fa fa-users"></i>

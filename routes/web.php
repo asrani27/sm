@@ -13,6 +13,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\LupaPasswordController;
 use App\Http\Controllers\GantiPasswordController;
 use App\Http\Controllers\NomorController;
+use App\Http\Controllers\PendaftarController;
 use App\Http\Controllers\WAController;
 
 Route::get('/', function () {
@@ -72,6 +73,9 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::get('superadmin/dpt/deletefile/{id}', [DPTController::class, 'delete_file']);
     Route::get('superadmin/dpt/tarikdpt', [DPTController::class, 'tarik_dpt']);
     Route::get('superadmin/dpt/cari', [DPTController::class, 'cari']);
+
+    Route::get('superadmin/pendaftar', [PendaftarController::class, 'index']);
+    Route::get('superadmin/pendaftar/cari', [PendaftarController::class, 'cari']);
 
     Route::get('superadmin/user', [AdminController::class, 'user']);
     Route::get('superadmin/user/create', [AdminController::class, 'user_create']);
