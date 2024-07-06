@@ -94,6 +94,12 @@ class PendaftarController extends Controller
 
     public function update(Request $req, $id)
     {
+        $checkDPT = DPT::where('nik', $req->nik)->first();
+        if ($checkDPT == null) {
+        } else {
+            $checkDPT->update(['sahabat' => 1]);
+        }
+
         $n = Pendaftar::where('id', $id)->first();
         $n->nik = $req->nik;
         $n->nama = $req->nama;
