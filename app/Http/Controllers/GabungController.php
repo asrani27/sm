@@ -31,6 +31,12 @@ class GabungController extends Controller
             DB::beginTransaction();
 
             try {
+                $checkDPT = DPT::where('nik', $req->nik)->first();
+                if ($checkDPT == null) {
+                } else {
+                    $checkDPT->update(['sahabat' => 1]);
+                }
+
                 $n = new Pendaftar;
                 $n->id = Str::uuid()->toString();
                 $n->nik = $req->nik;
