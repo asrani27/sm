@@ -35,6 +35,11 @@ class UserController extends Controller
     }
     public function sm_delete($id)
     {
+        $check = DPT::where('nik', Pendaftar::where('id', $id)->first()->nik)->first();
+        if ($check != null) {
+            $check->update(['sahabat' => null, 'grup_id' => null]);
+        } else {
+        }
         Pendaftar::where('id', $id)->first()->user->delete();
         Pendaftar::where('id', $id)->first()->delete();
         Session::flash('success', 'Berhasil Dihapus');

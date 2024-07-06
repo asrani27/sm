@@ -12,6 +12,7 @@ use App\Http\Controllers\GabungController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\LupaPasswordController;
 use App\Http\Controllers\GantiPasswordController;
+use App\Http\Controllers\GrupController;
 use App\Http\Controllers\NomorController;
 use App\Http\Controllers\PendaftarController;
 use App\Http\Controllers\WAController;
@@ -75,7 +76,12 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::get('superadmin/dpt/cari', [DPTController::class, 'cari']);
 
     Route::get('superadmin/pendaftar', [PendaftarController::class, 'index']);
+    Route::get('superadmin/pendaftar/create', [PendaftarController::class, 'create']);
+    Route::post('superadmin/pendaftar/create', [PendaftarController::class, 'store']);
     Route::get('superadmin/pendaftar/cari', [PendaftarController::class, 'cari']);
+    Route::get('superadmin/pendaftar/delete/{id}', [PendaftarController::class, 'delete']);
+    Route::get('superadmin/pendaftar/edit/{id}', [PendaftarController::class, 'edit']);
+    Route::post('superadmin/pendaftar/edit/{id}', [PendaftarController::class, 'update']);
 
     Route::get('superadmin/user', [AdminController::class, 'user']);
     Route::get('superadmin/user/create', [AdminController::class, 'user_create']);
@@ -156,6 +162,13 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::get('superadmin/ketuart/edit/{id}', [AdminController::class, 'rt_edit']);
     Route::post('superadmin/ketuart/edit/{id}', [AdminController::class, 'rt_update']);
     Route::get('superadmin/ketuart/delete/{id}', [AdminController::class, 'rt_delete']);
+
+    Route::get('superadmin/timses/grup', [GrupController::class, 'index']);
+    Route::get('superadmin/timses/grup/create', [GrupController::class, 'create']);
+    Route::post('superadmin/timses/grup/create', [GrupController::class, 'store']);
+    Route::get('superadmin/timses/grup/edit/{id}', [GrupController::class, 'edit']);
+    Route::post('superadmin/timses/grup/edit/{id}', [GrupController::class, 'update']);
+    Route::get('superadmin/timses/grup/delete/{id}', [GrupController::class, 'delete']);
 
     Route::get('superadmin/laporan', [AdminController::class, 'laporan']);
     Route::get('laporan/print', [AdminController::class, 'print']);
