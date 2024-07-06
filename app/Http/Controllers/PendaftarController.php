@@ -61,6 +61,7 @@ class PendaftarController extends Controller
                 $n->id = Str::uuid()->toString();
                 $n->nik = $req->nik;
                 $n->nama = $req->nama;
+                $n->telp = $req->telp;
                 $n->kelurahan_id = $req->kelurahan_id;
                 $n->rt = $req->rt;
                 $n->save();
@@ -90,19 +91,20 @@ class PendaftarController extends Controller
             }
         }
     }
-    
+
     public function update(Request $req, $id)
     {
-                $n = new Pendaftar::where('id', $id)->first();
-                $n->nik = $req->nik;
-                $n->nama = $req->nama;
-                $n->kelurahan_id = $req->kelurahan_id;
-                $n->rt = $req->rt;
-                $n->grup_id = $req->grup_id;
-                $n->save();
+        $n = Pendaftar::where('id', $id)->first();
+        $n->nik = $req->nik;
+        $n->nama = $req->nama;
+        $n->kelurahan_id = $req->kelurahan_id;
+        $n->rt = $req->rt;
+        $n->telp = $req->telp;
+        $n->grup_id = $req->grup_id;
+        $n->save();
 
-                Session::flash('success', 'berhasil di simpan');
-                return redirect('/superadmin/pendaftar')    
+        Session::flash('success', 'berhasil di simpan');
+        return redirect('/superadmin/pendaftar');
     }
 
     public function edit($id)

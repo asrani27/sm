@@ -23,38 +23,50 @@ crossorigin=""/>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Kelurahan</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="nomor" value="{{$data->nomor}}"  required>
+                            <select name="kelurahan_id"class="form-control">
+                                @foreach ($kelurahan as $item)
+                                    
+                                <option value="{{$item->id}}" {{$data->kelurahan_id == $item->id ? 'selected':''}}>{{$item->nama}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">NIK</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="nomor" minlength="16" maxlength="16" value="{{$data->nomor}}"  required>
+                            <input type="text" class="form-control" name="nik" minlength="16" maxlength="16" value="{{$data->nik}}"  readonly>
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Nama</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="nomor" value="{{$data->nomor}}"  required>
+                            <input type="text" class="form-control" name="nama" value="{{$data->nama}}"  required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">RT</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="nomor" value="{{$data->nomor}}"  required>
+                            <input type="text" class="form-control" name="rt" value="{{$data->rt}}"  required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Telp</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="nomor" value="{{$data->nomor}}"  required>
+                            <input type="text" class="form-control" name="telp" value="{{$data->telp}}"  required>
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Anggota Grup?</label>
                         <div class="col-sm-10">
+                            <select name="grup_id" class="form-control">
+                                <option value="">-</option>
+                            @foreach ($grup as $item)
+                                <option value="{{$item->id}}" {{$data->grup_id == $item->id ? 'selected':''}}>{{$item->nama}}</option>
+                            @endforeach
+                            </select>
+                            jika bukan anggota grup, kosongkan 
                         </div>
                     </div>
                     
