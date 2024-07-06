@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\RT;
 use App\Models\SM;
+use App\Models\DPT;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Kelurahan;
@@ -50,6 +51,13 @@ class UserController extends Controller
             DB::beginTransaction();
 
             try {
+
+                //check DPT
+                $checkDPT = DPT::where('nik', $req->nik)->first();
+                if ($checkDPT == null) {
+                } else {
+                    $checkDPT->update(['sahabat' => 1]);
+                }
                 $n = new Pendaftar;
                 $n->id = Str::uuid()->toString();
                 $n->nik = $req->nik;

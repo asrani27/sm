@@ -43,10 +43,10 @@
                 <td>{{$item->nik}}</td>
                 <td>{{$item->nama}}</td>
                 <td>{{$item->rt}}</td>
-                {{-- <td>
-                  <a href="/superadmin/dpt/edit/{{$item->id}}" class="btn btn-flat btn-xs btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                  <a href="/superadmin/dpt/delete/{{$item->id}}" class="btn btn-flat btn-xs btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a>
-                </td> --}}
+                <td>
+                  <a href="/superadmin/pendaftar/edit/{{$item->id}}" class="btn btn-flat btn-xs btn-primary"><i class="fa fa-edit"></i> Edit</a>
+                  <a href="/superadmin/pendaftar/delete/{{$item->id}}" class="btn btn-flat btn-xs btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a>
+                </td>
               </tr>
               @endforeach
             </tbody></table>
