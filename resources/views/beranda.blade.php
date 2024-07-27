@@ -349,19 +349,6 @@
         </div>
       </div>
     </section>
-
-    
-
-    <section class="site-section" id="contact-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 mb-5 position-relative">
-            <h2 class="section-title text-center mb-5">Sosial Media </h2>
-          </div>
-        </div>
-        Youtube IG Facebook TikTok
-      </div>
-    </section>
     
 
   </div> <!-- .site-wrap -->
