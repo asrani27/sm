@@ -25,7 +25,8 @@ class PendaftarController extends Controller
     {
         $kelurahan = Kelurahan::get();
         $grup = Grup::get();
-        return view('admin.pendaftar.create', compact('grup', 'kelurahan'));
+        $oleh = Pendaftar::get();
+        return view('admin.pendaftar.create', compact('grup', 'kelurahan', 'oleh'));
     }
     public function delete($id)
     {
