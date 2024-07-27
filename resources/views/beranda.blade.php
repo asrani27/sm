@@ -91,7 +91,9 @@
               <div class="col-lg-6">
                 <h1 class="text-black">Ulun H. Mukhyar</h1>
                 <p class="lead">Calon Walikota Banjarmasin 2024 <br> Bersama Kita Membangun Banua</p>
-                <p><a href="/gabung" class="btn smoothscroll btn-primary">Gabung Bersama Ulun</a></p>
+                
+                <p><a href="/gabung" class="btn smoothscroll btn-primary">Gabung </a> &nbsp;&nbsp;<a href="https://www.youtube.com/watch?v=IpoiaMwnwKM" class="btn smoothscroll btn-primary" target="_blank">Profil</a> </p>
+                
 
               </div>
             </div>
