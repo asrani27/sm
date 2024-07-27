@@ -89,7 +89,7 @@
           <div class="col-md-12 mt-lg-5 text-left align-self-center text-intro">
             <div class="row">
               <div class="col-lg-6">
-                <h1 class="text-black">Ulun H. Mukhyar</h1>
+                <h1 class="text-black">H. Mukhyar</h1>
                 <p class="lead">Calon Walikota Banjarmasin 2024 <br> Bersama Kita Membangun Banua</p>
                 
                 <p><a href="/gabung" class="btn smoothscroll btn-primary">Gabung </a> &nbsp;&nbsp;<a href="https://www.youtube.com/watch?v=IpoiaMwnwKM" class="btn smoothscroll btn-primary" target="_blank">Profil</a> </p>
@@ -114,7 +114,7 @@
       <div class="container">
         <div class="row ">
           <div class="col-12 mb-5 position-relative">
-            <h2 class="section-title text-center mb-5">My Services</h2>
+            <h2 class="section-title text-center mb-5">Visi Misi</h2>
           </div>
           
           <div class="col-md-6 mb-4">
