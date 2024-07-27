@@ -89,7 +89,7 @@
           <div class="col-md-12 mt-lg-5 text-left align-self-center text-intro">
             <div class="row">
               <div class="col-lg-6">
-                <h1 class="text-black">H. Mukhyar</h1>
+                <h1 class="text-black">Haji Mukhyar</h1>
                 <p class="lead">Calon Walikota Banjarmasin 2024 <br> Banjarmasin Hebat</p>
                 
                 <p><a href="/gabung" class="btn smoothscroll btn-primary">Gabung </a> &nbsp;&nbsp;<a href="https://www.youtube.com/watch?v=IpoiaMwnwKM" class="btn smoothscroll btn-primary" target="_blank">Profil</a> </p>
