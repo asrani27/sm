@@ -181,13 +181,23 @@
             </div>
           </div>
           <div class="col-lg-4 order-2 order-lg-1">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis ipsum error eligendi molestiae eaque quas, ducimus sequi excepturi?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis ipsum error eligendi molestiae eaque quas, ducimus sequi excepturi?</p>
+            <p>Ulun <strong>MANTAN BIROKRAT</strong></p>
+            <p>Berpengalaman 32 Tahun di Pemerintahan Kota Banjarmasin</p>
+            <p>SEPAK TERJANG : Pejabat Pertama PEMKO Banjarmasin dengan rangkap 3 Jabatan Sekaligus</p>
+            <ul>
+                <li>Kepala Dinas Lingkungan Hidup</li>
+                <li>Pj Sekda Kota Banjarmasin </li>
+                <li>Plh Walikota Banjarmasin</li>
+            </ul>
           </div>
           <div class="col-lg-4 order-3 order-lg-3">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis ipsum error eligendi molestiae eaque quas, ducimus sequi excepturi?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam qui maiores, ipsa quibusdam distinctio! Expedita ipsum ex porro obcaecati.</p>
-            <p></p>
+            <p>
+                <strong>PRESTASI</strong><br/>
+                Berhasil mendapatkan piala ADIPURA sebanyak 4 kali Berturut-turut 
+            </p>
+            <p>
+                KAYAPA SAHABAT? PAS JA KAH SUDAH GASAN JADI WALIKOTA?
+            </p>
           </div>
           
         </div>
