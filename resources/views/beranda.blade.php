@@ -96,12 +96,12 @@
                 
                 <p><a href="/gabung" class="btn smoothscroll btn-primary">Gabung Menjadi Sahabat Mukhyar</a> <br/><br/><a href="https://www.youtube.com/watch?v=IpoiaMwnwKM" class="btn smoothscroll btn-primary" target="_blank">Profil</a>
                 
-                    <a href="https://www.youtube.com/watch?v=IpoiaMwnwKM" class="btn smoothscroll btn-primary" target="_blank">IG</a>
-                    <a href="https://www.youtube.com/watch?v=IpoiaMwnwKM" class="btn smoothscroll btn-primary" target="_blank">FB</a>
-                    <a href="https://www.youtube.com/watch?v=IpoiaMwnwKM" class="btn smoothscroll btn-primary" target="_blank">YT</a>
-                    <a href="https://www.youtube.com/watch?v=IpoiaMwnwKM" class="btn smoothscroll btn-primary" target="_blank">TikTok</a>
+                    <a href="https://www.instagram.com/haji.mukhyar" class="btn smoothscroll btn-primary" target="_blank">IG</a>
+                    <a href="https://web.facebook.com/profile.php?id=100076998783095" class="btn smoothscroll btn-primary" target="_blank">FB</a>
+                    <a href="https://www.youtube.com/@sahabatmukhyar" class="btn smoothscroll btn-primary" target="_blank">YT</a>
+                    <a href="https://www.tiktok.com/@haji.mukhyar" class="btn smoothscroll btn-primary" target="_blank">TikTok</a>
                 </p>
-            
+        
 
               </div>
             </div>
