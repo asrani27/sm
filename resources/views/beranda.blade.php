@@ -51,7 +51,7 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="#home-section" class="nav-link">Beranda</a></li>
                 <li><a href="#visi-misi" class="nav-link">Visi Misi</a></li>
-                <li><a href="#about-section" class="nav-link">Tentang Saya</a></li>
+                <li><a href="#about-section" class="nav-link">Tentang Haji Mukhyar</a></li>
                 
               </ul>
             </nav>
