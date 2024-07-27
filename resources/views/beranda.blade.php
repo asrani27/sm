@@ -102,7 +102,7 @@
         </div>
       </div>
 
-      <img src="/me-master/images/face2.png" alt="Image" class="img-face" data-aos="fade">
+      <img src="/me-master/images/face3.png" alt="Image" class="img-face" data-aos="fade">
 
       
     </div>  
