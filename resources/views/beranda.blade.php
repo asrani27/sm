@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="/me-master/css/aos.css">
 
     <link rel="stylesheet" href="/me-master/css/style.css">
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/me-master/images/favicon.ico">
     
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
