@@ -196,7 +196,7 @@
                 Berhasil mendapatkan piala ADIPURA sebanyak 4 kali Berturut-turut 
             </p>
             <p>
-                KAYAPA SAHABAT? PAS JA KAH SUDAH GASAN JADI WALIKOTA?
+                KAYAPA SAHABAT ?<br/> PAS JA KAH SUDAH GASAN JADI WALIKOTA ?
             </p>
           </div>
           
