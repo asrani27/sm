@@ -181,7 +181,7 @@
           <div class="col-lg-4 order-3 order-lg-3">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis ipsum error eligendi molestiae eaque quas, ducimus sequi excepturi?</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam qui maiores, ipsa quibusdam distinctio! Expedita ipsum ex porro obcaecati.</p>
-            <p><a href="#contact-section" class="btn smoothscroll btn-primary">Contact Me</a></p>
+            <p></p>
           </div>
           
         </div>
