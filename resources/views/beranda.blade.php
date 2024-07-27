@@ -110,8 +110,7 @@
             
         </div>
       </div>
-
-      <img src="/me-master/images/face3.png" alt="Image" class="img-face" >
+      <img src="/me-master/images/face4.png" alt="Image" class="img-face">
 
       
     </div>  
