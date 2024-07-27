@@ -18,7 +18,7 @@ use App\Http\Controllers\PendaftarController;
 use App\Http\Controllers\WAController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('beranda');
 });
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
