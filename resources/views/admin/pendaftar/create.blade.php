@@ -18,7 +18,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Dibawai Oleh</label>
                         <div class="col-sm-10">
-                            <select name="pendaftar_id" class="form-control" required>
+                            <select name="pendaftar_id" class="form-control">
                                 <option value="">-</option>
                             @foreach ($oleh as $item)
                                 <option value="{{$item->id}}">{{$item->nama}}</option>

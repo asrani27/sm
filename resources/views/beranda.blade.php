@@ -64,7 +64,7 @@
 
             <nav class="site-navigation position-relative" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href="#portfolio-section" class="nav-link">Portfolio</a></li>
+                <li><a href="#portfolio-section" class="nav-link">Galeri Foto</a></li>
                 <li><a href="#clients-section" class="nav-link">Sahabat</a></li>
                 <li><a href="#contact-section" class="nav-link">Sosmed</a></li>
               </ul>
@@ -197,7 +197,7 @@
       <div class="container">
         <div class="row mb-5">
           <div class="col-12 position-relative">
-            <h2 class="section-title text-center mb-5">My Portfolio</h2>
+            <h2 class="section-title text-center mb-5">Galeri Foto</h2>
           </div>
         </div>
 
@@ -311,24 +311,24 @@
             <h2 class="section-title text-center">Sahabat</h2>
           </div>
           <div class="col-6 col-sm-6 col-md-4 col-lg-4 text-center">
-            <img src="/me-master/images/logo_1.jpg" alt="Image" class="img-fluid">
+            <img src="/me-master/images/sm1.jpeg" alt="Image" class="img-fluid">
           </div>
           <div class="col-6 col-sm-6 col-md-4 col-lg-4 text-center">
-            <img src="/me-master/images/logo_2.jpg" alt="Image" class="img-fluid">
+            <img src="/me-master/images/sm2.jpeg" alt="Image" class="img-fluid">
           </div>
           <div class="col-6 col-sm-6 col-md-4 col-lg-4 text-center">
-            <img src="/me-master/images/logo_3.jpg" alt="Image" class="img-fluid">
+            <img src="/me-master/images/sm3.jpeg" alt="Image" class="img-fluid">
           </div>
           <div class="col-6 col-sm-6 col-md-4 col-lg-4 text-center">
-            <img src="/me-master/images/logo_4.jpg" alt="Image" class="img-fluid">
+            <img src="/me-master/images/sm4.jpeg" alt="Image" class="img-fluid">
           </div>      
 
           
           <div class="col-6 col-sm-6 col-md-4 col-lg-4 text-center">
-            <img src="/me-master/images/logo_5.jpg" alt="Image" class="img-fluid">
+            <img src="/me-master/images/sm5.jpeg" alt="Image" class="img-fluid">
           </div> 
           <div class="col-6 col-sm-6 col-md-4 col-lg-4 text-center">
-            <img src="/me-master/images/logo_6.jpg" alt="Image" class="img-fluid">
+            <img src="/me-master/images/sm6.jpeg" alt="Image" class="img-fluid">
           </div> 
         </div>
       </div>
