@@ -9,12 +9,23 @@
         <div class="box box-primary">
             <div class="box-header">
                 <i class="ion ion-clipboard"></i>
-                <h3 class="box-title">Tambah Nomor</h3>
+                <h3 class="box-title">Tambah Sahabat</h3>
             </div>
             <!-- /.box-header -->
             <form class="form-horizontal" method="post" action="/superadmin/pendaftar/create">
                 @csrf
                 <div class="box-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Dibawai Oleh</label>
+                        <div class="col-sm-10">
+                            <select name="kelurahan_id" class="form-control" required>
+                                <option value="">-</option>
+                            @foreach ($oleh as $item)
+                                <option value="{{$item->id}}">{{$item->nama}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Kelurahan</label>
                         <div class="col-sm-10">
