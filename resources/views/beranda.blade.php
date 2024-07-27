@@ -182,7 +182,7 @@
             </div>
           </div>
           <div class="col-lg-4 order-2 order-lg-1">
-            <p>Ulun <strong>MANTAN BIROKRAT</strong></p>
+            <p>Haji Mukhyar Seorang <strong>MANTAN BIROKRAT</strong></p>
             <p>Berpengalaman 32 Tahun di Pemerintahan Kota Banjarmasin</p>
             <p>SEPAK TERJANG : Pejabat Pertama PEMKO Banjarmasin dengan rangkap 3 Jabatan Sekaligus</p>
             <ul>
