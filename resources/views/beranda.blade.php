@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="/me-master/css/aos.css">
 
     <link rel="stylesheet" href="/me-master/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -173,7 +174,7 @@
       <div class="container">
         <div class="row ">
           <div class="col-12 mb-4 position-relative">
-            <h2 class="section-title">Tentang Ulun</h2>
+            <h2 class="section-title">Tentang Haji Mukhyar</h2>
           </div>
           <div class="col-lg-4 order-1 order-lg-2 mb-4 mb-lg-0">
             <div class="bg-light pt-5">
