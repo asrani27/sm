@@ -91,11 +91,17 @@
               <div class="col-lg-7">
 
                 <h1 class="text-black">Siapa Yang Pian Tunggu Di Tahun 2024?</h1><br/><br/><br/><br/>
-                <h1 class="text-black">Haji Mukhyar</h1>
+                <h1 class="text-black">HAJI MUKHYAR</h1>
                 <p class="lead">Calon Walikota Banjarmasin 2024 <br> #Banjarmasin<b>HEBAT</b></p>
                 
-                <p><a href="/gabung" class="btn smoothscroll btn-primary">Gabung </a> &nbsp;&nbsp;<a href="https://www.youtube.com/watch?v=IpoiaMwnwKM" class="btn smoothscroll btn-primary" target="_blank">Profil</a> </p>
+                <p><a href="/gabung" class="btn smoothscroll btn-primary">Gabung Menjadi Sahabat Mukhyar</a> <br/><br/><a href="https://www.youtube.com/watch?v=IpoiaMwnwKM" class="btn smoothscroll btn-primary" target="_blank">Profil</a>
                 
+                    <a href="https://www.youtube.com/watch?v=IpoiaMwnwKM" class="btn smoothscroll btn-primary" target="_blank">IG</a>
+                    <a href="https://www.youtube.com/watch?v=IpoiaMwnwKM" class="btn smoothscroll btn-primary" target="_blank">FB</a>
+                    <a href="https://www.youtube.com/watch?v=IpoiaMwnwKM" class="btn smoothscroll btn-primary" target="_blank">YT</a>
+                    <a href="https://www.youtube.com/watch?v=IpoiaMwnwKM" class="btn smoothscroll btn-primary" target="_blank">TikTok</a>
+                </p>
+            
 
               </div>
             </div>
@@ -121,7 +127,7 @@
           
           <div class="col-md-6 mb-4">
             <div class="service d-flex h-100">
-              <div class="service-number mr-4"><span class="icon-style"></span></div>
+              <div class="service-number mr-4"><span class="icon-facebook"></span></div>
               <div class="service-about">
                 <h3>UI/UX Designer</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis ipsum error eligendi molestiae eaque quas, ducimus sequi excepturi?</p>
