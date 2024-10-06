@@ -7,7 +7,22 @@
     @if (Auth::user()->hasRole('superadmin'))
         
     <li class="{{ (request()->is('superadmin')) ? 'active' : '' }}"><a href="/superadmin"><i class="fa fa-home"></i> <span>Beranda</span></a></li>
-    <li class="{{ (request()->is('superadmin/dpt*')) ? 'active' : '' }}"><a href="/superadmin/dpt"><i class="fa fa-users"></i> <span>Data DPT</span></a></li>
+
+    <li class="treeview {{ (request()->is('superadmin/koordinator*')) ? 'active' : '' }}">
+      <a href="#">
+        <i class="fa fa-users"></i>
+        <span>Koordinator</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+          <li class="{{ (request()->is('superadmin/koordinator/kecamatan*')) ? 'active' : '' }}"><a href="/superadmin/koordinator/kecamatan"><i class="fa fa-circle-o"></i> Kecamatan</a></li>
+          <li class="{{ (request()->is('superadmin/koordinator/kelurahan*')) ? 'active' : '' }}"><a href="/superadmin/koordinator/kelurahan"><i class="fa fa-circle-o"></i> Kelurahan</a></li>
+          <li class="{{ (request()->is('superadmin/koordinator/tps*')) ? 'active' : '' }}"><a href="/superadmin/koordinator/tps"><i class="fa fa-circle-o"></i> TPS</a></li>
+      </ul>
+    </li>
+    {{-- <li class="{{ (request()->is('superadmin/dpt*')) ? 'active' : '' }}"><a href="/superadmin/dpt"><i class="fa fa-users"></i> <span>Data DPT</span></a></li>
     <li class="{{ (request()->is('superadmin/pendaftar*')) ? 'active' : '' }}"><a href="/superadmin/pendaftar"><i class="fa fa-users"></i> <span>Data Sahabat</span></a></li>
     <li class="treeview {{ (request()->is('superadmin/timses*')) ? 'active' : '' }}">
         <a href="#">
@@ -19,20 +34,6 @@
         </a>
         <ul class="treeview-menu">
             <li class="{{ (request()->is('superadmin/timses/grup*')) ? 'active' : '' }}"><a href="/superadmin/timses/grup"><i class="fa fa-circle-o"></i> Grup</a></li>
-        </ul>
-    </li>
-    <li class="treeview {{ (request()->is('superadmin/koordinator*')) ? 'active' : '' }}">
-        <a href="#">
-          <i class="fa fa-users"></i>
-          <span>Koordinator</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-            <li class="{{ (request()->is('superadmin/koordinator/kecamatan*')) ? 'active' : '' }}"><a href="/superadmin/koordinator/kecamatan"><i class="fa fa-circle-o"></i> Kecamatan</a></li>
-            <li class="{{ (request()->is('superadmin/koordinator/kelurahan*')) ? 'active' : '' }}"><a href="/superadmin/koordinator/kelurahan"><i class="fa fa-circle-o"></i> Kelurahan</a></li>
-            <li class="{{ (request()->is('superadmin/koordinator/rt*')) ? 'active' : '' }}"><a href="/superadmin/koordinator/rt"><i class="fa fa-circle-o"></i> RT</a></li>
         </ul>
     </li>
     <li class="treeview {{ (request()->is('superadmin/laporan*')) ? 'active' : '' }}">
@@ -63,7 +64,7 @@
             <li><a href="{{ (request()->is('superadmin/struktur/kelurahan*')) ? 'active' : '' }}"><i class="fa fa-circle-o"></i> Kelurahan</a></li>
         </ul>
     </li>
-    <li class="{{ (request()->is('superadmin/laporan*')) ? 'active' : '' }}"><a href="/superadmin/laporan"><i class="fa fa-file"></i> <span>Print Laporan</span></a></li>
+    <li class="{{ (request()->is('superadmin/laporan*')) ? 'active' : '' }}"><a href="/superadmin/laporan"><i class="fa fa-file"></i> <span>Print Laporan</span></a></li> --}}
     <li><a href="/logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
     @else
         

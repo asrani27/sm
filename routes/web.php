@@ -97,6 +97,32 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::post('superadmin/kecamatan/edit/{id}', [AdminController::class, 'kecamatan_update']);
     Route::get('superadmin/kecamatan/delete/{id}', [AdminController::class, 'kecamatan_delete']);
 
+    Route::get('superadmin/koordinator/tps', [AdminController::class, 'koor_tps']);
+    Route::get('superadmin/koordinator/tps/detail/{id}', [AdminController::class, 'koor_tps_detail']);
+    Route::post('superadmin/koordinator/tps/detail/{id}', [AdminController::class, 'koor_tps_detail_store']);
+    Route::post('superadmin/koordinator/tps/create', [AdminController::class, 'koor_tps_store']);
+    Route::get('superadmin/koordinator/tps/edit/{id}/{kelurahan_id}', [AdminController::class, 'koor_tps_edit']);
+    Route::post('superadmin/koordinator/tps/edit/{id}/{kelurahan_id}', [AdminController::class, 'koor_tps_update']);
+    Route::get('superadmin/koordinator/tps/delete/{id}', [AdminController::class, 'koor_tps_delete']);
+
+    Route::get('superadmin/koordinator/kk/detail/{id}', [AdminController::class, 'koor_kk_detail']);
+    Route::post('superadmin/koordinator/kk/detail/{id}', [AdminController::class, 'koor_kk_detail_store']);
+    Route::get('superadmin/koordinator/kk/delete/{id}', [AdminController::class, 'koor_kk_delete']);
+
+    Route::get('superadmin/koordinator/kelurahan', [AdminController::class, 'koor_kelurahan']);
+    Route::get('superadmin/koordinator/kelurahan/create', [AdminController::class, 'koor_kelurahan_create']);
+    Route::post('superadmin/koordinator/kelurahan/create', [AdminController::class, 'koor_kelurahan_store']);
+    Route::get('superadmin/koordinator/kelurahan/edit/{id}', [AdminController::class, 'koor_kelurahan_edit']);
+    Route::post('superadmin/koordinator/kelurahan/edit/{id}', [AdminController::class, 'koor_kelurahan_update']);
+    Route::get('superadmin/koordinator/kelurahan/delete/{id}', [AdminController::class, 'koor_kelurahan_delete']);
+
+    Route::get('superadmin/koordinator/kecamatan', [AdminController::class, 'koor_kecamatan']);
+    Route::get('superadmin/koordinator/kecamatan/create', [AdminController::class, 'koor_kecamatan_create']);
+    Route::post('superadmin/koordinator/kecamatan/create', [AdminController::class, 'koor_kecamatan_store']);
+    Route::get('superadmin/koordinator/kecamatan/edit/{id}', [AdminController::class, 'koor_kecamatan_edit']);
+    Route::post('superadmin/koordinator/kecamatan/edit/{id}', [AdminController::class, 'koor_kecamatan_update']);
+    Route::get('superadmin/koordinator/kecamatan/delete/{id}', [AdminController::class, 'koor_kecamatan_delete']);
+
     Route::get('superadmin/kelurahan', [AdminController::class, 'kelurahan']);
     Route::get('superadmin/kelurahan/create', [AdminController::class, 'kelurahan_create']);
     Route::post('superadmin/kelurahan/create', [AdminController::class, 'kelurahan_store']);

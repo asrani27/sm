@@ -16,4 +16,8 @@ class Kelurahan extends Model
     {
         return $this->belongsTo(Kecamatan::class, 'kecamatan_id');
     }
+    public function tps()
+    {
+        return $this->hasMany(TPS::class, 'kelurahan_id');
+    }
 }

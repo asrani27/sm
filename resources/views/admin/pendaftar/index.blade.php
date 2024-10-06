@@ -44,8 +44,8 @@
               @foreach ($data as $key => $item)
               <tr>
                 <td>{{$data->firstItem() + $key}}</td>
-                <td>{{$item->kelurahan->kecamatan->nama}}</td>
-                <td>{{$item->kelurahan->nama}}</td>
+                <td>{{$item->kelurahan == null ? '' :$item->kelurahan->kecamatan->nama}}</td>
+                <td>{{$item->kelurahan == null ? '' : $item->kelurahan->nama}}</td>
                 <td>{{$item->nik}}</td>
                 <td>{{$item->nama}}</td>
                 <td>{{$item->rt}}</td>

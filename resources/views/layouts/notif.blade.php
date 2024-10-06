@@ -3,7 +3,7 @@
   iziToast.success({
     title: 'Success',
     message: '{{Session::get('success')}}',
-    position: 'center',
+    position: 'topCenter',
   });
 @endif
 
@@ -11,7 +11,7 @@
   iziToast.warning({
     title: 'Warning',
     message: '{{Session::get('warning')}}',
-    position: 'center',
+    position: 'topCenter',
   });
 @endif
 
@@ -19,7 +19,7 @@
   iziToast.info({
     title: 'Info',
     message: '{{Session::get('info')}}',
-    position: 'center',
+    position: 'topCenter',
   });
 @endif
 
@@ -28,7 +28,7 @@
     iziToast.error({
       title: 'Error',
       message: '{{$error}}',
-      position: 'center',
+      position: 'topCenter',
     });
     @endforeach
 @endif --}}
@@ -37,6 +37,6 @@
   iziToast.error({
     title: 'Error',
     message: '{{Session::get('error')}}',
-    position: 'center',
+    position: 'topCenter',
   });
 @endif

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KK;
 use App\Models\RT;
 use App\Models\SM;
 use Carbon\Carbon;
+use App\Models\TPS;
 use App\Models\Kasi;
 use App\Models\Role;
 use App\Models\User;
@@ -164,6 +166,64 @@ class AdminController extends Controller
         return redirect('/superadmin/kecamatan');
     }
 
+    public function koor_kecamatan()
+    {
+        $data = Kecamatan::orderBy('id', 'DESC')->paginate(15);
+        return view('admin.koor.kec.index', compact('data'));
+    }
+    public function koor_kecamatan_create()
+    {
+        return view('admin.koor.kec.create');
+    }
+    public function koor_kecamatan_edit($id)
+    {
+        $data = Kecamatan::find($id);
+        if ($data->lat == null) {
+            $latlong = [
+                'lat' => -3.327460,
+                'lng' => 114.588515
+            ];
+        } else {
+            $latlong = [
+                'lat' => $data->lat,
+                'lng' => $data->long
+            ];
+        }
+        return view('admin.koor.kec.edit', compact('data', 'latlong'));
+    }
+    public function koor_kecamatan_delete($id)
+    {
+        Kecamatan::find($id)->delete();
+        Session::flash('success', 'Berhasil Dihapus');
+        return back();
+    }
+    public function koor_kecamatan_store(Request $req)
+    {
+        $check = Kecamatan::where('nama', $req->nama)->first();
+        if ($check == null) {
+            $n = new Kecamatan();
+            $n->nama = $req->nama;
+            $n->save();
+
+            Session::flash('success', 'Berhasil Disimpan');
+            return redirect('/superadmin/koordinator/kecamatan');
+        } else {
+            Session::flash('error', 'kecamatan ini sudah pernah di input');
+            return back();
+        }
+    }
+    public function koor_kecamatan_update(Request $req, $id)
+    {
+        $data = Kecamatan::find($id);
+        $data->nama = $req->nama;
+        $data->koor = $req->koor;
+        $data->nik = $req->nik;
+        $data->telp = $req->telp;
+        $data->save();
+        Session::flash('success', 'Berhasil Diupdate');
+        return redirect('/superadmin/koordinator/kecamatan');
+    }
+
     public function kelurahan()
     {
         $data = Kelurahan::orderBy('id', 'DESC')->paginate(15);
@@ -211,6 +271,135 @@ class AdminController extends Controller
         $data->save();
         Session::flash('success', 'Berhasil Diupdate');
         return redirect('/superadmin/kelurahan');
+    }
+
+    public function koor_kk_delete($id)
+    {
+        KK::find($id)->delete();
+        Session::flash('success', 'Berhasil');
+        return back();
+    }
+    public function koor_kk_detail($id)
+    {
+        $data = TPS::find($id);
+        return view('admin.koor.kk.detail', compact('data'));
+    }
+    public function koor_kk_detail_store(Request $req, $id)
+    {
+        $check = KK::where('tps_id', $id)->where('nomor_kk', $req->nomor_kk)->first();
+        if ($check == null) {
+            $n = new KK;
+            $n->nomor_kk = $req->nomor_kk;
+            $n->nama_kk = $req->nama_kk;
+            $n->tps_id = $id;
+            $n->save();
+            Session::flash('success', 'Berhasil Diupdate');
+            return back();
+        } else {
+            Session::flash('error', 'Nomor KK Sudah di input');
+            $req->flash();
+            return back();
+        }
+    }
+
+    public function koor_tps()
+    {
+        $data = Kelurahan::orderBy('id', 'DESC')->get();
+        return view('admin.koor.tps.index', compact('data'));
+    }
+
+    public function koor_tps_delete($id)
+    {
+        TPS::find($id)->keluarga->map->delete();
+        TPS::find($id)->delete();
+        Session::flash('success', 'Berhasil dihapus');
+        return back();
+    }
+    public function koor_tps_detail($id)
+    {
+        $data = Kelurahan::find($id);
+        return view('admin.koor.tps.detail', compact('data'));
+    }
+    public function koor_tps_detail_store(Request $req, $id)
+    {
+        $check = TPS::where('kelurahan_id', $id)->where('nomor', $req->nomor_tps)->first();
+        if ($check == null) {
+            $n = new TPS;
+            $n->nomor = $req->nomor_tps;
+            $n->kelurahan_id = $id;
+            $n->save();
+            Session::flash('success', 'Berhasil Diupdate');
+            return back();
+        } else {
+            Session::flash('error', 'Nomor TPS Sudah ada');
+            return back();
+        }
+    }
+    public function koor_tps_edit($id, $kelurahan_id)
+    {
+        $data = TPS::find($id);
+        $kec = Kecamatan::get();
+        return view('admin.koor.tps.edit', compact('data', 'kec', 'kelurahan_id'));
+    }
+    public function koor_tps_update(Request $req, $id, $kelurahan_id)
+    {
+        $data = TPS::find($id);
+        $data->nik = $req->nik;
+        $data->nama = $req->nama;
+        $data->telp = $req->telp;
+        $data->save();
+        Session::flash('success', 'Berhasil Diupdate');
+        return redirect('/superadmin/koordinator/tps/detail/' . $kelurahan_id);
+    }
+
+    public function koor_kelurahan()
+    {
+        $data = Kelurahan::orderBy('id', 'DESC')->get();
+        return view('admin.koor.kel.index', compact('data'));
+    }
+    public function koor_kelurahan_create()
+    {
+        $kec = Kecamatan::get();
+        return view('admin.koor.kel.create', compact('kec'));
+    }
+    public function koor_kelurahan_edit($id)
+    {
+        $data = Kelurahan::find($id);
+        $kec = Kecamatan::get();
+        return view('admin.koor.kel.edit', compact('data', 'kec'));
+    }
+    public function koor_kelurahan_delete($id)
+    {
+        $data = Kelurahan::find($id)->delete();
+        Session::flash('success', 'Berhasil Dihapus');
+        return back();
+    }
+    public function koor_kelurahan_store(Request $req)
+    {
+        $check = Kelurahan::where('nama', $req->nama)->first();
+        if ($check == null) {
+            $n = new Kelurahan();
+            $n->kecamatan_id = $req->kecamatan_id;
+            $n->nama = $req->nama;
+            $n->save();
+
+            Session::flash('success', 'Berhasil Disimpan');
+            return redirect('/superadmin/koordinator/kelurahan');
+        } else {
+            Session::flash('error', 'kelurahan ini sudah pernah di input');
+            return back();
+        }
+    }
+    public function koor_kelurahan_update(Request $req, $id)
+    {
+        $data = Kelurahan::find($id);
+        $data->nik = $req->nik;
+        $data->nama = $req->nama;
+        $data->telp = $req->telp;
+        $data->koor = $req->koor;
+        $data->save();
+        Session::flash('success', 'Berhasil Diupdate');
+        return redirect('/superadmin/koordinator/kelurahan');
     }
 
     public function rt()
