@@ -99,7 +99,7 @@
           <br/><br/>
             <div class="box box-success" style="box-shadow: 0 8px 8px 0 rgba(0,0,0,.2);border-top-color:#fe5000">
               <div class="box-header with-border text-center">
-                <h3 class="box-title">WA BLAST</h3>
+                <h3 class="box-title">KAWAL SUARA</h3>
       
               </div>
               <form class="form-horizontal" method="post" action="/login">
