@@ -15,10 +15,10 @@
             </div>
           </div>
           <!-- /.box-header -->
-          <div class="box-body table-responsive no-padding">
-            <table class="table table-hover">
-              <tbody><tr>
-                <th>No</th>
+          <div class="box-body table-responsive">
+            <table class="table table-hover table-bordered">
+              <tbody>
+              <tr style="background-color: beige">
                 <th>Nama Kelurahan</th>
                 <th>NIK Koordinator</th>
                 <th>Nama Koordinator</th>
@@ -26,7 +26,33 @@
                 
                 <th>Aksi</th>
               </tr>
-              @foreach ($data as $key => $item)
+              @foreach ($kec as $key2 => $item2)
+              <tr style="background-color: #f9d4b6;font-weight:bold">
+                <td>{{$item2->nama}}</td>
+                <td>{{$item2->nik}}</td>
+                <td>{{$item2->koor}}</td>
+                <td>{{$item2->telp}}</td>
+                <td></td>
+                {{-- <td>
+                  <a href="/superadmin/koordinator/kecamatan/edit/{{$item2->id}}" class="btn btn-flat btn-xs btn-primary"><i class="fa fa-edit"></i> Edit Koor</a>
+                  <a href="/superadmin/kecamatan/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a>
+                </td> --}}
+              </tr>
+              @foreach ($item2->kelurahan as $key => $item)
+              <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$key+1}}. {{$item->nama}}</td>
+                <td>{{$item->nik}}</td>
+                <td>{{$item->koor}}</td>
+                <td>{{$item->telp}}</td>
+                <td>
+                  <a href="/superadmin/koordinator/kelurahan/edit/{{$item->id}}" class="btn btn-flat btn-xs btn-primary"><i class="fa fa-edit"></i> Edit Koor</a>
+                  {{-- <a href="/superadmin/kecamatan/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a> --}}
+                </td>
+              </tr>
+              @endforeach
+
+              @endforeach
+              {{-- @foreach ($data as $key => $item)
               <tr>
                 <td>{{1 + $key}}</td>
                 <td>{{$item->nama}}</td>
@@ -34,12 +60,13 @@
                 <td>{{$item->koor}}</td>
                 <td>{{$item->telp}}</td>
                 <td>
-                  <a href="/superadmin/koordinator/kelurahan/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-edit"></i> Edit Koor</a>
-                  {{-- <a href="/superadmin/kecamatan/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a> --}}
+                  <a href="/superadmin/koordinator/kelurahan/edit/{{$item->id}}" class="btn btn-flat btn-xs btn-primary"><i class="fa fa-edit"></i> Edit Koor</a>
+                  <a href="/superadmin/kecamatan/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-primary" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a> 
                 </td>
               </tr>
-              @endforeach
-            </tbody></table>
+              @endforeach --}}
+            </tbody>
+          </table>
           </div>
           <!-- /.box-body -->
         </div>

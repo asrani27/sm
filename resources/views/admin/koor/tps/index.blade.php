@@ -15,9 +15,10 @@
             </div>
           </div>
           <!-- /.box-header -->
-          <div class="box-body table-responsive no-padding">
-            <table class="table table-hover">
-              <tbody><tr>
+          <div class="box-body table-responsive">
+            <table class="table table-hover table-bordered">
+              <tbody>
+              <tr style="background-color: beige">
                 <th>No</th>
                 <th>Nama Kelurahan</th>
                 <th>Total TPS</th>

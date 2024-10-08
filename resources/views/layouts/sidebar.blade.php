@@ -22,8 +22,9 @@
           <li class="{{ (request()->is('superadmin/koordinator/tps*')) ? 'active' : '' }}"><a href="/superadmin/koordinator/tps"><i class="fa fa-circle-o"></i> TPS</a></li>
       </ul>
     </li>
-    {{-- <li class="{{ (request()->is('superadmin/dpt*')) ? 'active' : '' }}"><a href="/superadmin/dpt"><i class="fa fa-users"></i> <span>Data DPT</span></a></li>
-    <li class="{{ (request()->is('superadmin/pendaftar*')) ? 'active' : '' }}"><a href="/superadmin/pendaftar"><i class="fa fa-users"></i> <span>Data Sahabat</span></a></li>
+   <li class="{{ (request()->is('superadmin/dpt*')) ? 'active' : '' }}"><a href="/superadmin/dpt"><i class="fa fa-users"></i> <span>Data DPT</span></a></li>
+   <li class="{{ (request()->is('superadmin/pendukung*')) ? 'active' : '' }}"><a href="/superadmin/pendukung"><i class="fa fa-edit"></i> <span>Input Pendukung</span></a></li>
+     {{-- <li class="{{ (request()->is('superadmin/pendaftar*')) ? 'active' : '' }}"><a href="/superadmin/pendaftar"><i class="fa fa-users"></i> <span>Data Sahabat</span></a></li>
     <li class="treeview {{ (request()->is('superadmin/timses*')) ? 'active' : '' }}">
         <a href="#">
           <i class="fa fa-users"></i>

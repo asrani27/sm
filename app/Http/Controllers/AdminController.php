@@ -355,7 +355,8 @@ class AdminController extends Controller
     public function koor_kelurahan()
     {
         $data = Kelurahan::orderBy('id', 'DESC')->get();
-        return view('admin.koor.kel.index', compact('data'));
+        $kec = Kecamatan::get();
+        return view('admin.koor.kel.index', compact('data', 'kec'));
     }
     public function koor_kelurahan_create()
     {
