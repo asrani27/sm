@@ -64,8 +64,8 @@
             <li><a href="{{ (request()->is('superadmin/struktur/kota*')) ? 'active' : '' }}"><i class="fa fa-circle-o"></i> Kota</a></li>
             <li><a href="{{ (request()->is('superadmin/struktur/kelurahan*')) ? 'active' : '' }}"><i class="fa fa-circle-o"></i> Kelurahan</a></li>
         </ul>
-    </li>
-    <li class="{{ (request()->is('superadmin/laporan*')) ? 'active' : '' }}"><a href="/superadmin/laporan"><i class="fa fa-file"></i> <span>Print Laporan</span></a></li> --}}
+    </li> --}}
+    <li class="{{ (request()->is('superadmin/laporan*')) ? 'active' : '' }}"><a href="/superadmin/laporan"><i class="fa fa-file"></i> <span>Laporan</span></a></li>
     <li><a href="/logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
     @else
         

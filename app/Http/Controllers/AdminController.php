@@ -559,6 +559,8 @@ class AdminController extends Controller
 
     public function laporan()
     {
+        Session::forget('success');
+        Session::forget('error');
         $kelurahan = Kelurahan::get();
         $koordinator = Pendaftar::get();
         return view('admin.laporan.index', compact('kelurahan', 'koordinator'));

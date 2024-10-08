@@ -15,6 +15,7 @@ use App\Http\Controllers\GantiPasswordController;
 use App\Http\Controllers\GrupController;
 use App\Http\Controllers\NomorController;
 use App\Http\Controllers\PendaftarController;
+use App\Http\Controllers\PendukungController;
 use App\Http\Controllers\WAController;
 
 Route::get('/', function () {
@@ -195,6 +196,10 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::get('superadmin/timses/grup/edit/{id}', [GrupController::class, 'edit']);
     Route::post('superadmin/timses/grup/edit/{id}', [GrupController::class, 'update']);
     Route::get('superadmin/timses/grup/delete/{id}', [GrupController::class, 'delete']);
+
+    Route::get('superadmin/pendukung', [PendukungController::class, 'index']);
+    Route::get('superadmin/pendukung/check', [PendukungController::class, 'check']);
+    Route::post('superadmin/pendukung/store', [PendukungController::class, 'store']);
 
     Route::get('superadmin/laporan', [AdminController::class, 'laporan']);
     Route::get('laporan/print', [AdminController::class, 'print']);

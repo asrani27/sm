@@ -44,7 +44,7 @@ class LoginController extends Controller
         $remember = $req->remember ? true : false;
         $credential = $req->only('username', 'password');
 
-        if (Auth::attempt($credential, $remember)) {
+        if (Auth::attempt($credential, true)) {
 
             if (Auth::user()->hasRole('superadmin')) {
                 Session::flash('success', 'Selamat Datang');
